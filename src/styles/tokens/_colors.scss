@@ -1,0 +1,43 @@
+/* =========================
+   Light theme (default)
+   ========================= */
+
+:root {
+  /* App / UI */
+  --color-bg: #fafafa;
+  --color-primary: #3554c5;
+  --color-text: #1c1c1e;
+
+  /* Emotions */
+  --color-emotion-bad: #1f355c;
+  --color-emotion-meh: #3554c5;
+  --color-emotion-ok: #6f82d9;
+  --color-emotion-good: #f08bc3;
+  --color-emotion-great: #ffb703;
+
+  /* Emotions */
+  --color-on-dark: #fafafa;
+  --color-on-light: #1c1c1e;
+
+  /* Trophies / Stars */
+  --color-trophy-inactive: #fafafa;
+  --color-trophy-active: #ffb703;
+  --color-trophy-new: #ff1744;
+}
+
+/* =========================
+   Dark theme overrides
+   ========================= */
+
+[data-theme="dark"] {
+  /* App / UI */
+  --color-bg: #0f1424;
+  --color-text: #e6e6eb;
+
+  /* Emotions */
+  --color-on-dark: #e6e6eb;
+  --color-on-light: #0f1424;
+
+  /* Trophies */
+  --color-trophy-inactive: #e6e6eb;
+}
