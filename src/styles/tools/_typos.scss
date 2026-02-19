@@ -1,0 +1,46 @@
+/* Font sizes */
+$font-sizes: (
+  xs: 0.75rem,
+  sm: 0.875rem,
+  md: 1rem,
+  lg: 1.125rem,
+  xl: 1.375rem,
+  xxl: 1.5rem,
+);
+
+/* Font weights */
+$font-weights: (
+  light: 300,
+  medium: 500,
+);
+
+/* Landing font */
+@mixin font-landing {
+  font-family: var(--font-landing);
+  font-weight: map-get($font-weights, medium);
+}
+
+/* App */
+@mixin font-app($weight: light, $style: normal) {
+  $w: map-get($font-weights, $weight);
+
+  @if $w == null {
+    @error "Unknown weight: #{$weight}. Allowed: #{map-keys($font-weights)}";
+  }
+
+  font-family: var(--font-app);
+  font-weight: $w;
+  font-style: $style;
+}
+
+/* Text */
+@mixin text($size, $lh: 1.4) {
+  $value: map-get($font-sizes, $size);
+
+  @if $value == null {
+    @error "Unknown size: #{$size}. Allowed: #{map-keys($font-sizes)}";
+  }
+
+  font-size: $value;
+  line-height: $lh;
+}

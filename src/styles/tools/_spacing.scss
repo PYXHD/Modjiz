@@ -1,0 +1,21 @@
+/* Spacing scale helper
+   Usage: @include space(padding, md); */
+
+$spaces: (
+  xs: 10px,
+  sm: 20px,
+  md: 40px,
+  lg: 60px,
+  xl: 80px,
+  xxl: 120px,
+);
+
+@mixin space($property, $size) {
+  $value: map-get($spaces, $size);
+
+  @if $value == null {
+    @error "Unknown space: #{$size}. Allowed: #{map-keys($spaces)}";
+  }
+
+  #{$property}: $value;
+}
