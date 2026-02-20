@@ -1,0 +1,212 @@
+📄 Modjiz — Setup Frontend / Design System
+✅ Ce qui est en place
+
+/////////////////////////////////
+1. Architecture styles
+
+styles/
+
+tokens/ → couleurs (light/dark)
+base/ → reset + styles globaux
+tools/ → mixins (typo, spacing)
+globals.scss → point d’entrée
+
+Séparation claire : tokens / base / tools / components.
+
+/////////////////////////////////
+2. Reset / Base
+
+Reset minimal (box-sizing, margins, media, inputs)
+
+base.scss :
+background via --color-bg
+texte via --color-text
+font par défaut = --font-app
+line-height global = 1.5
+color-scheme: light dark
+
+/////////////////////////////////
+3. Système de couleurs
+
+Tokens CSS dans :root
+
+Overrides via [data-theme="dark"]
+Couleurs stables pour émotions
+Variables --color-on-dark / --color-on-light
+
+Pas de duplication inutile
+
+/////////////////////////////////
+4. Fonts (Next.js moderne)
+
+Fonts chargées avec next/font/local
+Config dans styles/fonts.ts
+
+Variables CSS :
+
+--font-landing (Manrope)
+--font-app (Sour Gummy)
+
+Branchées sur <html> dans layout racine
+
+Pas de @font-face manuel
+
+/////////////////////////////////
+5. Typographie (Sass system)
+
+Map pour tailles :
+
+xs / sm / md / lg / xl / xxl
+
+Map pour poids :
+
+light / medium / bold
+
+Mixins :
+
+font-landing
+font-app
+text(size, line-height)
+
+Plus de valeurs “magiques” dans les composants
+
+/////////////////////////////////
+6. Spacing system
+
+Échelle basée sur : 10 / 20 / 40 / 60 / 80 / 120
+
+En px (choix assumé)
+Map $spaces
+Mixin générique space(property, size)
+Interpolation Sass #{}
+
+Sécurisé avec @error
+
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+7. Dark / Light mode
+
+Tokens prêts dans colors.scss
+
+Override via [data-theme="dark"]
+Script d’init externalisé (theme-init.ts)
+Lit localStorage
+Fallback system
+Évite le flash
+
+Injecté dans layout racine
+
+/////////////////////////////////
+8. Layout App Router
+
+Structure :
+
+app/
+├ layout.tsx   (global)
+├ page.tsx     (landing)
+└ app/
+   ├ layout.tsx (app UI)
+   └ page.tsx
+
+
+Layout racine :
+
+fonts
+theme init
+globals
+metadata globale
+Layout /app :
+shell UI uniquement
+pas de duplication
+
+/////////////////////////////////
+
+🟡 Ce qu’il reste à faire
+
+/////////////////////////////////
+1. Navigation landing → app
+
+Logique “déjà vu la landing”
+localStorage / cookie
+redirect / → /app
+lien pour revenir à la landing
+
+/////////////////////////////////
+2. Theme toggle UI
+
+Bouton dans header / settings
+Sync avec localStorage
+Accessibilité (aria-label)
+Option “system” (facultatif)
+
+/////////////////////////////////
+3. Layout UI App
+
+Header / nav
+Container
+Main wrapper
+Gestion responsive
+
+/////////////////////////////////
+4. Composants de base
+
+À créer avec le design system :
+
+Button
+Card
+Badge / Emotion label
+Input
+Modal / Sheet
+
+Tous basés sur :
+
+tokens
+mixins
+spacing system
+
+/////////////////////////////////
+5. Responsive design
+
+Breakpoints
+
+Adaptation typo / spacing
+Mobile-first
+
+/////////////////////////////////
+6. Accessibilité (plus tard)
+
+Focus styles
+Contrast check
+Keyboard nav
+Aria
+
+/////////////////////////////////
+7. Documentation légère
+
+README
+Structure styles
+Règles d’usage des mixins
+🎯 État actuel du projet
+Fondation solide ✅
+Design system cohérent ✅
+Pas de dette technique majeure ✅
+Architecture scalable ✅
+
+/////////////////////////////////
+Le projet est prêt pour :
+👉 développement produit sans refactor massif.
+
+🧠 Règle mentale pour la suite
+
+Pas de valeurs “en dur”
+→ tokens / mixins / maps
+
+Pas de duplication
+→ abstractions légères
+
+Pas de bricolage
+→ structure claire

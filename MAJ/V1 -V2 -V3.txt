@@ -1,0 +1,65 @@
+V1 — Next “front-only”
+=> app / components / styles / assets
+=> domain / data / lib
+
+Objectif : app qui tourne sans compte.
+
+data/ utilise localStorage (ou IndexedDB plus tard)
+domain/ contient tout le métier (streak/trophées/stats)
+components/ et app/ affichent et appellent data/
+
+✅ Livraison rapide, structure déjà scalable.
+
+/////////////////////////////////
+transition => data (impl DB) - app/api (ou server actions) - auth config
+/////////////////////////////////
+Objectif : comptes, synchro, données persistantes.
+
+tu gardes domain/ quasi inchangé
+tu gardes components/ quasi inchangé
+tu changes surtout data/ :
+
+localStorageMoodRepository → apiMoodRepository ou dbMoodRepository
+
+tu ajoutes auth (NextAuth / custom, etc.)
+tu peux ajouter :
+
+app/api/* si API routes
+ou server actions
+
+✅ Le front ne “sait pas” que tu as changé la storage : énorme gain.
+
+/////////////////////////////////
+transition => 
+Tu réécris
+- components/ (web)
+- styles/ (web)
+- app/ (routing Next)
+
+Tu réutilises :
+
+- domain/ (massif)
+- lib/ (massif)
+interfaces data/ (une partie)
+/////////////////////////////////
+V3 — React Native (appli mobile) + web
+
+Objectif : réutiliser le maximum.
+
+tu réutilises :
+
+domain/ (100%)
+lib/ (quasi 100%)
+data/ (interfaces + parfois impl partielle)
+
+tu remplaces :
+
+components/ (web → RN)
+styles/ (SCSS → StyleSheet/tailwind RN/etc.)
+app/ (Next routing → RN navigation)
+
+Stratégie :
+
+garde le métier hors UI = tu peux refaire l’UI sans réécrire les règles.
+
+✅ C’est la meilleure façon de préparer V3 sans sur-architecturer.
