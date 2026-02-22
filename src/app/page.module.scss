@@ -1,74 +1,124 @@
 @use "../styles/tools/spacing" as *;
 @use "../styles/tools/typos" as *;
 @use "../styles/tools/flex" as *;
+@use "../styles/tools/layouts" as *;
 
 /* === TYPO === */
 .textBody {
   @include font-landing;
-  @include text(md, 1.6);
+  @include text(body, 1.6);
+  text-align: center;
 }
 
 .textSmall {
   @include font-landing;
-  @include text(xs, 1.4);
-  opacity: 0.75;
+  @include text(caption, 1.4);
+  text-align: center;
 }
 
 .textList {
   @include font-landing;
-  @include text(sm, 1.5);
+  @include text(small, 1.5);
 }
 
 .title {
   @include font-app(light);
-  @include text(xl, 1.3);
+  @include text(title, 1.3);
+  text-align: center;
 }
 
 .button {
   @include font-app(light);
-  @include text(lg);
+  @include text(lead);
+  text-align: center;
 }
 
 .tagline {
   @include font-app(light);
-  @include text(lg, 1.3);
+  @include text(lead, 1.3);
+  text-align: center;
 }
 
-/* ----- LAYOUT ----- */
+/* === LOGOS === */
+
+.heroLogo,
+.endingLogo {
+  color: var(--color-logo);
+}
+
+.heroLogo {
+  max-width: 400px;
+}
+.endingLogo {
+  max-width: 200px;
+}
+
+/* === LAYOUT === */
 .container {
   @include flex(column, space-between, center, xl);
+  padding: space(sm);
 }
 
 /* === SECTIONS === */
 .container {
   .heroSection {
-    .heroLogo {
-    }
+    @include flex(column, space-between, center, md);
+    padding: space(sm);
+    @include container(compact);
+
     .textContainer {
+      @include flex(column, space-between, center, sm);
     }
     .btnContainer {
     }
   }
 
   .featuresSection {
+    @include flex(column, space-between, center, md);
+    background-color: var(--color-emotion-bad);
+    border-radius: space(xs);
+    padding: space(sm);
+    color: var(--color-text2);
+    @include container(default);
+
     .featuresList {
+      @include flex(column, space-between, flex-start, sm);
     }
   }
 
   .whySection {
+    @include flex(column, space-between, center, xl);
+    @include container(compact);
+
+    .whySeparator {
+      height: 3px;
+      width: 100%;
+      background: blue;
+    }
   }
 
   .aboutSection {
+    @include flex(column, space-between, center, lg);
+    background-color: var(--color-emotion-bad);
+    border-radius: space(xs);
+    padding: space(sm);
+    color: var(--color-text2);
+    @include container(default);
+
     .titleContainer {
+      @include flex(column, space-between, center, md);
     }
     .techContainer {
+      @include flex(column, space-between, flex-start, md);
       .techList {
+        @include flex(column, space-between, flex-start, sm);
       }
     }
   }
 
   .endingSection {
-    .endingLogo {
-    }
+    @include flex(column, space-between, center, md);
+    padding: space(sm);
+    @include container(compact);
   }
 }

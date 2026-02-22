@@ -3,12 +3,12 @@
 
 h1 {
   @include font-app();
-  @include text(xxl);
+  @include text(display);
   color: var(--color-text);
 }
 
 h2 {
   @include font-app();
-  @include text(xl);
+  @include text(title);
   color: var(--color-text);
 }

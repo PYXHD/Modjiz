@@ -1,0 +1,23 @@
+@use "sass:map";
+
+/* Containers */
+$containersWidth: (
+  compact: 400px,
+  default: 600px,
+);
+
+@function maxWidth($size) {
+  $value: map.get($containersWidth, $size);
+
+  @if $value == null {
+    @error "Unknown container: #{$size}. Allowed: #{map.keys($containersWidth)}";
+  }
+
+  @return $value;
+}
+
+/* Mixin container */
+@mixin container($size, $width: 100%) {
+  width: $width;
+  max-width: maxWidth($size);
+}

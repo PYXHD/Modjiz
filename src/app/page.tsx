@@ -35,13 +35,11 @@ function LandingPage() {
         <div className={styles.textContainer}>
           <p className={styles.textBody}>
             Les Modjiz sont de petites créatures venues d’un autre univers,
-            curieuses de découvrir les émotions humaines. Chaque jour, elles
-            t’aident à observer ton humeur avec douceur et sans pression.
+            curieuses de découvrir les émotions humaines.
           </p>
           <p className={styles.textBody}>
-            Les Modjiz sont de petites créatures venues d’un autre univers,
-            curieuses de découvrir les émotions humaines. Chaque jour, elles
-            t’aident à observer ton humeur avec douceur et sans pression.
+            Chaque jour, elles t’aident à observer ton humeur avec douceur et
+            sans pression.
           </p>
         </div>
 
@@ -78,12 +76,16 @@ function LandingPage() {
 
       {/* Why */}
       <section className={styles.whySection}>
-        <h2 className={styles.title}>Pourquoi Modjiz</h2>
+        <div className={styles.whySeparator}></div>
+        <div className={styles.whyContainer}>
+          <h2 className={styles.title}>Pourquoi Modjiz</h2>
 
-        <p className={styles.textBody}>
-          Modjiz est conçu comme un compagnon du quotidien, pensé pour t’aider à
-          suivre ton humeur simplement, sans pression ni compétition.
-        </p>
+          <p className={styles.textBody}>
+            Modjiz est conçu comme un compagnon du quotidien, pensé pour t’aider
+            à suivre ton humeur simplement, sans pression ni compétition.
+          </p>
+        </div>
+        <div className={styles.whySeparator}></div>
       </section>
 
       <section className={styles.aboutSection}>
