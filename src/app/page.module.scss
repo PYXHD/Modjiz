@@ -1,0 +1,74 @@
+@use "../styles/tools/spacing" as *;
+@use "../styles/tools/typos" as *;
+@use "../styles/tools/flex" as *;
+
+/* === TYPO === */
+.textBody {
+  @include font-landing;
+  @include text(md, 1.6);
+}
+
+.textSmall {
+  @include font-landing;
+  @include text(xs, 1.4);
+  opacity: 0.75;
+}
+
+.textList {
+  @include font-landing;
+  @include text(sm, 1.5);
+}
+
+.title {
+  @include font-app(light);
+  @include text(xl, 1.3);
+}
+
+.button {
+  @include font-app(light);
+  @include text(lg);
+}
+
+.tagline {
+  @include font-app(light);
+  @include text(lg, 1.3);
+}
+
+/* ----- LAYOUT ----- */
+.container {
+  @include flex(column, space-between, center, xl);
+}
+
+/* === SECTIONS === */
+.container {
+  .heroSection {
+    .heroLogo {
+    }
+    .textContainer {
+    }
+    .btnContainer {
+    }
+  }
+
+  .featuresSection {
+    .featuresList {
+    }
+  }
+
+  .whySection {
+  }
+
+  .aboutSection {
+    .titleContainer {
+    }
+    .techContainer {
+      .techList {
+      }
+    }
+  }
+
+  .endingSection {
+    .endingLogo {
+    }
+  }
+}

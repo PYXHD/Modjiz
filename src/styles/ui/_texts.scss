@@ -1,0 +1,35 @@
+@use "../tokens/colors" as *;
+@use "../tools/typos" as *;
+
+@use "../tools/typos" as *;
+
+.text-date {
+  @include font-app(light);
+  @include text(md);
+  color: var(--color-text);
+}
+
+.text-item {
+  @include font-app(light);
+  @include text(lg);
+  color: var(--color-text);
+}
+
+.text-detail {
+  @include font-app(light);
+  @include text(md);
+  color: var(--color-text);
+}
+
+.text-detail-italic {
+  @include font-app(light, italic);
+  @include text(md);
+  color: var(--color-text);
+}
+
+.text-meta {
+  @include font-app(light);
+  @include text(xs);
+  color: var(--color-text);
+  opacity: 0.75;
+}

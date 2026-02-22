@@ -10,7 +10,11 @@ export const metadata: Metadata = {
 
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${fontLanding.variable} ${fontApp.variable}`}>
+    <html
+      lang="fr"
+      suppressHydrationWarning
+      className={`${fontLanding.variable} ${fontApp.variable}`}
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>

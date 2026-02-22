@@ -1,0 +1,14 @@
+@use "../tokens/colors" as *;
+@use "../tools/typos" as *;
+
+h1 {
+  @include font-app();
+  @include text(xxl);
+  color: var(--color-text);
+}
+
+h2 {
+  @include font-app();
+  @include text(xl);
+  color: var(--color-text);
+}

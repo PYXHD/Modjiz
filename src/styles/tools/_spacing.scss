@@ -1,6 +1,6 @@
-/* Spacing scale helper
-   Usage: @include space(padding, md); */
+@use "sass:map";
 
+/* Spacings */
 $spaces: (
   xs: 10px,
   sm: 20px,
@@ -10,12 +10,12 @@ $spaces: (
   xxl: 120px,
 );
 
-@mixin space($property, $size) {
-  $value: map-get($spaces, $size);
+@function space($size) {
+  $value: map.get($spaces, $size);
 
   @if $value == null {
     @error "Unknown space: #{$size}. Allowed: #{map-keys($spaces)}";
   }
 
-  #{$property}: $value;
+  @return $value;
 }
