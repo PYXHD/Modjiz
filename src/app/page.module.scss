@@ -2,6 +2,7 @@
 @use "../styles/tools/typos" as *;
 @use "../styles/tools/flex" as *;
 @use "../styles/tools/layouts" as *;
+@use "../styles/tools/icon" as *;
 
 /* === TYPO === */
 .textBody {
@@ -39,8 +40,25 @@
   text-align: center;
 }
 
-/* === LOGOS === */
+/* === REUSABLE LAYOUT === */
+.iconItem {
+  @include flex(row, flex-start, center, xs);
+}
 
+.icon {
+  flex-shrink: 0;
+  display: block;
+}
+
+.iconMd {
+  @include icon-size(medium);
+}
+
+.iconLg {
+  @include icon-size(large);
+}
+
+/* === LOGOS === */
 .heroLogo,
 .endingLogo {
   color: var(--color-logo);
@@ -57,10 +75,8 @@
 .container {
   @include flex(column, space-between, center, xl);
   padding: space(sm);
-}
 
-/* === SECTIONS === */
-.container {
+  /* === SECTIONS === */
   .heroSection {
     @include flex(column, space-between, center, md);
     padding: space(sm);
@@ -69,20 +85,25 @@
     .textContainer {
       @include flex(column, space-between, center, sm);
     }
+
     .btnContainer {
+      @include flex(column, space-between, center, xs);
     }
   }
 
   .featuresSection {
-    @include flex(column, space-between, center, md);
+    @include flex(column, space-between, center, lg);
     background-color: var(--color-emotion-bad);
     border-radius: space(xs);
-    padding: space(sm);
+    padding-top: space(sm);
+    padding-bottom: space(lg);
+    padding-left: space(sm);
+    padding-right: space(sm);
     color: var(--color-text2);
     @include container(default);
 
     .featuresList {
-      @include flex(column, space-between, flex-start, sm);
+      @include flex(column, space-between, flex-start, md);
     }
   }
 
@@ -91,27 +112,44 @@
     @include container(compact);
 
     .whySeparator {
-      height: 3px;
-      width: 100%;
-      background: blue;
+      height: 2px;
+      width: 80%;
+      background: var(--color-emotion-meh);
+    }
+
+    .whyContainer {
+      @include flex(column, space-between, center, md);
     }
   }
 
   .aboutSection {
-    @include flex(column, space-between, center, lg);
-    background-color: var(--color-emotion-bad);
-    border-radius: space(xs);
-    padding: space(sm);
-    color: var(--color-text2);
-    @include container(default);
+    @include flex(column, space-between, center, md);
 
-    .titleContainer {
-      @include flex(column, space-between, center, md);
-    }
-    .techContainer {
-      @include flex(column, space-between, flex-start, md);
-      .techList {
-        @include flex(column, space-between, flex-start, sm);
+    .aboutContainer {
+      @include flex(column, space-between, center, lg);
+      background-color: var(--color-emotion-bad);
+      border-radius: space(xs);
+      padding-top: space(sm);
+      padding-bottom: space(lg);
+      padding-left: space(sm);
+      padding-right: space(sm);
+      color: var(--color-text2);
+      @include container(default);
+
+      .titleContainer {
+        @include flex(column, space-between, center, md);
+      }
+
+      .techContainer {
+        @include flex(column, space-between, center, md);
+
+        .techList {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          row-gap: space(sm);
+          column-gap: space(lg);
+          list-style: none;
+        }
       }
     }
   }

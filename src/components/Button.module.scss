@@ -1,0 +1,32 @@
+@use "../styles/tools/spacing" as *;
+@use "../styles/tools/typos" as *;
+
+/* Button */
+.button {
+  @include font-app(light);
+  @include text(lead);
+
+  padding: space(sm) space(lg);
+
+  background: var(--color-emotion-meh);
+  color: var(--color-on-dark);
+
+  border: 2px solid var(--color-on-dark);
+  border-radius: 10px;
+
+  outline: 3px solid var(--color-emotion-meh);
+  outline-offset: 3px;
+
+  cursor: pointer;
+
+  transition: transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}

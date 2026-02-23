@@ -1,0 +1,23 @@
+@use "sass:map";
+
+/* Icon sizes */
+$icon-sizes: (
+  small: 16px,
+  medium: 24px,
+  large: 40px,
+);
+
+@function icon($size) {
+  $value: map.get($icon-sizes, $size);
+
+  @if $value == null {
+    @error "Unknown size: #{$size}. Allowed: #{map-keys($icon-sizes)}";
+  }
+
+  @return $value;
+}
+
+@mixin icon-size($size) {
+  height: icon($size);
+  width: icon($size);
+}

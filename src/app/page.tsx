@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
+import Button from "@/components/Button";
 
 // const KEY = "hasSeenLanding";
 
@@ -44,7 +45,7 @@ function LandingPage() {
         </div>
 
         <div className={styles.btnContainer}>
-          <button className={styles.button}>Version de démonstration</button>
+          <Button>Version démo</Button>
           <p className={styles.textSmall}>
             Vous commencerez l&apos;expérience avec un ensemble de données
             pré-enregistrées afin de découvrir l&apos;application
@@ -56,27 +57,52 @@ function LandingPage() {
         <h2 className={styles.title}>Ce que propose Modjiz</h2>
 
         <ul className={styles.featuresList}>
-          <li className={styles.textList}>
-            Note ton humeur chaque jour, en quelques secondes
+          <li className={`${styles.iconItem} ${styles.textList}`}>
+            <img
+              className={`${styles.icon} ${styles.iconMd}`}
+              src="/icon_star.svg"
+              alt=""
+              aria-hidden
+            />
+            <span>Note ton humeur chaque jour, en quelques secondes</span>
           </li>
 
-          <li className={styles.textList}>
-            Découvre des créatures expressives qui reflètent tes émotions
+          <li className={`${styles.iconItem} ${styles.textList}`}>
+            <img
+              className={`${styles.icon} ${styles.iconMd}`}
+              src="/icon_monster.svg"
+              alt=""
+              aria-hidden
+            />
+            <span>
+              Découvre des créatures expressives qui reflètent tes émotions
+            </span>
           </li>
 
-          <li className={styles.textList}>
-            Retrouve ton parcours émotionnel en un coup d&apos;oeil
+          <li className={`${styles.iconItem} ${styles.textList}`}>
+            <img
+              className={`${styles.icon} ${styles.iconMd}`}
+              src="/icon_stats.svg"
+              alt=""
+              aria-hidden
+            />
+            <span>Retrouve ton parcours émotionnel en un coup d&apos;oeil</span>
           </li>
 
-          <li className={styles.textList}>
-            Débloque des trophées pour rester motivé, sans pression
+          <li className={`${styles.iconItem} ${styles.textList}`}>
+            <img
+              className={`${styles.icon} ${styles.iconMd}`}
+              src="/icon_trophy.svg"
+              alt=""
+              aria-hidden
+            />
+            <span>Débloque des trophées pour rester motivé, sans pression</span>
           </li>
         </ul>
       </section>
 
-      {/* Why */}
       <section className={styles.whySection}>
-        <div className={styles.whySeparator}></div>
+        <div className={styles.whySeparator} />
         <div className={styles.whyContainer}>
           <h2 className={styles.title}>Pourquoi Modjiz</h2>
 
@@ -85,37 +111,74 @@ function LandingPage() {
             à suivre ton humeur simplement, sans pression ni compétition.
           </p>
         </div>
-        <div className={styles.whySeparator}></div>
+        <div className={styles.whySeparator} />
       </section>
 
       <section className={styles.aboutSection}>
-        <div className={styles.titleContainer}>
-          <h2 className={styles.title}>À propos du projet</h2>
+        <div className={styles.aboutContainer}>
+          <div className={styles.titleContainer}>
+            <h2 className={styles.title}>À propos du projet</h2>
 
-          <p className={styles.textBody}>
-            Modjiz est un projet personnel conçu pour explorer la conception
-            d’interface, l’expérience utilisateur et le développement d’une
-            application moderne.
-          </p>
+            <p className={styles.textBody}>
+              Modjiz est un projet personnel conçu pour explorer la conception
+              d’interface, l’expérience utilisateur et le développement d’une
+              application moderne.
+            </p>
+          </div>
+
+          <div className={styles.techContainer}>
+            <h2 className={styles.title}>Technologies utilisées</h2>
+
+            <ul className={styles.techList}>
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
+                  src="/logo_next.svg"
+                  alt=""
+                  aria-hidden
+                />
+                <span>Next.js</span>
+              </li>
+
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
+                  src="/logo_react.svg"
+                  alt=""
+                  aria-hidden
+                />
+                <span>React</span>
+              </li>
+
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
+                  src="/logo_ts.svg"
+                  alt=""
+                  aria-hidden
+                />
+                <span>TypeScript</span>
+              </li>
+
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
+                  src="/logo_sass.svg"
+                  alt=""
+                  aria-hidden
+                />
+                <span>Sass</span>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div className={styles.techContainer}>
-          <h2 className={styles.title}>Technologies utilisées</h2>
-
-          <ul className={styles.techList}>
-            <li className={styles.textList}>React</li>
-            <li className={styles.textList}>Sass</li>
-            <li className={styles.textList}>TypeScript</li>
-            <li className={styles.textList}>State management</li>
-          </ul>
-        </div>
+        <Button>Repository Github</Button>
       </section>
 
       <section className={styles.endingSection}>
         <p className={styles.tagline}>
           Prends soin de ton humeur, à ton rythme.
         </p>
-
         <LogoShort className={styles.endingLogo} />
       </section>
     </main>
