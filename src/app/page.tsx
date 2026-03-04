@@ -1,12 +1,14 @@
 "use client";
 
 import styles from "./page.module.scss";
+import btnStyle from "@/components/ui/button/Button.module.css";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
-import Button from "@/components/Button";
+import Button from "@/components/ui/button/Button";
 
 // const KEY = "hasSeenLanding";
 
@@ -45,7 +47,9 @@ function LandingPage() {
         </div>
 
         <div className={styles.btnContainer}>
-          <Button>Version démo</Button>
+          <Link href="/app">
+            <Button>Version démo</Button>
+          </Link>
           <p className={styles.textSmall}>
             Vous commencerez l&apos;expérience avec un ensemble de données
             pré-enregistrées afin de découvrir l&apos;application
@@ -172,7 +176,14 @@ function LandingPage() {
             </ul>
           </div>
         </div>
-        <Button>Repository Github</Button>
+        <a
+          className={btnStyle.button}
+          href="https://github.com/PYXHD/Modjiz"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Repository Github
+        </a>
       </section>
 
       <section className={styles.endingSection}>

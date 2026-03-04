@@ -3,10 +3,15 @@ import styles from "./Button.module.scss";
 
 type ButtonProps = {
   children: string;
+  onClick?: () => void;
 };
 
-function Button({ children }: ButtonProps) {
-  return <button className={styles.button}>{children}</button>;
+function Button({ children, onClick }: ButtonProps) {
+  return (
+    <button className={styles.button} onClick={onClick}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;

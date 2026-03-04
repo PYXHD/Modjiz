@@ -15,10 +15,10 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       suppressHydrationWarning
       className={`${fontLanding.variable} ${fontApp.variable}`}
     >
-      <head>
+      <body>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
-      <body>{children}</body>
+        {children}
+      </body>
     </html>
   );
 }
