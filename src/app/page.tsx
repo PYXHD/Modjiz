@@ -34,7 +34,11 @@ function LandingPage() {
     <main className={styles.container}>
       <section className={styles.heroSection}>
         <Logo className={styles.heroLogo} />
-
+        <img
+          className={styles.heroImg}
+          src="/img/Modjiz_show.webp"
+          alt="Modjiz Show up"
+        />
         <div className={styles.textContainer}>
           <p className={styles.textBody}>
             Les Modjiz sont de petites créatures venues d’un autre univers,
@@ -64,8 +68,8 @@ function LandingPage() {
           <li className={`${styles.iconItem} ${styles.textList}`}>
             <img
               className={`${styles.icon} ${styles.iconMd}`}
-              src="/icon_star.svg"
-              alt=""
+              src="/icons/icon_star.svg"
+              alt="Icon Star"
               aria-hidden
             />
             <span>Note ton humeur chaque jour, en quelques secondes</span>
@@ -74,8 +78,8 @@ function LandingPage() {
           <li className={`${styles.iconItem} ${styles.textList}`}>
             <img
               className={`${styles.icon} ${styles.iconMd}`}
-              src="/icon_monster.svg"
-              alt=""
+              src="/icons/icon_monster.svg"
+              alt="Icon Monster"
               aria-hidden
             />
             <span>
@@ -86,8 +90,8 @@ function LandingPage() {
           <li className={`${styles.iconItem} ${styles.textList}`}>
             <img
               className={`${styles.icon} ${styles.iconMd}`}
-              src="/icon_stats.svg"
-              alt=""
+              src="/icons/icon_stats.svg"
+              alt="Icon Stats"
               aria-hidden
             />
             <span>Retrouve ton parcours émotionnel en un coup d&apos;oeil</span>
@@ -96,8 +100,8 @@ function LandingPage() {
           <li className={`${styles.iconItem} ${styles.textList}`}>
             <img
               className={`${styles.icon} ${styles.iconMd}`}
-              src="/icon_trophy.svg"
-              alt=""
+              src="/icons/icon_trophy.svg"
+              alt="Icon Trophy"
               aria-hidden
             />
             <span>Débloque des trophées pour rester motivé, sans pression</span>
@@ -137,8 +141,8 @@ function LandingPage() {
               <li className={`${styles.iconItem} ${styles.textList}`}>
                 <img
                   className={`${styles.icon} ${styles.iconLg}`}
-                  src="/logo_next.svg"
-                  alt=""
+                  src="/icons/logo_next.svg"
+                  alt="Icon Next"
                   aria-hidden
                 />
                 <span>Next.js</span>
@@ -147,8 +151,8 @@ function LandingPage() {
               <li className={`${styles.iconItem} ${styles.textList}`}>
                 <img
                   className={`${styles.icon} ${styles.iconLg}`}
-                  src="/logo_react.svg"
-                  alt=""
+                  src="/icons/logo_react.svg"
+                  alt="Icon React"
                   aria-hidden
                 />
                 <span>React</span>
@@ -157,8 +161,8 @@ function LandingPage() {
               <li className={`${styles.iconItem} ${styles.textList}`}>
                 <img
                   className={`${styles.icon} ${styles.iconLg}`}
-                  src="/logo_ts.svg"
-                  alt=""
+                  src="/icons/logo_ts.svg"
+                  alt="Icon Ts"
                   aria-hidden
                 />
                 <span>TypeScript</span>
@@ -167,8 +171,8 @@ function LandingPage() {
               <li className={`${styles.iconItem} ${styles.textList}`}>
                 <img
                   className={`${styles.icon} ${styles.iconLg}`}
-                  src="/logo_sass.svg"
-                  alt=""
+                  src="/icons/logo_sass.svg"
+                  alt="Icon Sass"
                   aria-hidden
                 />
                 <span>Sass</span>

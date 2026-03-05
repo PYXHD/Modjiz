@@ -82,6 +82,11 @@
     padding: space(sm);
     @include container(compact);
 
+    .heroImg {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
     .textContainer {
       @include flex(column, space-between, center, sm);
     }
