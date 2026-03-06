@@ -1,6 +1,4 @@
-type Entry = {
+export type Entry = {
   date: string;
   value: number;
 };
-
-export default Entry;

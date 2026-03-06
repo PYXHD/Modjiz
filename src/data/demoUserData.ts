@@ -1,6 +1,6 @@
-import Entry from "@/types/Entry";
+import type { Entry } from "@/types/Entry";
 
-export const demoEntries: Entry[] = [
+export const demoUserData: Entry[] = [
   // Novembre 2025
   { date: "2025-11-05", value: 2 },
   { date: "2025-11-06", value: 3 },
