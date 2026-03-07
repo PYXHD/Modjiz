@@ -1,0 +1,19 @@
+@use "sass:map";
+
+/* Breakpoints */
+$breakpoints: (
+  small: 320px,
+  medium: 375px,
+  large: 425px,
+  tablet: 768px,
+);
+
+@function breakpoint($size) {
+  $value: map.get($breakpoints, $size);
+
+  @if $value == null {
+    @error "Unknown size: #{$size}. Allowed: #{map-keys($breakpoints)}";
+  }
+
+  @return $value;
+}

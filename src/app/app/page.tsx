@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import styles from "./page.module.scss";
 
 import Button from "@/components/ui/button/Button";
 
@@ -23,13 +24,13 @@ export default function Page() {
     .replace(/^\w/, (c) => c.toUpperCase());
 
   return (
-    <main className="dashboard">
-      <div className="date">{today}</div>
-      <section>
-        <h1>Comment ça va aujourd'hui</h1>
-        <div className="modji"></div>
-        <div className="mood-selector">
-          <div className="moods-inputs">
+    <div className={styles.dashboard}>
+      <section className={styles.todayMood}>
+        <div className={`${styles.today} ${styles.textBody}`}>{today}</div>
+        <h1 className={styles.titleCentered}>Comment ça va aujourd'hui ?</h1>
+        <div className={styles.modji}></div>
+        <div className={styles.moodSelector}>
+          <div className={styles.moodList}>
             {moods.map((m) => (
               <input
                 key={m.value}
@@ -38,22 +39,22 @@ export default function Page() {
                 value={m.value}
                 checked={mood === m.value}
                 onChange={() => setMood(m.value)}
-                style={{ backgroundColor: m.color }}
-                className="mood"
+                style={{ backgroundColor: m.color, color: m.color }}
+                className={styles.mood}
               />
             ))}
           </div>
         </div>
       </section>
-      <div className="separator"></div>
-      <section className="recents-moods">
-        <h2>Et récemment ?</h2>
+      <div className={styles.separator}></div>
+      <section className={styles.recentMoods}>
+        <h2 className={styles.titleCentered}>Et récemment ?</h2>
         <div className="graph"></div>
-        <div className="button">
+        <div className={styles.buttonContainer}>
           <Button>Mon historique</Button>
-          <p>Statistiques et tendances</p>
+          <p className={styles.textMeta}>Statistiques et tendances</p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
