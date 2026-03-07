@@ -40,5 +40,10 @@ describe("getMonthData()", () => {
       const result = getMonthData(entries, "09", "2025");
       expect(result).toEqual([]);
     });
+
+    test("returns empty array if entries array is empty", () => {
+      const result = getMonthData([], "12", "2025");
+      expect(result).toEqual([]);
+    });
   });
 });
