@@ -45,6 +45,7 @@
     @include icon-size(large);
   }
 
+  &:hover,
   &:checked {
     outline: 3px solid currentColor;
     outline-offset: 3px;
