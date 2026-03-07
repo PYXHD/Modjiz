@@ -1,5 +1,5 @@
 import type { Entry } from "@/types/Entry";
-import type { Year, Month } from "@/types/dateTypes";
+import type { Year, Month } from "@/types/DateTypes";
 
 function getMonthData(entries: Entry[], month: Month, year: Year) {
   const monthEntries = entries.filter((entry) => {
