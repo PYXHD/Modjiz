@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.scss";
+import styles from "./layout.module.scss";
 import { fontLanding, fontApp } from "@/styles/config/fonts";
 import { themeInitScript } from "@/styles/config/theme-init";
 
@@ -17,7 +18,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
     >
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-        {children}
+        <div className={styles.appWrapper}>{children}</div>
       </body>
     </html>
   );

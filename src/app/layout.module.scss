@@ -1,0 +1,11 @@
+@use "../styles/tools/layouts" as *;
+
+.appWrapper {
+  @include container(tablet);
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-app);
+}

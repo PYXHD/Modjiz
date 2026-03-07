@@ -4,6 +4,7 @@
 $containersWidth: (
   compact: 400px,
   default: 600px,
+  tablet: 768px,
 );
 
 @function maxWidth($size) {

@@ -1,9 +1,13 @@
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+import Header from "@/components/ui/header/Header";
+
+function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <header>App Navigation</header>
+      <Header />
 
       <main>{children}</main>
     </div>
   );
 }
+
+export default AppLayout;

@@ -4,6 +4,8 @@
 
 :root {
   /* App / UI */
+  --color-bg-body: #f4f6fb;
+  --shadow-app: 0 20px 60px rgba(26, 32, 54, 0.15);
   --color-bg: #fafafa;
   --color-primary: #3554c5;
   --color-text: #1c1c1e;
@@ -35,6 +37,8 @@
 
 [data-theme="dark"] {
   /* App / UI */
+  --color-bg-body: #1a2036;
+  --shadow-app: 0 20px 60px rgba(244, 246, 251, 0.15);
   --color-bg: #0f1424;
   --color-text: #e6e6eb;
   --color-text2: #e6e6eb;

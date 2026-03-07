@@ -90,7 +90,7 @@ function LandingPage() {
           <li className={`${styles.iconItem} ${styles.textList}`}>
             <img
               className={`${styles.icon} ${styles.iconMd}`}
-              src="/icons/icon_stats.svg"
+              src="/icons/menu_stats.svg"
               alt="Icon Stats"
               aria-hidden
             />
