@@ -1,4 +1,3 @@
-import { describe, test, expect } from "vitest";
 import { getYearData } from "./getYearData";
 import type { Entry } from "@/types/Entry";
 
