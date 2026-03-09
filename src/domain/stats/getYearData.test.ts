@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import getYearData from "./getYearData";
+import { getYearData } from "./getYearData";
 import type { Entry } from "@/types/Entry";
 
 describe("getYearData()", () => {

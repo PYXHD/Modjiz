@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import average from "./average";
+import { average } from "./average";
 
 import type { Entry } from "@/types/Entry";
 

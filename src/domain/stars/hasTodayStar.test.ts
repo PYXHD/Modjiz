@@ -1,5 +1,5 @@
 import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
-import hasTodayStar from "./hasTodayStar";
+import { hasTodayStar } from "./hasTodayStar";
 import type { Entry } from "@/types/Entry";
 
 beforeEach(() => {
