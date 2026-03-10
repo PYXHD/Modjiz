@@ -57,6 +57,7 @@ export default function Page() {
             ))}
           </div>
         </div>
+        <Button>Enregistrer</Button>
       </section>
       <div className={styles.separator}></div>
       <section className={styles.recentMoods}>

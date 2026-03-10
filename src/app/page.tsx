@@ -17,8 +17,9 @@ function LandingPage() {
   useEffect(() => {
     const mode = localStorage.getItem("app-mode");
 
-    if (mode) {
+    if (mode !== null) {
       router.replace("/app");
+      return;
     }
 
     setChecked(true);

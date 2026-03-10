@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "@/styles/globals.scss";
-import styles from "./layout.module.scss";
 import { fontLanding, fontApp } from "@/styles/config/fonts";
-import { themeInitScript } from "@/styles/config/theme-init";
+import { themeInitScript } from "@/lib/init/script/theme-init";
+
+import styles from "./layout.module.scss";
 
 export const metadata: Metadata = {
   title: "Modjiz",
