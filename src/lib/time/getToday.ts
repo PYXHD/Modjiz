@@ -1,4 +1,4 @@
-import { getAppMode } from "../getAppMode";
+import { getAppMode } from "../init/getAppMode";
 
 export function getToday(): Date {
   const mode = getAppMode();

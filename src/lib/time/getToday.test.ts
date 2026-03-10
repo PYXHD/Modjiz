@@ -1,5 +1,5 @@
 import { getToday } from "./getToday";
-import * as appMode from "../getAppMode";
+import * as appMode from "../init/getAppMode";
 
 describe("getToday()", () => {
   afterEach(() => {
