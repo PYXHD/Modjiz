@@ -2,7 +2,10 @@
 import { useState } from "react";
 import styles from "./page.module.scss";
 
+import { getToday } from "@/lib/time/getToday";
+
 import Button from "@/components/ui/button/Button";
+import DaysChart from "@/components/ui/daysChart/DaysChart";
 
 export default function Page() {
   const [mood, setMood] = useState("pensive");
@@ -13,7 +16,9 @@ export default function Page() {
     { value: "good", color: "var(--color-emotion-good)" },
     { value: "great", color: "var(--color-emotion-great)" },
   ];
-  const today = new Date()
+
+  const todayDate = getToday();
+  const todayLabel = todayDate
     .toLocaleDateString("fr-FR", {
       weekday: "long",
       month: "long",
@@ -26,7 +31,7 @@ export default function Page() {
   return (
     <div className={styles.dashboard}>
       <section className={styles.todayMood}>
-        <div className={`${styles.today} ${styles.textBody}`}>{today}</div>
+        <div className={`${styles.today} ${styles.textBody}`}>{todayLabel}</div>
         <h1 className={styles.titleCentered}>Comment ça va aujourd'hui ?</h1>
         <div className={styles.modji}></div>
         <div className={styles.moodSelector}>
@@ -49,7 +54,7 @@ export default function Page() {
       <div className={styles.separator}></div>
       <section className={styles.recentMoods}>
         <h2 className={styles.titleCentered}>Et récemment ?</h2>
-        <div className="graph"></div>
+        <DaysChart />
         <div className={styles.buttonContainer}>
           <Button>Mon historique</Button>
           <p className={styles.textMeta}>Statistiques et tendances</p>

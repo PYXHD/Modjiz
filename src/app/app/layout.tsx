@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/ui/header/Header";
 
 function AppLayout({ children }: { children: React.ReactNode }) {

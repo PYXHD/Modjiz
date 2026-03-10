@@ -1,34 +1,30 @@
 "use client";
 
-import styles from "./page.module.scss";
-import btnStyle from "@/components/ui/button/Button.module.css";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+import styles from "./page.module.scss";
+
+import Button from "@/components/ui/button/Button";
+import btnStyle from "@/components/ui/button/Button.module.css";
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
-import Button from "@/components/ui/button/Button";
-
-// const KEY = "hasSeenLanding";
 
 function LandingPage() {
-  // const router = useRouter();
-  // const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   const hasSeen = localStorage.getItem(KEY) === "true";
+  useEffect(() => {
+    const mode = localStorage.getItem("app-mode");
 
-  //   if (hasSeen) {
-  //     router.replace("/app");
-  //     return;
-  //   }
+    if (mode) {
+      router.replace("/app");
+    }
 
-  //   localStorage.setItem(KEY, "true");
-  //   setChecked(true);
-  // }, [router]);
+    setChecked(true);
+  }, [router]);
 
-  // if (!checked) return null;
+  if (!checked) return null;
 
   return (
     <main className={styles.container}>
@@ -51,9 +47,14 @@ function LandingPage() {
         </div>
 
         <div className={styles.btnContainer}>
-          <Link href="/app">
-            <Button>Version démo</Button>
-          </Link>
+          <Button
+            onClick={() => {
+              localStorage.setItem("app-mode", "mock");
+              router.push("/app");
+            }}
+          >
+            Version démo
+          </Button>
           <p className={styles.textSmall}>
             Vous commencerez l&apos;expérience avec un ensemble de données
             pré-enregistrées afin de découvrir l&apos;application
