@@ -10,7 +10,7 @@ describe("getToday()", () => {
     // Arrange
     vi.spyOn(appMode, "getAppMode").mockReturnValue("mock");
 
-    const expected = new Date("2026-03-02");
+    const expected = new Date("2026-03-05");
     expected.setHours(0, 0, 0, 0);
 
     //Act
