@@ -6,6 +6,10 @@ import { getToday } from "@/lib/time/getToday";
 
 import Button from "@/components/ui/button/Button";
 import DaysChart from "@/components/ui/daysChart/DaysChart";
+import { getLastDaysLabels } from "@/lib/time/getLastDaysLabel";
+import { getLastDaysMood } from "@/domain/mood/getLastDaysMood";
+import { demoUserData } from "@/data/sources/mock/demoUserData";
+import { EmotionLevel } from "@/types/EmotionLevel";
 
 export default function Page() {
   const [mood, setMood] = useState("pensive");
@@ -27,6 +31,9 @@ export default function Page() {
       timeZone: "Europe/Paris",
     })
     .replace(/^\w/, (c) => c.toUpperCase());
+
+  const data = getLastDaysMood(demoUserData, todayDate) as EmotionLevel[];
+  const labels = getLastDaysLabels(todayDate, 5);
 
   return (
     <div className={styles.dashboard}>
@@ -54,7 +61,7 @@ export default function Page() {
       <div className={styles.separator}></div>
       <section className={styles.recentMoods}>
         <h2 className={styles.titleCentered}>Et récemment ?</h2>
-        <DaysChart />
+        <DaysChart data={data} labels={labels} />
         <div className={styles.buttonContainer}>
           <Button>Mon historique</Button>
           <p className={styles.textMeta}>Statistiques et tendances</p>
