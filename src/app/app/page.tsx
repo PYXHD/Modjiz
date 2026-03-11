@@ -6,6 +6,7 @@ import { getToday } from "@/lib/time/getToday";
 import { getLastDaysLabels } from "@/lib/time/getLastDaysLabel";
 
 import type { Entry } from "@/types/Entry";
+import type { EmotionLevel } from "@/types/EmotionLevel";
 
 import Button from "@/components/ui/button/Button";
 import DaysChart from "@/components/ui/daysChart/DaysChart";
@@ -13,6 +14,7 @@ import { getLastDaysMood } from "@/domain/mood/getLastDaysMood";
 import { getUserData } from "@/data/getUserData";
 import { saveEntry } from "@/data/sources/saveEntry";
 import { addTodayEntry } from "@/domain/mood/addTodayEntry";
+import Scene from "@/components/three/Canvas";
 
 export default function Page() {
   // REFACTOR ///////////////////////////
@@ -27,9 +29,10 @@ export default function Page() {
   }, []);
   // REFACTOR ///////////////////////////
 
-  const [mood, setMood] = useState<number>(0);
+  const [mood, setMood] = useState<EmotionLevel>(0);
   // REFACTOR ///////////////////////////
-  const moods = [
+  const moods: { value: EmotionLevel; color: string }[] = [
+    { value: 0, color: "var(--color-emotion-bad)" },
     { value: 1, color: "var(--color-emotion-bad)" },
     { value: 2, color: "var(--color-emotion-meh)" },
     { value: 3, color: "var(--color-emotion-ok)" },
@@ -68,21 +71,25 @@ export default function Page() {
       <section className={styles.todayMood}>
         <div className={`${styles.today} ${styles.textBody}`}>{todayLabel}</div>
         <h1 className={styles.titleCentered}>Comment ça va aujourd'hui ?</h1>
-        <div className={styles.modji}></div>
+        <div className={styles.modjiContainer}>
+          <Scene mood={mood} />
+        </div>
         <div className={styles.moodSelector}>
           <div className={styles.moodList}>
-            {moods.map((m) => (
-              <input
-                key={m.value}
-                type="radio"
-                name="mood"
-                value={m.value}
-                checked={mood === m.value}
-                onChange={() => setMood(m.value)}
-                style={{ backgroundColor: m.color, color: m.color }}
-                className={styles.mood}
-              />
-            ))}
+            {moods
+              .filter((m) => m.value !== 0)
+              .map((m) => (
+                <input
+                  key={m.value}
+                  type="radio"
+                  name="mood"
+                  value={m.value}
+                  checked={mood === m.value}
+                  onChange={() => setMood(m.value)}
+                  style={{ backgroundColor: m.color, color: m.color }}
+                  className={styles.mood}
+                />
+              ))}
           </div>
           <div className={styles.moodRange}>
             <div className={styles.textMeta}>pas ouf</div>

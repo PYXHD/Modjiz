@@ -77,6 +77,12 @@
 
   .todayMood {
     @include flex(column, space-between, center, md);
+
+    .modjiContainer {
+      height: 200px;
+      width: 100%;
+      border: 2px solid blue;
+    }
   }
 
   .separator {
