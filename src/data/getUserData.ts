@@ -5,9 +5,9 @@ export async function getUserData() {
   const mode = getAppMode();
 
   if (mode === "mock") {
-    return demoUserData;
+    return structuredClone(demoUserData);
   }
-
+  return [];
   //   const res = await fetch("/api/user");
 
   //   if (!res.ok) {

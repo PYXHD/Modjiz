@@ -75,6 +75,7 @@
 .container {
   @include flex(column, space-between, center, xl);
   padding: space(sm);
+  padding-bottom: space(xxl);
 
   /* === SECTIONS === */
   .heroSection {

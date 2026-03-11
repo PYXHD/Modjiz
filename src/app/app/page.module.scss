@@ -22,14 +22,31 @@
 
 /* === COMPONENT: MOOD SELECTOR === */
 .moodSelector {
-  @include flex(row, center, center, xs);
-  width: 100%;
-}
-.moodList {
-  @include flex(row, space-between, center, xs);
+  @include flex(column, center, center, sm);
 
-  &:has(.mood:checked) .mood:not(:checked) {
-    opacity: 0.6;
+  .moodList {
+    @include flex(row, space-between, center, xs);
+
+    &:has(.mood:checked) .mood:not(:checked) {
+      opacity: 0.6;
+    }
+  }
+
+  .moodRange {
+    @include flex(row, space-between, center, xs);
+    width: 100%;
+
+    .moodShow {
+      flex: 1;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(
+        to right,
+        var(--color-emotion-meh),
+        var(--color-emotion-ok),
+        var(--color-emotion-good)
+      );
+    }
   }
 }
 
@@ -56,6 +73,7 @@
 .dashboard {
   @include flex(column, space-between, center, xl);
   padding: space(sm);
+  padding-bottom: space(xxl);
 
   .todayMood {
     @include flex(column, space-between, center, md);

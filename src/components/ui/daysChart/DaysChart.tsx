@@ -3,6 +3,7 @@ import styles from "./DaysChart.module.scss";
 import type { EmotionLevel } from "@/types/EmotionLevel";
 
 const emotionColors = {
+  0: "",
   1: "var(--color-emotion-bad)",
   2: "var(--color-emotion-meh)",
   3: "var(--color-emotion-ok)",

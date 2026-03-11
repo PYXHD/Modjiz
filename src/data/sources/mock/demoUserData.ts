@@ -126,8 +126,8 @@ export const demoUserData: Entry[] = [
   { date: "2026-02-28", value: 2 },
 
   // Mars 2026
-  { date: "2026-03-01", value: 3 },
-  { date: "2026-03-02", value: 3 },
+  { date: "2026-03-01", value: 1 },
+  { date: "2026-03-02", value: 5 },
   { date: "2026-03-03", value: 2 },
   { date: "2026-03-04", value: 4 },
 ];

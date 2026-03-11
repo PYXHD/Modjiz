@@ -1,25 +1,42 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./page.module.scss";
 
 import { getToday } from "@/lib/time/getToday";
+import { getLastDaysLabels } from "@/lib/time/getLastDaysLabel";
+
+import type { Entry } from "@/types/Entry";
 
 import Button from "@/components/ui/button/Button";
 import DaysChart from "@/components/ui/daysChart/DaysChart";
-import { getLastDaysLabels } from "@/lib/time/getLastDaysLabel";
 import { getLastDaysMood } from "@/domain/mood/getLastDaysMood";
-import { demoUserData } from "@/data/sources/mock/demoUserData";
-import { EmotionLevel } from "@/types/EmotionLevel";
+import { getUserData } from "@/data/getUserData";
+import { saveEntry } from "@/data/sources/saveEntry";
+import { addTodayEntry } from "@/domain/mood/addTodayEntry";
 
 export default function Page() {
-  const [mood, setMood] = useState("pensive");
+  // REFACTOR ///////////////////////////
+  const [userData, setUserData] = useState<Entry[]>([]);
+  useEffect(() => {
+    async function loadData() {
+      const data = await getUserData();
+      setUserData(data);
+    }
+
+    loadData();
+  }, []);
+  // REFACTOR ///////////////////////////
+
+  const [mood, setMood] = useState<number>(0);
+  // REFACTOR ///////////////////////////
   const moods = [
-    { value: "sad", color: "var(--color-emotion-bad)" },
-    { value: "meh", color: "var(--color-emotion-meh)" },
-    { value: "ok", color: "var(--color-emotion-ok)" },
-    { value: "good", color: "var(--color-emotion-good)" },
-    { value: "great", color: "var(--color-emotion-great)" },
+    { value: 1, color: "var(--color-emotion-bad)" },
+    { value: 2, color: "var(--color-emotion-meh)" },
+    { value: 3, color: "var(--color-emotion-ok)" },
+    { value: 4, color: "var(--color-emotion-good)" },
+    { value: 5, color: "var(--color-emotion-great)" },
   ];
+  // REFACTOR ///////////////////////////
 
   const todayDate = getToday();
   const todayLabel = todayDate
@@ -32,8 +49,19 @@ export default function Page() {
     })
     .replace(/^\w/, (c) => c.toUpperCase());
 
-  const data = getLastDaysMood(demoUserData, todayDate) as EmotionLevel[];
+  const data = getLastDaysMood(userData, todayDate);
   const labels = getLastDaysLabels(todayDate, 5);
+
+  async function handleSave() {
+    const entry: Entry = {
+      date: todayDate.toLocaleDateString("en-CA"),
+      value: mood,
+    };
+
+    await saveEntry(entry);
+
+    setUserData((prev) => addTodayEntry(prev, entry));
+  }
 
   return (
     <div className={styles.dashboard}>
@@ -56,8 +84,13 @@ export default function Page() {
               />
             ))}
           </div>
+          <div className={styles.moodRange}>
+            <div className={styles.textMeta}>pas ouf</div>
+            <div className={styles.moodShow}></div>
+            <div className={styles.textMeta}>au top</div>
+          </div>
         </div>
-        <Button>Enregistrer</Button>
+        <Button onClick={handleSave}>Enregistrer</Button>
       </section>
       <div className={styles.separator}></div>
       <section className={styles.recentMoods}>
