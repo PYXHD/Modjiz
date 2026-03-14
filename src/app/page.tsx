@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import styles from "./page.module.scss";
 
 import Button from "@/components/ui/button/Button";
-import btnStyle from "@/components/ui/button/Button.module.css";
+import btnStyle from "@/components/ui/button/Button.module.scss";
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
 
