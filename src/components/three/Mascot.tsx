@@ -5,12 +5,11 @@ import { useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
+import type { ThreeElements } from "@react-three/fiber";
 import type { Emotion } from "@/types/Emotion";
 
-type Props = {
+type Props = Omit<ThreeElements["primitive"], "object"> & {
   emotion: Emotion;
-  scale?: number;
-  position?: number[];
 };
 
 const emotionColors: Record<Emotion, string> = {
