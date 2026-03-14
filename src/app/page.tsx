@@ -22,6 +22,7 @@ function LandingPage() {
       return;
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setChecked(true);
   }, [router]);
 

@@ -5,7 +5,7 @@ import { useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 
 type Props = {
-  mascotRef?: React.RefObject<any>;
+  mascotRef?: React.RefObject<unknown>;
 };
 
 function Helpers3D({ mascotRef }: Props) {
