@@ -8,7 +8,9 @@ import * as THREE from "three";
 import type { Emotion } from "@/types/Emotion";
 
 type Props = {
-  emotion?: Emotion;
+  emotion: Emotion;
+  scale?: number;
+  position?: number[];
 };
 
 const emotionColors: Record<Emotion, string> = {
