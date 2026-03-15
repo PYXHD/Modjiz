@@ -42,15 +42,6 @@ export default function Page() {
   // REFACTOR ///////////////////////////
 
   const todayDate = getToday();
-  const todayLabel = todayDate
-    .toLocaleDateString("fr-FR", {
-      weekday: "long",
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-      timeZone: "Europe/Paris",
-    })
-    .replace(/^\w/, (c) => c.toUpperCase());
 
   const data = getLastDaysMood(userData, todayDate);
   const labels = getLastDaysLabels(todayDate, 5);
@@ -69,7 +60,6 @@ export default function Page() {
   return (
     <div className={styles.dashboard}>
       <section className={styles.todayMood}>
-        <div className={`${styles.today} ${styles.textBody}`}>{todayLabel}</div>
         <h1 className={styles.titleCentered}>Comment ça va aujourd'hui ?</h1>
         <div className={styles.modjiContainer}>
           <Scene mood={mood} />
