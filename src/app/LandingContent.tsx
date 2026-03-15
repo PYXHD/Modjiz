@@ -20,9 +20,10 @@ function LandingContent() {
     if (mode) {
       router.replace("/app");
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setReady(true);
     }
-  }, []);
+  }, [router]);
 
   if (!ready) return null;
 

@@ -1,11 +1,11 @@
 "use client";
 import styles from "./Header.module.scss";
 
-import Logo from "@/assets/img/logo_app.svg";
+// import Logo from "@/assets/img/logo_app.svg";
 
-type StarProps = {
-  validated: boolean;
-};
+// type StarProps = {
+//   validated: boolean;
+// };
 
 {
   /* DEV ONLY */
