@@ -7,6 +7,17 @@ type StarProps = {
   validated: boolean;
 };
 
+{
+  /* DEV ONLY */
+}
+function resetDemo(): void {
+  localStorage.removeItem("app-mode");
+  location.reload();
+}
+{
+  /* DEV ONLY */
+}
+
 function Header() {
   return (
     <div className={styles.container}>
@@ -18,7 +29,21 @@ function Header() {
         />
         <p className={styles.countTypo}>22</p>
       </div>
-      <Logo alt="App title" className={styles.title} />
+      {/* <Logo alt="App title" className={styles.title} /> */}
+      {/* DEV ONLY */}
+      <button
+        onClick={resetDemo}
+        style={{
+          width: "80px",
+          height: "30px",
+          backgroundColor: "red",
+          cursor: "pointer",
+        }}
+      >
+        {" "}
+        RESET
+      </button>
+      {/* DEV ONLY */}
       <div className={styles.trophy}>
         <img
           src="/icons/icon_trophy.svg"
