@@ -1,7 +1,12 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   color-scheme: light dark;
+  scrollbar-width: none;
 }
 
 body {

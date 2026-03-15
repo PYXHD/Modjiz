@@ -1,0 +1,42 @@
+@use "../../../styles/tools/breakpoints" as *;
+@use "../../../styles/tools/flex" as *;
+@use "../../../styles/tools/icon" as *;
+@use "../../../styles/tools/spacing" as *;
+
+.container {
+  position: fixed;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  max-width: breakpoint(tablet);
+  margin: auto;
+
+  @include flex(row, center, center, lg);
+
+  background-color: var(--color-primary);
+
+  border-top: 3px solid var(--color-primary);
+
+  .iconButton {
+    @include flex(row, center, center);
+    @include icon-size(extralarge);
+    opacity: 0.6;
+    transform: scale(1);
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+
+    &.active {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    img {
+      @include icon-size(large);
+    }
+  }
+}
