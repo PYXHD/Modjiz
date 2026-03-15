@@ -1,0 +1,59 @@
+.switch {
+  position: relative;
+  display: flex;
+  background: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  border-radius: 15px;
+  padding: 4px;
+  width: 200px;
+
+  button {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px 0;
+    cursor: pointer;
+    z-index: 2;
+    font-weight: 500;
+
+    user-select: none;
+
+    color: var(--color-bg);
+
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+
+    transition: color 0.2s ease;
+
+    &:active {
+      outline: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+    }
+
+    &.active {
+      color: var(--color-text2);
+    }
+  }
+
+  .slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: var(--color-primary);
+    border-radius: 10px;
+    transition: transform 0.25s ease;
+
+    &.right {
+      transform: translateX(100%);
+    }
+  }
+}
