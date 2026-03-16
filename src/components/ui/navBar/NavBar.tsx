@@ -22,6 +22,12 @@ function NavBar() {
         <img src="/icons/menu_stats.svg" alt="Stats icon" />
       </Link>
       <Link
+        href="/app/trophies"
+        className={`${styles.iconButton} ${pathname === "/app/trophies" ? styles.active : ""}`}
+      >
+        <img src="/icons/menu_trophy.svg" alt="Stats trophies" />
+      </Link>
+      <Link
         href="/app/settings"
         className={`${styles.iconButton} ${pathname === "/app/settings" ? styles.active : ""}`}
       >

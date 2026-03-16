@@ -1,7 +1,7 @@
 "use client";
 import styles from "./Header.module.scss";
 
-// import Logo from "@/assets/img/logo_app.svg";
+import Logo from "@/assets/img/logo_app.svg";
 
 // type StarProps = {
 //   validated: boolean;
@@ -29,7 +29,7 @@ function Header() {
         />
         <p className={styles.countTypo}>22</p>
       </div>
-      {/* <Logo alt="App title" className={styles.title} /> */}
+
       {/* DEV ONLY */}
       <button
         onClick={resetDemo}
@@ -44,13 +44,7 @@ function Header() {
         RESET
       </button>
       {/* DEV ONLY */}
-      <div className={styles.trophy}>
-        <img
-          src="/icons/icon_trophy.svg"
-          alt="Trophy Icon"
-          className={styles.iconMd}
-        />
-      </div>
+      <Logo alt="App title" className={styles.title} />
     </div>
   );
 }
