@@ -12,7 +12,7 @@ import { MOODS } from "@/domain/mood/moods";
 import Scene from "@/components/three/Canvas";
 import Button from "@/components/ui/button/Button";
 
-import styles from "@/app/app/page.module.scss";
+import styles from "./DashboardClient.module.scss";
 
 type Props = {
   today: Date;

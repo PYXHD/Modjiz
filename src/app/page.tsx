@@ -1,4 +1,4 @@
-import LandingContent from "./LandingContent";
+import LandingContent from "@/components/landing/LandingContent";
 
 function Page() {
   return <LandingContent />;
