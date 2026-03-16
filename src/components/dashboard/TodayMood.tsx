@@ -7,6 +7,7 @@ import type { EmotionLevel } from "@/types/EmotionLevel";
 
 import { saveEntry } from "@/data/sources/saveEntry";
 import { addTodayEntry } from "@/domain/mood/addTodayEntry";
+import { MOODS } from "@/domain/mood/moods";
 
 import Scene from "@/components/three/Canvas";
 import Button from "@/components/ui/button/Button";
@@ -20,15 +21,6 @@ type Props = {
 
 function TodayMood({ today, setData }: Props) {
   const [mood, setMood] = useState<EmotionLevel>(0);
-
-  const moods: { value: EmotionLevel; color: string }[] = [
-    { value: 0, color: "var(--color-emotion-bad)" },
-    { value: 1, color: "var(--color-emotion-bad)" },
-    { value: 2, color: "var(--color-emotion-meh)" },
-    { value: 3, color: "var(--color-emotion-ok)" },
-    { value: 4, color: "var(--color-emotion-good)" },
-    { value: 5, color: "var(--color-emotion-great)" },
-  ];
 
   async function handleSave() {
     const entry: Entry = {
@@ -51,23 +43,21 @@ function TodayMood({ today, setData }: Props) {
 
       <div className={styles.moodSelector}>
         <div className={styles.moodList}>
-          {moods
-            .filter((m) => m.value !== 0)
-            .map((m) => (
-              <input
-                key={m.value}
-                type="radio"
-                name="mood"
-                value={m.value}
-                checked={mood === m.value}
-                onChange={() => setMood(m.value)}
-                style={{
-                  backgroundColor: m.color,
-                  color: m.color,
-                }}
-                className={styles.mood}
-              />
-            ))}
+          {MOODS.filter((m) => m.value !== 0).map((m) => (
+            <input
+              key={m.value}
+              type="radio"
+              name="mood"
+              value={m.value}
+              checked={mood === m.value}
+              onChange={() => setMood(m.value)}
+              style={{
+                backgroundColor: m.color,
+                color: m.color,
+              }}
+              className={styles.mood}
+            />
+          ))}
         </div>
 
         <div className={styles.moodRange}>

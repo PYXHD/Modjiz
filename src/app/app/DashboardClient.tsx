@@ -12,6 +12,7 @@ import type { Entry } from "@/types/Entry";
 import Button from "@/components/ui/button/Button";
 import DaysChart from "@/components/ui/daysChart/DaysChart";
 import TodayMood from "@/components/dashboard/TodayMood";
+import RecentMoods from "@/components/dashboard/RecentMoods";
 
 type Props = {
   userData: Entry[];
@@ -30,16 +31,7 @@ function DashboardClient({ userData, today }: Props) {
 
       <div className={styles.separator}></div>
 
-      <section className={styles.recentMoods}>
-        <h2 className={styles.titleCentered}>Et récemment ?</h2>
-
-        <DaysChart data={dataLastDays} labels={labels} />
-
-        <div className={styles.buttonContainer}>
-          <Button>Mon historique</Button>
-          <p className={styles.textMeta}>Statistiques et tendances</p>
-        </div>
-      </section>
+      <RecentMoods data={data} today={today} />
     </div>
   );
 }
