@@ -1,6 +1,7 @@
 @use "../../../styles/tools/spacing" as *;
 @use "../../../styles/tools/typos" as *;
 @use "../../../styles/tools/flex" as *;
+@use "../../../styles/tools/layouts" as *;
 @use "../../../styles/tools/breakpoints" as *;
 
 /* === TYPO === */
@@ -18,7 +19,7 @@
   padding: space(sm);
   padding-bottom: space(xxl);
   margin: auto;
-  max-width: breakpoint(large);
+  @include container(default);
 
   .container {
     @include flex(column, center, flex-start, lg);
