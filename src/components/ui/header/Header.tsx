@@ -1,11 +1,10 @@
 "use client";
 import styles from "./Header.module.scss";
 
+import { useState, useEffect } from "react";
 import Logo from "@/assets/img/logo_app.svg";
-
-// type StarProps = {
-//   validated: boolean;
-// };
+import { Entry } from "@/types/Entry";
+import { getUserData } from "@/data/getUserData";
 
 {
   /* DEV ONLY */
@@ -19,6 +18,18 @@ function resetDemo(): void {
 }
 
 function Header() {
+  // REFACTOR ///////////////////////////
+  const [userData, setUserData] = useState<Entry[]>([]);
+  useEffect(() => {
+    async function loadData() {
+      const data = await getUserData();
+      setUserData(data);
+    }
+
+    loadData();
+  }, []);
+  // REFACTOR ///////////////////////////
+
   return (
     <div className={styles.container}>
       <div className={styles.counter}>
@@ -27,7 +38,7 @@ function Header() {
           alt="Star icon"
           className={styles.iconMd}
         />
-        <p className={styles.countTypo}>22</p>
+        <p className={styles.countTypo}>{userData.length}</p>
       </div>
 
       {/* DEV ONLY */}
