@@ -1,0 +1,44 @@
+@use "../../../styles/tools/breakpoints" as *;
+@use "../../../styles/tools/flex" as *;
+@use "../../../styles/tools/icon" as *;
+@use "../../../styles/tools/layouts" as *;
+@use "../../../styles/tools/spacing" as *;
+@use "../../../styles/tools/typos" as *;
+
+/* === TYPO === */
+.title {
+  @include font-app(medium, normal);
+  @include text(lead);
+}
+.description {
+  @include font-app(light, italic);
+  @include text(small);
+  // text-indent: space(xs);
+}
+
+/* === LAYOUT === */
+.trophies {
+  @include flex(column, center, center, xl);
+  padding: space(sm);
+  padding-bottom: space(xxl);
+
+  margin: auto;
+  @include container(default);
+
+  .container {
+    @include flex(column, center, flex-start, lg);
+    width: 100%;
+
+    .subContainer {
+      @include flex(column, center, flex-start, xs);
+
+      .titleContainer {
+        @include flex(row, flex-start, center, xs);
+
+        img {
+          @include icon-size(medium);
+        }
+      }
+    }
+  }
+}
