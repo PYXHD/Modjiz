@@ -179,6 +179,16 @@ function LandingContent() {
                 />
                 <span>Sass</span>
               </li>
+
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
+                  src="/icons/logo_three.svg"
+                  alt="Icon Sass"
+                  aria-hidden
+                />
+                <span>Three.js</span>
+              </li>
             </ul>
           </div>
         </div>
