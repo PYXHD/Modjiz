@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import styles from "./page.module.scss";
+import styles from "./LandingContent.module.scss";
 
 import Button from "@/components/ui/button/Button";
 import btnStyle from "@/components/ui/button/Button.module.scss";
