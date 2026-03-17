@@ -1,0 +1,6 @@
+reprendre getSatDaysMood()
+
+modifier le format Date pour unifier le code
+
+// Pour l'API :
+revoir null dans la fonction addTodayEntry
