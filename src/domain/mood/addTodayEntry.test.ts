@@ -40,6 +40,12 @@ describe("addTodayEntry()", () => {
   });
 
   describe("edge cases", () => {
+    test("adds entry when entries is null", () => {
+      const newEntry = { date: "2026-03-02", value: 4 };
+
+      expect(addTodayEntry(null, newEntry)).toEqual([newEntry]);
+    });
+
     test("adds entry when entries list is empty", () => {
       const entries: Entry[] = [];
       const newEntry = { date: "2026-03-02", value: 4 };
