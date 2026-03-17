@@ -16,7 +16,7 @@ import styles from "./DashboardClient.module.scss";
 
 type Props = {
   today: Date;
-  setData: React.Dispatch<React.SetStateAction<Entry[]>>;
+  setData: React.Dispatch<React.SetStateAction<Entry[] | null>>;
 };
 
 function TodayMood({ today, setData }: Props) {

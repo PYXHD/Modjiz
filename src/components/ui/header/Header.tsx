@@ -21,12 +21,16 @@ function Header() {
   // REFACTOR ///////////////////////////
   const [userData, setUserData] = useState<Entry[]>([]);
   useEffect(() => {
-    async function loadData() {
+    async function reload() {
       const data = await getUserData();
       setUserData(data);
     }
 
-    loadData();
+    reload();
+
+    window.addEventListener("mood-updated", reload);
+
+    return () => window.removeEventListener("mood-updated", reload);
   }, []);
   // REFACTOR ///////////////////////////
 

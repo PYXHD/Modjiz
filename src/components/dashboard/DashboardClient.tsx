@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getUserData } from "@/data/getUserData";
 
 import styles from "./DashboardClient.module.scss";
 
@@ -10,12 +11,16 @@ import TodayMood from "@/components/dashboard/TodayMood";
 import RecentMoods from "@/components/dashboard/RecentMoods";
 
 type Props = {
-  userData: Entry[];
   today: Date;
 };
 
-function DashboardClient({ userData, today }: Props) {
-  const [data, setData] = useState(userData);
+function DashboardClient({ today }: Props) {
+  const [data, setData] = useState<Entry[] | null>(null);
+  useEffect(() => {
+    getUserData().then(setData);
+  }, []);
+
+  if (!data) return <div>Loading...</div>;
 
   return (
     <div className={styles.dashboard}>

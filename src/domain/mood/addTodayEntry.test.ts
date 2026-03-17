@@ -52,9 +52,8 @@ describe("addTodayEntry()", () => {
       const entries = [{ date: "2026-03-01", value: 3 }];
       const newEntry = { date: "2026-03-02", value: 4 };
 
-      run(entries, newEntry);
-
-      expect(run(entries, newEntry)).not.toBe(entries);
+      const result = run(entries, newEntry);
+      expect(result).not.toBe(entries);
     });
   });
 });

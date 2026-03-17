@@ -1,13 +1,11 @@
-import { getUserData } from "@/data/getUserData";
 import { getToday } from "@/lib/time/getToday";
 
 import DashboardClient from "@/components/dashboard/DashboardClient";
 
 async function Page() {
-  const userData = await getUserData();
   const today = getToday();
 
-  return <DashboardClient userData={userData} today={today} />;
+  return <DashboardClient today={today} />;
 }
 
 export default Page;
