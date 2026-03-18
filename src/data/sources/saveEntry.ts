@@ -12,10 +12,9 @@ export async function saveEntry(entry: Entry) {
     const stored = sessionStorage.getItem(STORAGE_KEY);
     const data: Entry[] = stored ? JSON.parse(stored) : [];
 
-    const exists = data.some((e) => e.date === entry.date);
-    if (exists) return entry;
-
-    const updated = [...data, entry];
+    const updated = data.some((e) => e.date === entry.date)
+      ? data.map((e) => (e.date === entry.date ? entry : e))
+      : [...data, entry];
 
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
 

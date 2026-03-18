@@ -24,7 +24,7 @@ function DashboardClient({ today }: Props) {
 
   return (
     <div className={styles.dashboard}>
-      <TodayMood today={today} setData={setData} />
+      <TodayMood today={today} data={data} setData={setData} />
 
       <div className={styles.separator}></div>
 
