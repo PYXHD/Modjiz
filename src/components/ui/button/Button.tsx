@@ -4,11 +4,17 @@ import styles from "./Button.module.scss";
 type ButtonProps = {
   children: string;
   onClick?: () => void;
+  disabled?: boolean;
 };
 
-function Button({ children, onClick }: ButtonProps) {
+function Button({ children, onClick, disabled }: ButtonProps) {
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button
+      type="button"
+      className={styles.button}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

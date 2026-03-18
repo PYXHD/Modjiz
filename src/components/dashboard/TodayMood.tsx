@@ -21,8 +21,17 @@ type Props = {
 
 function TodayMood({ today, setData }: Props) {
   const [mood, setMood] = useState<EmotionLevel>(0);
+  const [locked, setLocked] = useState(false);
+  const selectedMood = MOODS.find((m) => m.value === mood);
 
   async function handleSave() {
+    if (locked) {
+      setLocked(false);
+      return;
+    }
+
+    if (mood === 0) return;
+
     const entry: Entry = {
       date: today.toLocaleDateString("en-CA"),
       value: mood,
@@ -30,12 +39,37 @@ function TodayMood({ today, setData }: Props) {
 
     await saveEntry(entry);
 
-    setData((prev) => addTodayEntry(prev, entry));
+    setData((prev) => {
+      if (!prev) return [entry];
+
+      const exists = prev.some((e) => e.date === entry.date);
+
+      if (exists) {
+        return prev.map((e) => (e.date === entry.date ? entry : e));
+      }
+
+      return [...prev, entry];
+    });
+
+    setLocked(true);
   }
 
   return (
     <section className={styles.todayMood}>
-      <h1 className={styles.titleCentered}>Comment ça va aujourd'hui ?</h1>
+      <div className={styles.titleWrapper}>
+        <h1
+          className={`${styles.mainTitle} ${styles.titleCentered} ${mood === 0 ? styles.visible : styles.hidden}`}
+        >
+          Comment ça va aujourd'hui ?
+        </h1>
+
+        <h1
+          className={`${styles.mainTitle} ${styles.titleCentered} ${mood !== 0 ? styles.visible : styles.hidden}`}
+        >
+          Aujourd'hui je me sens : <br />
+          {selectedMood?.label}
+        </h1>
+      </div>
 
       <div className={styles.modjiContainer}>
         <Scene mood={mood} />
@@ -50,7 +84,11 @@ function TodayMood({ today, setData }: Props) {
               name="mood"
               value={m.value}
               checked={mood === m.value}
-              onChange={() => setMood(m.value)}
+              onChange={() => {
+                if (locked) return;
+                setMood(m.value);
+              }}
+              disabled={locked}
               style={{
                 backgroundColor: m.color,
                 color: m.color,
@@ -67,7 +105,9 @@ function TodayMood({ today, setData }: Props) {
         </div>
       </div>
 
-      <Button onClick={handleSave}>Enregistrer</Button>
+      <Button onClick={handleSave} disabled={mood === 0 && !locked}>
+        {locked ? "Modifier" : "Enregistrer"}
+      </Button>
     </section>
   );
 }
