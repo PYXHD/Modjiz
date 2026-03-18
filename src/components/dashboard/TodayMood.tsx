@@ -28,12 +28,14 @@ function TodayMood({ today, data, setData }: Props) {
   const existingEntry = data?.find((e) => e.date === todayStr);
   const selectedMood = MOODS.find((m) => m.value === mood);
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
     if (existingEntry) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMood(existingEntry.value as EmotionLevel);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsEditing(false);
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsEditing(true);
     }
   }, [existingEntry]);
