@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { Entry } from "@/types/Entry";
 import type { EmotionLevel } from "@/types/EmotionLevel";
@@ -16,45 +16,61 @@ import styles from "./DashboardClient.module.scss";
 
 type Props = {
   today: Date;
+  data: Entry[] | null;
   setData: React.Dispatch<React.SetStateAction<Entry[] | null>>;
 };
 
-function TodayMood({ today, setData }: Props) {
+function TodayMood({ today, data, setData }: Props) {
   const [mood, setMood] = useState<EmotionLevel>(0);
-  const [locked, setLocked] = useState(false);
+  const [isEditing, setIsEditing] = useState(true);
+
+  const todayStr = today.toLocaleDateString("en-CA");
+  const existingEntry = data?.find((e) => e.date === todayStr);
   const selectedMood = MOODS.find((m) => m.value === mood);
 
+  useEffect(() => {
+    if (existingEntry) {
+      setMood(existingEntry.value as EmotionLevel);
+      setIsEditing(false);
+    } else {
+      setIsEditing(true);
+    }
+  }, [existingEntry]);
+
   async function handleSave() {
-    if (locked) {
-      setLocked(false);
+    if (!isEditing) {
+      setIsEditing(true);
       return;
     }
 
     if (mood === 0) return;
 
     const entry: Entry = {
-      date: today.toLocaleDateString("en-CA"),
+      date: todayStr,
       value: mood,
     };
 
     await saveEntry(entry);
-
     setData((prev) => upsertEntry(prev, entry));
 
-    setLocked(true);
+    setIsEditing(false);
   }
 
   return (
     <section className={styles.todayMood}>
       <div className={styles.titleWrapper}>
         <h1
-          className={`${styles.mainTitle} ${styles.titleCentered} ${mood === 0 ? styles.visible : styles.hidden}`}
+          className={`${styles.mainTitle} ${styles.titleCentered} ${
+            mood === 0 ? styles.visible : styles.hidden
+          }`}
         >
           Comment ça va aujourd'hui ?
         </h1>
 
         <h1
-          className={`${styles.mainTitle} ${styles.titleCentered} ${mood !== 0 ? styles.visible : styles.hidden}`}
+          className={`${styles.mainTitle} ${styles.titleCentered} ${
+            mood !== 0 ? styles.visible : styles.hidden
+          }`}
         >
           Aujourd'hui je me sens : <br />
           {selectedMood?.label}
@@ -75,10 +91,10 @@ function TodayMood({ today, setData }: Props) {
               value={m.value}
               checked={mood === m.value}
               onChange={() => {
-                if (locked) return;
+                if (!isEditing) return;
                 setMood(m.value);
               }}
-              disabled={locked}
+              disabled={!isEditing}
               style={{
                 backgroundColor: m.color,
                 color: m.color,
@@ -95,8 +111,8 @@ function TodayMood({ today, setData }: Props) {
         </div>
       </div>
 
-      <Button onClick={handleSave} disabled={mood === 0 && !locked}>
-        {locked ? "Modifier" : "Enregistrer"}
+      <Button onClick={handleSave} disabled={mood === 0 && isEditing}>
+        {isEditing ? "Enregistrer" : "Modifier"}
       </Button>
     </section>
   );
