@@ -6,7 +6,7 @@ import type { Entry } from "@/types/Entry";
 import type { EmotionLevel } from "@/types/EmotionLevel";
 
 import { saveEntry } from "@/data/sources/saveEntry";
-import { addTodayEntry } from "@/domain/mood/addTodayEntry";
+import { upsertEntry } from "@/domain/mood/upsertEntry";
 import { MOODS } from "@/domain/mood/moods";
 
 import Scene from "@/components/three/Canvas";
@@ -39,17 +39,7 @@ function TodayMood({ today, setData }: Props) {
 
     await saveEntry(entry);
 
-    setData((prev) => {
-      if (!prev) return [entry];
-
-      const exists = prev.some((e) => e.date === entry.date);
-
-      if (exists) {
-        return prev.map((e) => (e.date === entry.date ? entry : e));
-      }
-
-      return [...prev, entry];
-    });
+    setData((prev) => upsertEntry(prev, entry));
 
     setLocked(true);
   }
