@@ -37,7 +37,6 @@ function Mascot({ emotion = "pensive", ...props }: Props) {
       const mat = child.material as THREE.MeshStandardMaterial;
 
       mat.transparent = true;
-      mat.opacity = 0;
     });
   }, [scene]);
 
@@ -80,19 +79,10 @@ function Mascot({ emotion = "pensive", ...props }: Props) {
   useFrame(({ clock }) => {
     const t = clock.elapsedTime;
 
-    /* fade in */
-
-    if (opacity.current < 1) {
-      opacity.current = Math.min(opacity.current + 0.008, 1);
-    }
-
-    /* morph transitions + opacity */
+    /* morph transitions */
 
     scene.traverse((child) => {
       if (!(child instanceof THREE.Mesh)) return;
-
-      const mat = child.material as THREE.MeshStandardMaterial;
-      mat.opacity = opacity.current;
 
       const influences = child.morphTargetInfluences;
 
@@ -104,11 +94,19 @@ function Mascot({ emotion = "pensive", ...props }: Props) {
       });
     });
 
-    /* breathing */
+    /* fade progression */
+
+    opacity.current = THREE.MathUtils.lerp(opacity.current, 1, 0.08);
+
+    /* breathing + fade */
 
     if (mascotRef.current) {
+      const fade = opacity.current;
       const breathe = 1 + Math.sin(t * 2) * 0.02;
-      mascotRef.current.scale.set(10, 10 * breathe, 10);
+
+      const s = 10 * fade;
+
+      mascotRef.current.scale.set(s, s * breathe, s);
     }
   });
 
