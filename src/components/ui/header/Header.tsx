@@ -6,7 +6,6 @@ import Logo from "@/assets/img/logo_app.svg";
 import { Entry } from "@/types/Entry";
 import { getUserData } from "@/data/getUserData";
 import { getToday } from "@/lib/time/getToday";
-import { demoUserData } from "@/data/sources/mock/demoUserData";
 
 {
   /* DEV ONLY */

@@ -7,9 +7,12 @@ import { TROPHIES } from "@/data/trophies/trophies";
 import { getUserData } from "@/data/getUserData";
 import { getHistoryData } from "@/data/getHistoryData";
 
+import type { Entry } from "@/types/Entry";
+import type { HistoryStats } from "@/types/HistoryStats";
+
 function Trophies() {
-  const [userData, setUserData] = useState<any[]>([]);
-  const [historyData, setHistoryData] = useState<any[]>([]);
+  const [userData, setUserData] = useState<Entry[]>([]);
+  const [historyData, setHistoryData] = useState<HistoryStats>([]);
 
   useEffect(() => {
     async function loadData() {
