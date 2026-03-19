@@ -51,10 +51,10 @@ export const TROPHIES: Trophy[] = [
     target: 50,
   },
   {
-    id: "back_to_the_past",
-    title: "Retour vers le passé",
-    description: "Consulter un mois antérieur",
-    type: "month",
-    target: 1,
+    id: "strategist",
+    title: "stratège",
+    description: "Consulter 100 fois l'historique",
+    type: "history",
+    target: 100,
   },
 ];

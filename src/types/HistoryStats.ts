@@ -1,3 +1,1 @@
-export type HistoryStats = {
-  dates: string[];
-};
+export type HistoryStats = string[];

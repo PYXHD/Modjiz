@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import Logo from "@/assets/img/logo_app.svg";
 import { Entry } from "@/types/Entry";
 import { getUserData } from "@/data/getUserData";
+import { getToday } from "@/lib/time/getToday";
+import { demoUserData } from "@/data/sources/mock/demoUserData";
 
 {
   /* DEV ONLY */
@@ -18,7 +20,6 @@ function resetDemo(): void {
 }
 
 function Header() {
-  // REFACTOR ///////////////////////////
   const [userData, setUserData] = useState<Entry[]>([]);
   useEffect(() => {
     async function reload() {
@@ -32,13 +33,19 @@ function Header() {
 
     return () => window.removeEventListener("mood-updated", reload);
   }, []);
-  // REFACTOR ///////////////////////////
+
+  const today = getToday().toLocaleDateString("en-CA");
+  const hasTodayEntry = userData.some((entry) => entry.date === today);
 
   return (
     <div className={styles.container}>
       <div className={styles.counter}>
         <img
-          src="/icons/icon_star_unactive.svg"
+          src={
+            hasTodayEntry
+              ? "/icons/icon_star.svg"
+              : "/icons/icon_star_unactive.svg"
+          }
           alt="Star icon"
           className={styles.iconMd}
         />

@@ -4,3 +4,6 @@ modifier le format Date pour unifier le code
 
 // Pour l'API :
 revoir null dans la fonction addTodayEntry
+
+revoir le useeffect de TodayMood (esLint errors)
+refacotr TodayMood
