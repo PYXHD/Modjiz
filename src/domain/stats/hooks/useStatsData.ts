@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { getUserData } from "@/data/getUserData";
 import { getMonthData } from "@/domain/stats/getMonthData";
 
+import type { Entry } from "@/types/Entry";
+
 import type { Month, Year } from "@/types/DateTypes";
 import { getAvailableMonths } from "../getAvailableMonth";
 
 export function useStatsData(mode: "month" | "year") {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<Entry[]>([]);
   const [date, setDate] = useState(new Date());
 
   const availableMonths = getAvailableMonths(data);
