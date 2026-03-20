@@ -6,19 +6,36 @@ type Props = {
   subLabel?: string;
   onPrev: () => void;
   onNext: () => void;
+  canGoPrev: boolean;
+  canGoNext: boolean;
 };
 
-function TimeSwitcher({ label, subLabel, onPrev, onNext }: Props) {
+function TimeSwitcher({
+  label,
+  subLabel,
+  onPrev,
+  onNext,
+  canGoPrev,
+  canGoNext,
+}: Props) {
   return (
     <div className={styles.timeSwitcher}>
-      <button className={styles.prev} onClick={onPrev}></button>
+      <button
+        className={styles.prev}
+        onClick={onPrev}
+        disabled={!canGoPrev}
+      ></button>
 
       <div className="label">
         <div className="main">{label}</div>
         {subLabel && <div className="sub">{subLabel}</div>}
       </div>
 
-      <button className={styles.next} onClick={onNext}></button>
+      <button
+        className={styles.next}
+        onClick={onNext}
+        disabled={!canGoNext}
+      ></button>
     </div>
   );
 }

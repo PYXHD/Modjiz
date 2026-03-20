@@ -10,23 +10,7 @@ import { useStatsData } from "@/domain/stats/hooks/useStatsData";
 function Stats() {
   const [mode, setMode] = useState<"month" | "year">("month");
 
-  const { filteredData, date, setDate, isMonthAvailable } = useStatsData(mode);
-
-  const changeDate = (amount: number) => {
-    const d = new Date(date);
-
-    if (mode === "month") {
-      d.setMonth(d.getMonth() + amount);
-    } else {
-      d.setFullYear(d.getFullYear() + amount);
-    }
-
-    if (mode === "month" && !isMonthAvailable(d)) {
-      return;
-    }
-
-    setDate(d);
-  };
+  const { filteredData, date, changeDate, canNavigate } = useStatsData(mode);
 
   return (
     <div className={styles.stats}>
@@ -59,6 +43,8 @@ function Stats() {
           }
           onPrev={() => changeDate(-1)}
           onNext={() => changeDate(1)}
+          canGoPrev={canNavigate(-1)}
+          canGoNext={canNavigate(1)}
         />
         {/* REFACTOR */}
       </section>
