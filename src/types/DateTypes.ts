@@ -13,3 +13,8 @@ export type Month =
   | "12";
 
 export type Year = `${number}${number}${number}${number}`;
+
+export type MonthEntries = {
+  month: number;
+  year: number;
+};

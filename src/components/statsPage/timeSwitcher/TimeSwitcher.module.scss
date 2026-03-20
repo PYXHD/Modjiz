@@ -1,0 +1,49 @@
+@use "../../../styles/tools/breakpoints" as *;
+@use "../../../styles/tools/flex" as *;
+@use "../../../styles/tools/icon" as *;
+@use "../../../styles/tools/layouts" as *;
+@use "../../../styles/tools/spacing" as *;
+@use "../../../styles/tools/typos" as *;
+
+//*=== TYPO ===*//
+
+//*=== LAYOUT ===*//
+.timeSwitcher {
+  @include flex(row, space-between, center, sm);
+  @include container(small);
+
+  button {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    background: none;
+    cursor: pointer;
+
+    &.prev {
+      border-width: 24px 32px 24px 0;
+      border-color: transparent var(--color-emotion-meh) transparent transparent;
+    }
+
+    &.next {
+      border-width: 24px 0 24px 32px;
+      border-color: transparent transparent transparent var(--color-emotion-meh);
+    }
+  }
+
+  button:hover {
+    filter: brightness(0.8);
+  }
+
+  .label {
+    text-align: center;
+
+    .main {
+      font-weight: 600;
+    }
+
+    .sub {
+      font-size: 12px;
+      color: #888;
+    }
+  }
+}

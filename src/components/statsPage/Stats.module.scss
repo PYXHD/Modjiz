@@ -1,0 +1,29 @@
+@use "../../styles/tools/breakpoints" as *;
+@use "../../styles/tools/flex" as *;
+@use "../../styles/tools/icon" as *;
+@use "../../styles/tools/layouts" as *;
+@use "../../styles/tools/spacing" as *;
+@use "../../styles/tools/typos" as *;
+
+/* === LAYOUT === */
+.stats {
+  @include flex(column, space-between, center, xl);
+  padding: space(sm);
+  padding-bottom: space(xxl);
+
+  .topSection {
+    @include flex(column, space-between, center, md);
+    width: 100%;
+
+    .buttonContainer {
+      @include flex(row, center, center, sm);
+      width: 100%;
+      max-width: maxWidth(compact);
+
+      > * {
+        width: 50%;
+        padding: 10px;
+      }
+    }
+  }
+}
