@@ -1,9 +1,9 @@
 import styles from "./page.module.scss";
 
 import Button from "@/components/ui/button/Button";
-import ThemeSwitch from "@/components/ui/themeSwitch/ThemeSwitch";
+import ThemeSwitch from "@/app/app/settings/themeSwitch/ThemeSwitch";
 
-function Settings() {
+function Page() {
   return (
     <div className={styles.preferences}>
       <h1 className={styles.titleCentered}>Préférences</h1>
@@ -44,4 +44,4 @@ function Settings() {
   );
 }
 
-export default Settings;
+export default Page;

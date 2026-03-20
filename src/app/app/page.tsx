@@ -1,6 +1,6 @@
 import { getToday } from "@/lib/time/getToday";
 
-import DashboardClient from "@/components/dashboard/DashboardClient";
+import DashboardClient from "@/components/dashboardPage/DashboardClient";
 
 async function Page() {
   const today = getToday();

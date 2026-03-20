@@ -6,7 +6,7 @@ import { getLastDaysMood } from "@/domain/mood/getLastDaysMood";
 import type { Entry } from "@/types/Entry";
 
 import Button from "@/components/ui/button/Button";
-import DaysChart from "@/components/stats/daysChart/DaysChart";
+import DaysChart from "@/components/dashboardPage/daysChart/DaysChart";
 
 type Props = {
   data: Entry[];

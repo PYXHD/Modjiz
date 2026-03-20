@@ -1,3 +1,7 @@
-export default function Stats() {
-  return <h1>Stats</h1>;
+import Stats from "@/components/statsPage/Stats";
+
+function Page() {
+  return <Stats />;
 }
+
+export default Page;

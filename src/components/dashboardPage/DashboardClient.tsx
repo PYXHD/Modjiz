@@ -7,8 +7,8 @@ import styles from "./DashboardClient.module.scss";
 
 import type { Entry } from "@/types/Entry";
 
-import TodayMood from "@/components/dashboard/TodayMood";
-import RecentMoods from "@/components/dashboard/RecentMoods";
+import TodayMood from "@/components/dashboardPage/TodayMood";
+import RecentMoods from "@/components/dashboardPage/RecentMoods";
 
 type Props = {
   today: Date;
