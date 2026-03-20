@@ -5,13 +5,19 @@ type ButtonProps = {
   children: string;
   onClick?: () => void;
   disabled?: boolean;
+  variant?: "primary" | "outline";
 };
 
-function Button({ children, onClick, disabled }: ButtonProps) {
+function Button({
+  children,
+  onClick,
+  disabled,
+  variant = "primary",
+}: ButtonProps) {
   return (
     <button
       type="button"
-      className={styles.button}
+      className={`${styles.button} ${styles[variant]}`}
       onClick={onClick}
       disabled={disabled}
     >
