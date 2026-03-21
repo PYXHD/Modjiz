@@ -1,4 +1,4 @@
-import Trophies from "@/components/trophies/Trophies";
+import Trophies from "@/components/trophiesPage/Trophies";
 
 function Page() {
   return <Trophies />;

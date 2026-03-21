@@ -1,47 +1,7 @@
-import styles from "./page.module.scss";
-
-import Button from "@/components/ui/button/Button";
-import ThemeSwitch from "@/app/app/settings/themeSwitch/ThemeSwitch";
+import Settings from "@/components/settingsPage/Settings";
 
 function Page() {
-  return (
-    <div className={styles.preferences}>
-      <h1 className={styles.titleCentered}>Préférences</h1>
-      <div className={styles.container}>
-        <div className={styles.h2Container}>
-          <h2>Apparence</h2>
-          <div className={styles.subContainer}>
-            <div className={styles.textBody}>Thème</div>
-            <ThemeSwitch />
-          </div>
-        </div>
-
-        <div className={styles.h2Container}>
-          <h2>Infos</h2>
-          <div className={styles.subContainer}>
-            <div className={styles.textBody}>Version</div>
-            <div className={styles.textBody}>0.7.0</div>
-          </div>
-          <div className={styles.subContainer}>
-            <div className={styles.textBody}>Auteur</div>
-            <div className={styles.textBody}>Marc CHARVOT</div>
-          </div>
-        </div>
-
-        <div className={styles.h2Container}>
-          <h2>Support</h2>
-          <div className={styles.btnContainer}>
-            <p className={styles.textBody}>
-              Une question ou un avis à partager ?
-            </p>
-            <a href="mailto:pyxhd@outlook.fr">
-              <Button>Donner un avis</Button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <Settings />;
 }
 
 export default Page;
