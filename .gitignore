@@ -42,6 +42,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# othres
-AMELIORATIONS.txt
-logique_preliminaire.txt
+# others
+MAJ/
