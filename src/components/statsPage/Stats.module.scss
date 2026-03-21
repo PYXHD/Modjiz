@@ -7,23 +7,23 @@
 
 /* === LAYOUT === */
 .stats {
-  @include flex(column, space-between, center, xl);
+  @include flex(column, space-between, center, md);
   padding: space(sm);
   padding-bottom: space(xxl);
 
-  .topSection {
-    @include flex(column, space-between, center, md);
+  .buttonContainer {
+    @include flex(row, center, center, sm);
     width: 100%;
+    max-width: maxWidth(compact);
 
-    .buttonContainer {
-      @include flex(row, center, center, sm);
-      width: 100%;
-      max-width: maxWidth(compact);
-
-      > * {
-        width: 50%;
-        padding: 10px;
-      }
+    > * {
+      width: 50%;
+      padding: 10px;
     }
+  }
+
+  .subContainer {
+    @include flex(column, center, center, md);
+    width: 100%;
   }
 }
