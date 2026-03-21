@@ -82,7 +82,11 @@ export function useStatsData(mode: "month" | "year") {
     const today = getToday();
 
     if (mode === "month") {
-      if (isMonthAvailable(today)) {
+      const isAvailable = availableMonths.some(
+        (m) => m.year === today.getFullYear() && m.month === today.getMonth(),
+      );
+
+      if (isAvailable) {
         setDate(today);
       } else {
         const first = availableMonths[0];
@@ -91,7 +95,9 @@ export function useStatsData(mode: "month" | "year") {
         }
       }
     } else {
-      if (isYearAvailable(today)) {
+      const isAvailable = availableYears.includes(today.getFullYear());
+
+      if (isAvailable) {
         setDate(today);
       } else {
         const first = availableYears[0];
@@ -100,6 +106,7 @@ export function useStatsData(mode: "month" | "year") {
         }
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode]);
 
   const month = String(normalizedDate.getMonth() + 1).padStart(2, "0") as Month;
