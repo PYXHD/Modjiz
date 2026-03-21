@@ -22,20 +22,40 @@ export function useStatsData(mode: "month" | "year") {
       (m) => m.year === d.getFullYear() && m.month === d.getMonth(),
     );
   };
+
   const isYearAvailable = (d: Date) => {
     return availableYears.includes(d.getFullYear());
   };
 
+  // ✅ 🔥 NORMALISATION de la date (clé du fix)
+  const normalizedDate = (() => {
+    const today = getToday();
+
+    if (mode === "month") {
+      if (isMonthAvailable(date)) return date;
+
+      if (isMonthAvailable(today)) return today;
+
+      const first = availableMonths[0];
+      return first ? new Date(first.year, first.month) : date;
+    } else {
+      if (isYearAvailable(date)) return date;
+
+      if (isYearAvailable(today)) return today;
+
+      const first = availableYears[0];
+      return first ? new Date(first, 0) : date;
+    }
+  })();
+
   const changeDate = (amount: number) => {
-    const d = new Date(date);
+    const d = new Date(normalizedDate);
 
     if (mode === "month") {
       d.setMonth(d.getMonth() + amount);
-
       if (!isMonthAvailable(d)) return;
     } else {
       d.setFullYear(d.getFullYear() + amount);
-
       if (!isYearAvailable(d)) return;
     }
 
@@ -43,7 +63,7 @@ export function useStatsData(mode: "month" | "year") {
   };
 
   const canNavigate = (amount: number) => {
-    const d = new Date(date);
+    const d = new Date(normalizedDate);
 
     if (mode === "month") {
       d.setMonth(d.getMonth() + amount);
@@ -55,47 +75,44 @@ export function useStatsData(mode: "month" | "year") {
   };
 
   useEffect(() => {
+    getUserData().then(setUserData);
+  }, []);
+
+  useEffect(() => {
     const today = getToday();
 
     if (mode === "month") {
-      if (!isMonthAvailable(today)) {
+      if (isMonthAvailable(today)) {
+        setDate(today);
+      } else {
         const first = availableMonths[0];
         if (first) {
           setDate(new Date(first.year, first.month));
         }
-      } else {
-        setDate(today);
       }
     } else {
-      if (!isYearAvailable(today)) {
+      if (isYearAvailable(today)) {
+        setDate(today);
+      } else {
         const first = availableYears[0];
         if (first) {
           setDate(new Date(first, 0));
         }
-      } else {
-        setDate(today);
       }
     }
-  }, [mode, userData]);
+  }, [mode]);
 
-  useEffect(() => {
-    getUserData().then(setUserData);
-  }, []);
+  const month = String(normalizedDate.getMonth() + 1).padStart(2, "0") as Month;
+  const year = String(normalizedDate.getFullYear()) as Year;
 
-  const month = String(date.getMonth() + 1).padStart(2, "0") as Month;
-  const year = String(date.getFullYear()) as Year;
-
-  let filteredData: Entry[] = [];
-
-  if (mode === "month") {
-    filteredData = getMonthData(userData, month, year);
-  } else {
-    filteredData = getYearData(userData, year);
-  }
+  const filteredData =
+    mode === "month"
+      ? getMonthData(userData, month, year)
+      : getYearData(userData, year);
 
   return {
     filteredData,
-    date,
+    date: normalizedDate,
     changeDate,
     canNavigate,
   };
