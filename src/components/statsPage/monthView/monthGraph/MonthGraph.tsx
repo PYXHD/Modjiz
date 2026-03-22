@@ -3,9 +3,8 @@ import {
   Line,
   XAxis,
   YAxis,
-  Tooltip,
-  ResponsiveContainer,
   CartesianGrid,
+  ReferenceLine,
 } from "recharts";
 
 import { ChartPoint } from "@/domain/stats/getMonthChart";
@@ -13,26 +12,50 @@ import { getColor } from "@/domain/mood/getColor";
 
 type Props = {
   chartData: ChartPoint[];
+  average: number;
 };
 
-function MonthGraph({ chartData }: Props) {
+function MonthGraph({ chartData, average }: Props) {
+  const displayAverage = average.toFixed(1);
+  const dayWidth = 40;
+
   return (
     <div style={{ overflowX: "auto", width: "100%" }}>
       <LineChart
-        width={chartData.length * 40}
+        width={chartData.length * dayWidth}
         height={300}
         data={chartData}
-        margin={{ top: 20, right: 40, bottom: 20, left: 40 }}
+        margin={{ top: 20, right: 40, bottom: 20, left: 120 }}
       >
         <CartesianGrid vertical={true} horizontal={false} />
-        <XAxis dataKey="day" interval={0} tickLine={false} axisLine={false} />
+        <XAxis
+          dataKey="day"
+          interval={0}
+          padding={{ left: 0, right: 0 }}
+          tick={{ fill: "var(--color-emotion-ok)" }}
+          tickLine={false}
+          axisLine={false}
+        />
         <YAxis hide domain={[0, 5]} padding={{ top: 20 }} />
-        <Tooltip />
+        <ReferenceLine
+          y={average}
+          stroke="var(--color-emotion-ok)"
+          strokeWidth={1}
+          label={{
+            value: `moyenne: ${displayAverage}`,
+            position: "left",
+            fill: "var(--color-emotion-ok)",
+            fontSize: 12,
+            fontStyle: "italic",
+            dx: -10,
+          }}
+        />
         <Line
           type="linear"
           dataKey="value"
           stroke="var(--color-emotion-ok)"
           strokeWidth={1}
+          isAnimationActive={false}
           dot={({ cx, cy, payload }) => {
             const value = payload.value;
 
@@ -40,7 +63,7 @@ function MonthGraph({ chartData }: Props) {
 
             const color = getColor(value);
 
-            return <circle cx={cx} cy={cy} r={8} fill={color} />;
+            return <circle cx={cx} cy={cy} r={10} fill={color} />;
           }}
           connectNulls={true}
         />

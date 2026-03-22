@@ -1,21 +1,28 @@
 import type { Entry } from "@/types/Entry";
+import { getDaysInMonth } from "./getDaysInMonth";
 
 export type ChartPoint = {
   day: number;
   value: number | null;
 };
 
-export function getMonthChart(entries: Entry[]): ChartPoint[] {
-  const daysInMonth = 31;
+export function getMonthChart(
+  entries: Entry[],
+  month: number,
+  year: number,
+): ChartPoint[] {
+  const daysInMonth = getDaysInMonth(year, month);
+
+  const map = new Map(
+    entries.map((e) => [Number(e.date.slice(8, 10)), e.value]),
+  );
 
   const result: ChartPoint[] = [];
 
   for (let day = 1; day <= daysInMonth; day++) {
-    const entry = entries.find((e) => Number(e.date.slice(8, 10)) === day);
-
     result.push({
       day,
-      value: entry ? entry.value : null,
+      value: map.get(day) ?? null,
     });
   }
 
