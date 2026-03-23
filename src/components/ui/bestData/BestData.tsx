@@ -43,7 +43,7 @@ function BestData({ mostValue, count, chartDataLength }: Props) {
                 {count} jours sur {chartDataLength}
               </p>
             </div>
-            <div className={styles.modji}>// THREE</div>
+            <div className={styles.modji}></div>
           </>
         )}
       </div>
