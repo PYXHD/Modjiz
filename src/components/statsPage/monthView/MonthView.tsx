@@ -8,6 +8,8 @@ import { average } from "@/domain/stats/average";
 
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 import MonthGraph from "@/components/statsPage/monthView/monthGraph/MonthGraph";
+import BestData from "@/components/ui/bestData/BestData";
+import { getMonthGroupBy } from "@/domain/stats/getMonthGroupBy";
 
 function MonthView() {
   const { filteredData, date, changeDate, canNavigate } = useStatsData("month");
@@ -18,6 +20,8 @@ function MonthView() {
   const chartData = getMonthChart(filteredData, month, year);
 
   const avg = useMemo(() => average(filteredData), [filteredData]);
+  const chartDataLength = chartData.length;
+  const mostValue = getMonthGroupBy(chartData);
 
   const monthLabel = useMemo(
     () => date.toLocaleString("fr-FR", { month: "long" }),
@@ -34,7 +38,18 @@ function MonthView() {
         canGoPrev={canNavigate(-1)}
         canGoNext={canNavigate(1)}
       />
-      <MonthGraph chartData={chartData} average={avg} />
+      <div className={styles.graphContainer}>
+        <div className={styles.avgContainer}>
+          <div className={styles.avgLine}></div>
+          <div>moyenne: {avg.toFixed(1)}</div>
+        </div>
+        <MonthGraph chartData={chartData} average={avg} />
+      </div>
+      <BestData
+        mostValue={mostValue?.value ?? null}
+        count={mostValue?.count ?? 0}
+        chartDataLength={chartDataLength}
+      />
     </div>
   );
 }

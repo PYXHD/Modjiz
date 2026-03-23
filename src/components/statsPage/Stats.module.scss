@@ -25,5 +25,20 @@
   .subContainer {
     @include flex(column, center, center, md);
     width: 100%;
+
+    .graphContainer {
+      width: 100%;
+
+      .avgContainer {
+        @include flex(row, flex-start, center, xs);
+        margin-left: space(md);
+
+        .avgLine {
+          height: 1px;
+          width: 40px;
+          background-color: var(--color-emotion-ok);
+        }
+      }
+    }
   }
 }

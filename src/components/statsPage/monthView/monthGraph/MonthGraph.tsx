@@ -16,7 +16,6 @@ type Props = {
 };
 
 function MonthGraph({ chartData, average }: Props) {
-  const displayAverage = average.toFixed(1);
   const dayWidth = 40;
 
   return (
@@ -25,7 +24,7 @@ function MonthGraph({ chartData, average }: Props) {
         width={chartData.length * dayWidth}
         height={300}
         data={chartData}
-        margin={{ top: 20, right: 40, bottom: 20, left: 120 }}
+        margin={{ top: 20, right: 40, bottom: 20, left: 20 }}
       >
         <CartesianGrid vertical={true} horizontal={false} />
         <XAxis
@@ -41,14 +40,6 @@ function MonthGraph({ chartData, average }: Props) {
           y={average}
           stroke="var(--color-emotion-ok)"
           strokeWidth={1}
-          label={{
-            value: `moyenne: ${displayAverage}`,
-            position: "left",
-            fill: "var(--color-emotion-ok)",
-            fontSize: 12,
-            fontStyle: "italic",
-            dx: -10,
-          }}
         />
         <Line
           type="linear"

@@ -1,0 +1,64 @@
+@use "../../../styles/tools/breakpoints" as *;
+@use "../../../styles/tools/flex" as *;
+@use "../../../styles/tools/layouts" as *;
+@use "../../../styles/tools/spacing" as *;
+@use "../../../styles/tools/typos" as *;
+
+/*=== TYPOS ===*/
+
+.moodText {
+  @include font-app();
+  @include text(lead);
+}
+
+.dataText {
+  @include font-app(light, italic);
+  @include text(body);
+}
+
+/*=== MOODS ===*/
+.great {
+  background-color: var(--color-emotion-great);
+  color: var(--color-on-light);
+}
+.good {
+  background-color: var(--color-emotion-good);
+  color: var(--color-on-light);
+}
+.ok {
+  background-color: var(--color-emotion-ok);
+  color: var(--color-on-dark);
+}
+.meh {
+  background-color: var(--color-emotion-meh);
+  color: var(--color-on-dark);
+}
+.sad {
+  background-color: var(--color-emotion-bad);
+  color: var(--color-on-dark);
+}
+.noData {
+  background-color: var(--color-text2);
+  color: var(--color-on-light);
+}
+
+/*=== LAYOUT ===*/
+.bestData {
+  @include flex(column, center, center, xs);
+  @include container(compact);
+
+  .container {
+    @include flex(row, center, center, xs);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+
+    .texts {
+      @include flex(column, center, center, xs);
+    }
+
+    .modji {
+      width: 80px;
+    }
+  }
+}
