@@ -118,6 +118,7 @@ export function useStatsData(mode: "month" | "year") {
       : getYearData(userData, year);
 
   return {
+    data: userData,
     filteredData,
     date: normalizedDate,
     changeDate,

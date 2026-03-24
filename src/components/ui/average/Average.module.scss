@@ -1,0 +1,45 @@
+@use "../../../styles/tools/breakpoints" as *;
+@use "../../../styles/tools/flex" as *;
+@use "../../../styles/tools/icon" as *;
+@use "../../../styles/tools/layouts" as *;
+@use "../../../styles/tools/spacing" as *;
+@use "../../../styles/tools/typos" as *;
+
+/*=== MOODS ===*/
+.medium {
+  background-color: var(--color-emotion-meh);
+  color: var(--color-on-dark);
+}
+
+.good {
+  background-color: var(--color-emotion-good);
+  color: var(--color-on-light);
+}
+
+.great {
+  background-color: var(--color-emotion-great);
+  color: var(--color-on-light);
+}
+
+/*=== LAYOUT ===*/
+.container {
+  @include flex(column, center, center, sm);
+  width: 100%;
+
+  .currentMonth {
+    @include flex(column, center, flex-start);
+    width: 100%;
+    width: 150px;
+
+    .month {
+      text-indent: 10px;
+    }
+
+    .texts {
+      @include flex(row, space-between, center);
+      width: 100%;
+      border-radius: 10px;
+      padding: 10px;
+    }
+  }
+}
