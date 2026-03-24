@@ -11,7 +11,7 @@
   max-width: breakpoint(tablet);
   margin: auto;
 
-  @include flex(row, center, center, lg);
+  @include flex(row, center, center, md);
 
   background-color: var(--color-primary);
 

@@ -1,23 +1,26 @@
 import type { ChartPoint } from "./getMonthChart";
+import type { EmotionLevel } from "@/types/EmotionLevel";
 
-export function getMonthGroupBy(array: ChartPoint[]) {
+export function getMonthGroupBy(
+  array: ChartPoint[],
+): { value: EmotionLevel; count: number } | null {
   if (array.length === 0) return null;
 
-  const counts: Record<number, number> = {};
+  const counts: Partial<Record<EmotionLevel, number>> = {};
 
   for (const { value } of array) {
     if (value === null) continue;
-    counts[value] = (counts[value] || 0) + 1;
+    counts[value as EmotionLevel] = (counts[value as EmotionLevel] || 0) + 1;
   }
 
   if (Object.keys(counts).length === 0) return null;
 
   let maxCount = 0;
-  let maxValue: number | null = null;
+  let maxValue: EmotionLevel | null = null;
 
   for (const key in counts) {
-    const value = Number(key);
-    const count = counts[value];
+    const value = Number(key) as EmotionLevel;
+    const count = counts[value]!;
 
     if (
       count > maxCount ||
@@ -31,7 +34,7 @@ export function getMonthGroupBy(array: ChartPoint[]) {
   if (maxCount === 1) return null;
 
   return {
-    value: maxValue,
+    value: maxValue!,
     count: maxCount,
   };
 }

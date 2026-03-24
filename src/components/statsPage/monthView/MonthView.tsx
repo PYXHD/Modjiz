@@ -8,7 +8,8 @@ import { average } from "@/domain/stats/average";
 
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 import MonthGraph from "@/components/statsPage/monthView/monthGraph/MonthGraph";
-import BestData from "@/components/ui/bestData/BestData";
+import Progress from "./progress/Progress";
+import BestData from "@/components/ui/bestData/BestMonthData";
 import { getMonthGroupBy } from "@/domain/stats/getMonthGroupBy";
 
 function MonthView() {
@@ -50,6 +51,8 @@ function MonthView() {
         count={mostValue?.count ?? 0}
         chartDataLength={chartDataLength}
       />
+      <div className={styles.separator}></div>
+      <Progress />
     </div>
   );
 }

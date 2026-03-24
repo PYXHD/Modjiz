@@ -26,7 +26,7 @@ function TimeSwitcher({
         disabled={!canGoPrev}
       ></button>
 
-      <div className="label">
+      <div className={styles.label}>
         <div className="main">{label}</div>
         {subLabel && <div className="sub">{subLabel}</div>}
       </div>
