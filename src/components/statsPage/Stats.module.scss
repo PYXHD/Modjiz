@@ -5,6 +5,22 @@
 @use "../../styles/tools/spacing" as *;
 @use "../../styles/tools/typos" as *;
 
+/*=== TYPOS ===*/
+.comparedText {
+  @include font-app();
+  @include text(display);
+}
+
+.highlightText {
+  @include font-app();
+  @include text(highlight);
+}
+
+.textMeta {
+  @include font-app();
+  @include text(caption);
+}
+
 /* === LAYOUT === */
 .stats {
   @include flex(column, space-between, center, md);
@@ -45,6 +61,22 @@
       height: 3px;
       width: 80%;
       background-color: var(--color-emotion-meh);
+    }
+
+    .progress {
+      @include flex(column, center, center, md);
+
+      .compare {
+        @include flex(column, center, center);
+
+        .comparedData {
+          @include flex(row, center, center, sm);
+
+          .icon {
+            @include icon-size(extralarge);
+          }
+        }
+      }
     }
   }
 }

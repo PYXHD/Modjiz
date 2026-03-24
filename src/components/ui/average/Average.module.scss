@@ -5,7 +5,14 @@
 @use "../../../styles/tools/spacing" as *;
 @use "../../../styles/tools/typos" as *;
 
+/*=== TYPOS ===*/
+
 /*=== MOODS ===*/
+.neutral {
+  background-color: var(--color-bg-chart);
+  color: var(--color-on-light);
+}
+
 .medium {
   background-color: var(--color-emotion-meh);
   color: var(--color-on-dark);

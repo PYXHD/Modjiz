@@ -10,7 +10,7 @@ import { average } from "@/domain/stats/average";
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 import MonthGraph from "@/components/statsPage/monthView/monthGraph/MonthGraph";
 import Progress from "./progress/Progress";
-import BestData from "@/components/ui/bestData/BestMonthData";
+import BestData from "@/components/statsPage/monthView/bestMonthData/BestMonthData";
 import { getMonthGroupBy } from "@/domain/stats/getMonthGroupBy";
 import { Month, Year } from "@/types/DateTypes";
 
