@@ -16,7 +16,7 @@ function Average({ label, avgCurrent, avgPrev, labelPrev }: Props) {
   };
   const currentMood = getMood(Number(avgCurrent));
   const prevMood = getMood(Number(avgPrev));
-  const displayValue = (value: any) => (Number(value) === 0 ? "-" : value);
+  const displayValue = (value: string) => (Number(value) === 0 ? "-" : value);
 
   return (
     <div className={styles.container}>
