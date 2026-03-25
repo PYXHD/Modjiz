@@ -52,7 +52,7 @@ function Header() {
       </div>
 
       {/* DEV ONLY */}
-      <button
+      {/* <button
         onClick={resetDemo}
         style={{
           width: "80px",
@@ -63,7 +63,7 @@ function Header() {
       >
         {" "}
         RESET
-      </button>
+      </button> */}
       {/* DEV ONLY */}
       <Logo alt="App title" className={styles.title} />
     </div>
