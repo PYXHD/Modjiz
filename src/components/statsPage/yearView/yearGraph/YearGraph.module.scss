@@ -1,0 +1,58 @@
+@use "../../../../styles/tools/breakpoints" as *;
+@use "../../../../styles/tools/flex" as *;
+@use "../../../../styles/tools/icon" as *;
+@use "../../../../styles/tools/layouts" as *;
+@use "../../../../styles/tools/spacing" as *;
+@use "../../../../styles/tools/typos" as *;
+
+/*=== MOODS ===*/
+.neutral {
+  color: var(--color-text);
+}
+
+.medium {
+  background-color: var(--color-emotion-meh);
+  color: var(--color-on-dark);
+}
+
+.good {
+  background-color: var(--color-emotion-good);
+  color: var(--color-on-light);
+}
+
+.great {
+  background-color: var(--color-emotion-great);
+  color: var(--color-on-light);
+}
+
+/*=== LAYOUTS ===*/
+.yearAvgs {
+  @include flex(column, space-between, flex-start, xs);
+  @include container(compact);
+
+  .row {
+    @include flex(row, space-between, center, xs);
+    width: 100%;
+
+    .label {
+      width: 50px;
+    }
+  }
+
+  .barContainer {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 24px;
+  }
+
+  .bar {
+    @include flex(row, space-between, flex-start);
+    height: 100%;
+    width: calc(var(--value) * 20%);
+    padding-left: 8px;
+    transition: width 0.3s ease;
+    border-radius: 12px;
+    padding-left: 20px;
+  }
+}

@@ -6,6 +6,7 @@ import { average } from "./average";
 
 export type YearChart = {
   month: number;
+  label: string;
   value: number | null;
 };
 
@@ -24,7 +25,7 @@ export function getYearChart(entries: Entry[], year: Year): YearChart[] {
     map.get(month)!.push(entry);
   }
 
-  const result = [];
+  const result: YearChart[] = [];
 
   for (let month = 0; month < 12; month++) {
     const monthEntries = map.get(month);

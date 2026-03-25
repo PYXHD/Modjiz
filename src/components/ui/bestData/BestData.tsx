@@ -1,7 +1,7 @@
-import styles from "./BestMonthData.module.scss";
+import styles from "./BestData.module.scss";
 
 import Scene from "@/components/three/Canvas";
-import type { EmotionLevel } from "../../../../types/EmotionLevel";
+import type { EmotionLevel } from "../../../types/EmotionLevel";
 
 type Props = {
   mostValue: EmotionLevel | null;
@@ -9,7 +9,7 @@ type Props = {
   chartDataLength: number;
 };
 
-function BestMonthData({ mostValue, count, chartDataLength }: Props) {
+function BestData({ mostValue, count, chartDataLength }: Props) {
   const mood = (() => {
     switch (mostValue) {
       case 5:
@@ -56,4 +56,4 @@ function BestMonthData({ mostValue, count, chartDataLength }: Props) {
   );
 }
 
-export default BestMonthData;
+export default BestData;

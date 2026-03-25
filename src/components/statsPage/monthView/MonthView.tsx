@@ -10,8 +10,8 @@ import { average } from "@/domain/stats/average";
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 import MonthGraph from "@/components/statsPage/monthView/monthGraph/MonthGraph";
 import Progress from "./progress/Progress";
-import BestData from "@/components/statsPage/monthView/bestMonthData/BestMonthData";
-import { getMonthGroupBy } from "@/domain/stats/getMonthGroupBy";
+import BestData from "@/components/ui/bestData/BestData";
+import { getDominantEmotion } from "@/domain/stats/getDominantEmotion";
 import { Month, Year } from "@/types/DateTypes";
 
 function MonthView() {
@@ -28,6 +28,7 @@ function MonthView() {
     d.setMonth(d.getMonth() - 1);
     return d;
   }, [date]);
+
   const prevMonthData = useMemo(() => {
     const month = String(prevDate.getMonth() + 1).padStart(2, "0") as Month;
     const year = prevDate.getFullYear().toString() as Year;
@@ -36,9 +37,14 @@ function MonthView() {
   }, [data, prevDate]);
 
   const avg = useMemo(() => average(filteredData), [filteredData]);
+
   const avgPrev = useMemo(() => average(prevMonthData), [prevMonthData]);
-  const chartDataLength = chartData.length;
-  const mostValue = getMonthGroupBy(chartData);
+
+  const chartDataLength = filteredData.filter(
+    (item) => item.value !== null,
+  ).length;
+
+  const mostValue = getDominantEmotion(filteredData);
 
   const monthLabel = useMemo(
     () => date.toLocaleString("fr-FR", { month: "long" }),
@@ -57,6 +63,7 @@ function MonthView() {
           <div>moyenne: {avg.toFixed(1)}</div>
         </div>
       </div>
+
       <TimeSwitcher
         label={monthLabel}
         subLabel={year.toString()}
@@ -76,6 +83,9 @@ function MonthView() {
         labelPrev={prevMonthLabel}
         avgCurrent={avg.toFixed(1)}
         avgPrev={avgPrev.toFixed(1)}
+        year={year}
+        changeDate={changeDate}
+        canNavigate={canNavigate}
       />
     </div>
   );

@@ -27,6 +27,7 @@
   padding: space(sm);
   padding-bottom: space(xxl);
 
+  // button
   .buttonContainer {
     @include flex(row, center, center, sm);
     width: 100%;
@@ -38,6 +39,7 @@
     }
   }
 
+  // monthView
   .subContainer {
     @include flex(column, center, center, md);
     width: 100%;
@@ -79,4 +81,6 @@
       }
     }
   }
+
+  // yearView
 }

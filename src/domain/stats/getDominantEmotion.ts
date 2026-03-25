@@ -1,8 +1,8 @@
-import type { ChartPoint } from "./getMonthChart";
+import type { Entry } from "@/types/Entry";
 import type { EmotionLevel } from "@/types/EmotionLevel";
 
-export function getMonthGroupBy(
-  array: ChartPoint[],
+export function getDominantEmotion(
+  array: Entry[],
 ): { value: EmotionLevel; count: number } | null {
   if (array.length === 0) return null;
 

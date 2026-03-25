@@ -1,15 +1,26 @@
 import styles from "@/components/statsPage/Stats.module.scss";
 
 import Average from "@/components/ui/average/Average";
+import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 
 type Props = {
   label: string;
   avgCurrent: string;
   avgPrev: string;
   labelPrev: string;
+  year: number;
+  changeDate: (direction: number) => void;
+  canNavigate: (direction: number) => boolean;
 };
 
-function Progress({ label, labelPrev, avgCurrent, avgPrev }: Props) {
+function Progress({
+  label,
+  labelPrev,
+  avgCurrent,
+  avgPrev,
+  changeDate,
+  canNavigate,
+}: Props) {
   const current = Number(avgCurrent);
   const prev = Number(avgPrev);
 
@@ -34,6 +45,14 @@ function Progress({ label, labelPrev, avgCurrent, avgPrev }: Props) {
   return (
     <div className={styles.progress}>
       <h2>Progression</h2>
+      <TimeSwitcher
+        label="Comparer"
+        subLabel=""
+        onPrev={() => changeDate(-1)}
+        onNext={() => changeDate(1)}
+        canGoPrev={canNavigate(-1)}
+        canGoNext={canNavigate(1)}
+      />
       <Average
         label={label}
         labelPrev={labelPrev}
