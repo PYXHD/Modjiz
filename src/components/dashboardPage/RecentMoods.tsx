@@ -1,5 +1,7 @@
 import styles from "./DashboardClient.module.scss";
 
+import Link from "next/link";
+
 import { getLastDaysLabels } from "@/lib/time/getLastDaysLabel";
 import { getLastDaysMood } from "@/domain/mood/getLastDaysMood";
 
@@ -24,7 +26,9 @@ function RecentMoods({ data, today }: Props) {
       <DaysChart data={dataLastDays} labels={labels} />
 
       <div className={styles.buttonContainer}>
-        <Button>Mon historique</Button>
+        <Link href="/app/stats">
+          <Button>Mon historique</Button>
+        </Link>
         <p className={styles.textMeta}>Statistiques et tendances</p>
       </div>
     </section>

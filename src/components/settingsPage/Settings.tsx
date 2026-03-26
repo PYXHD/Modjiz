@@ -38,7 +38,11 @@ function Settings() {
             </Link>
           </div>
           <div className={styles.legal}>
-            <Link href="/mentions-legales" className={styles.link}>
+            <Link
+              href="/app/settings/privacy-policy
+            "
+              className={styles.link}
+            >
               Politique de confidentialité
             </Link>
           </div>
