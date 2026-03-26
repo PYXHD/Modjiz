@@ -1,0 +1,32 @@
+@use "../../../styles//tools/breakpoints" as *;
+@use "../../../styles//tools/flex" as *;
+@use "../../../styles//tools/icon" as *;
+@use "../../../styles//tools/layouts" as *;
+@use "../../../styles//tools/spacing" as *;
+@use "../../../styles//tools/typos" as *;
+
+/*=== TYPOS ===*/
+.titleCentered {
+  text-align: center;
+}
+.textBody {
+  @include font-app();
+  @include text(body);
+}
+
+/*=== LAYOUTS ===*/
+.container {
+  @include flex(column, center, center, md);
+  @include container(default);
+  padding: space(sm);
+  padding-bottom: space(xxl);
+  margin: auto;
+
+  .contentContainer {
+    @include flex(column, center, flex-start, md);
+
+    .subContainer {
+      @include flex(column, center, flex-start, xs);
+    }
+  }
+}

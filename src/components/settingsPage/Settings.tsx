@@ -1,5 +1,7 @@
 import styles from "./Settings.module.scss";
 
+import Link from "next/link";
+
 import Button from "@/components/ui/button/Button";
 import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
 
@@ -25,6 +27,20 @@ function Settings() {
           <div className={styles.subContainer}>
             <div className={styles.textBody}>Auteur</div>
             <div className={styles.textBody}>Marc CHARVOT</div>
+          </div>
+          <div className={styles.legal}>
+            <Link
+              href="/app/settings/legal-notices
+            "
+              className={styles.link}
+            >
+              Mentions légales
+            </Link>
+          </div>
+          <div className={styles.legal}>
+            <Link href="/mentions-legales" className={styles.link}>
+              Politique de confidentialité
+            </Link>
           </div>
         </div>
 
