@@ -1,7 +1,0 @@
-@use "../../../styles/tools/typos" as *;
-
-.today {
-  @include font-app();
-  @include text(body, 2);
-  text-align: center;
-}

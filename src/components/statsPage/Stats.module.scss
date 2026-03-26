@@ -3,23 +3,6 @@
 @use "../../styles/tools/icon" as *;
 @use "../../styles/tools/layouts" as *;
 @use "../../styles/tools/spacing" as *;
-@use "../../styles/tools/typos" as *;
-
-/*=== TYPOS ===*/
-.comparedText {
-  @include font-app();
-  @include text(display);
-}
-
-.highlightText {
-  @include font-app();
-  @include text(highlight);
-}
-
-.textMeta {
-  @include font-app();
-  @include text(caption);
-}
 
 /* === LAYOUT === */
 .stats {

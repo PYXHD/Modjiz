@@ -6,6 +6,10 @@
 @use "../../../styles/tools/typos" as *;
 
 /*=== TYPOS ===*/
+.avgTypo {
+  @include font-app(light, italic);
+  @include text(body);
+}
 
 /*=== MOODS ===*/
 .neutral {
@@ -42,7 +46,7 @@
       text-indent: 10px;
     }
 
-    .texts {
+    .data {
       @include flex(row, space-between, center);
       width: 100%;
       border-radius: 10px;

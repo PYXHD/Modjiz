@@ -64,11 +64,11 @@ function Progress({
           {icon && (
             <img src={icon} alt="Comparison icon" className={styles.icon} />
           )}
-          <div className={styles.comparedText}>
-            <span className={styles.highlightText}>{formattedGap}</span> /5
+          <div className="text-compare">
+            <span className="text-highlight">{formattedGap}</span> /5
           </div>
         </div>
-        <p className={styles.textMeta}>par rapport au mois précédent</p>
+        <p className="text-meta">par rapport au mois précédent</p>
       </div>
     </div>
   );

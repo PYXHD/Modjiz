@@ -1,5 +1,4 @@
 "use client";
-import styles from "./TodayLabel.module.scss";
 import { getToday } from "@/lib/time/getToday";
 
 function todayLabel() {
@@ -14,7 +13,7 @@ function todayLabel() {
     })
     .replace(/^\w/, (c) => c.toUpperCase());
 
-  return <div className={styles.today}>{today}</div>;
+  return <div className="text-date centered">{today}</div>;
 }
 
 export default todayLabel;

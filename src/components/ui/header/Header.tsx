@@ -7,17 +7,6 @@ import { Entry } from "@/types/Entry";
 import { getUserData } from "@/data/getUserData";
 import { getToday } from "@/lib/time/getToday";
 
-{
-  /* DEV ONLY */
-}
-function resetDemo(): void {
-  localStorage.removeItem("app-mode");
-  location.reload();
-}
-{
-  /* DEV ONLY */
-}
-
 function Header() {
   const [userData, setUserData] = useState<Entry[]>([]);
   useEffect(() => {
@@ -48,24 +37,9 @@ function Header() {
           alt="Star icon"
           className={styles.iconMd}
         />
-        <p className={styles.countTypo}>{userData.length}</p>
+        <p className="text-count">{userData.length}</p>
       </div>
-
-      {/* DEV ONLY */}
-      {/* <button
-        onClick={resetDemo}
-        style={{
-          width: "80px",
-          height: "30px",
-          backgroundColor: "red",
-          cursor: "pointer",
-        }}
-      >
-        {" "}
-        RESET
-      </button> */}
-      {/* DEV ONLY */}
-      <Logo alt="App title" className={styles.title} />
+      <Logo alt="App title" className={styles.logo} />
     </div>
   );
 }

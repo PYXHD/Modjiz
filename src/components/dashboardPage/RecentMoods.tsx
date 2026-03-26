@@ -21,7 +21,7 @@ function RecentMoods({ data, today }: Props) {
 
   return (
     <section className={styles.recentMoods}>
-      <h2 className={styles.titleCentered}>Et récemment ?</h2>
+      <h2 className="centered">Et récemment ?</h2>
 
       <DaysChart data={dataLastDays} labels={labels} />
 
@@ -29,7 +29,7 @@ function RecentMoods({ data, today }: Props) {
         <Link href="/app/stats">
           <Button>Mon historique</Button>
         </Link>
-        <p className={styles.textMeta}>Statistiques et tendances</p>
+        <p className="text-meta">Statistiques et tendances</p>
       </div>
     </section>
   );

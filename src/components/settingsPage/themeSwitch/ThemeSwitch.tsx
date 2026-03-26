@@ -24,13 +24,16 @@ export default function ThemeSwitch() {
       />
 
       <button
-        className={mode === "light" ? styles.active : ""}
+        className={`${mode === "light" ? styles.active : ""} text-body `}
         onClick={toggle}
       >
         Clair
       </button>
 
-      <button className={mode === "dark" ? styles.active : ""} onClick={toggle}>
+      <button
+        className={`${mode === "dark" ? styles.active : ""} text-body `}
+        onClick={toggle}
+      >
         Sombre
       </button>
     </div>

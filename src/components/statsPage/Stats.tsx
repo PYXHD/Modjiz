@@ -13,7 +13,7 @@ function Stats() {
 
   return (
     <div className={styles.stats}>
-      <h1>Mon historique</h1>
+      <h1 className="centered">Mon historique</h1>
       <div className={styles.buttonContainer}>
         <Button
           variant={mode === "month" ? "primary" : "outline"}

@@ -63,17 +63,17 @@ function TodayMood({ today, data, setData }: Props) {
     <section className={styles.todayMood}>
       <div className={styles.titleWrapper}>
         <h1
-          className={`${styles.mainTitle} ${styles.titleCentered} ${
+          className={`${styles.mainTitle} ${
             mood === 0 ? styles.visible : styles.hidden
-          }`}
+          } centered `}
         >
           Comment ça va aujourd'hui ?
         </h1>
 
         <h1
-          className={`${styles.mainTitle} ${styles.titleCentered} ${
+          className={`${styles.mainTitle} ${
             mood !== 0 ? styles.visible : styles.hidden
-          }`}
+          } centered`}
         >
           Aujourd'hui je me sens : <br />
           {selectedMood?.label}
@@ -108,9 +108,9 @@ function TodayMood({ today, data, setData }: Props) {
         </div>
 
         <div className={styles.moodRange}>
-          <div className={styles.textMeta}>pas ouf</div>
+          <div className="text-meta centered">pas ouf</div>
           <div className={styles.moodShow}></div>
-          <div className={styles.textMeta}>au top</div>
+          <div className="text-meta centered">au top</div>
         </div>
       </div>
 

@@ -1,33 +1,81 @@
 @use "../tokens/colors" as *;
 @use "../tools/typos" as *;
 
-.text-date {
-  @include font-app(light);
-  @include text(body);
-  color: var(--color-text);
-}
-
-.text-item {
-  @include font-app(light);
-  @include text(lead);
-  color: var(--color-text);
-}
-
-.text-detail {
-  @include font-app(light);
-  @include text(body);
-  color: var(--color-text);
-}
-
-.text-detail-italic {
-  @include font-app(light, italic);
-  @include text(body);
-  color: var(--color-text);
-}
-
+// 0.75rem - caption
 .text-meta {
   @include font-app(light);
   @include text(caption);
   color: var(--color-text);
   opacity: 0.75;
+}
+
+// 0.875rem - small
+.text-description {
+  @include font-app(light, italic);
+  @include text(small);
+}
+
+// 1rem - body
+.text-body {
+  @include font-app(light);
+  @include text(body);
+  color: var(--color-text);
+}
+.text-body-medium {
+  @include font-app(medium);
+  @include text(body);
+  color: var(--color-text);
+}
+.text-body-italic {
+  @include font-app(light, italic);
+  @include text(body);
+  color: var(--color-text);
+}
+.text-date {
+  @include font-app(light);
+  @include text(body, 2);
+  color: var(--color-text);
+}
+
+// 1.125rem - lead
+.text-item {
+  @include font-app(light);
+  @include text(lead);
+  color: var(--color-text2);
+}
+.text-mood {
+  @include font-app();
+  @include text(lead);
+  color: var(--color-text);
+}
+
+// 1.375rem - title
+.text-count {
+  @include font-app(medium);
+  @include text(title);
+  color: var(--color-text2);
+}
+.text-title {
+  @include font-app(medium);
+  @include text(title);
+  color: var(--color-text);
+}
+
+// 1.5rem - display
+.text-compare {
+  @include font-app();
+  @include text(display);
+  color: var(--color-text);
+}
+
+// 2.5rem - highlight
+.text-highlight {
+  @include font-app(light);
+  @include text(highlight);
+  color: var(--color-text);
+}
+
+// utils
+.centered {
+  text-align: center;
 }

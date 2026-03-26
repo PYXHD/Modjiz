@@ -31,7 +31,7 @@ function Trophies() {
   console.log(historyData);
   return (
     <div className={styles.trophies}>
-      <h1>Trophées</h1>
+      <h1 className="centered">Trophées</h1>
       <div className={styles.container}>
         <div className={styles.subContainer}>
           {TROPHIES.filter((t) => t.type === "stars").map((trophy) => {
@@ -47,9 +47,9 @@ function Trophies() {
                     }
                     alt=""
                   />
-                  <div className={styles.title}>"{trophy.title}"</div>
+                  <div className="text-title">"{trophy.title}"</div>
                 </div>
-                <p className={styles.description}>- {trophy.description}</p>
+                <p className="text-description">- {trophy.description}</p>
               </div>
             );
           })}
@@ -69,9 +69,9 @@ function Trophies() {
                     }
                     alt=""
                   />
-                  <div className={styles.title}>"{trophy.title}"</div>
+                  <div className="text-title">"{trophy.title}"</div>
                 </div>
-                <p className={styles.description}>- {trophy.description}</p>
+                <p className="text-description">- {trophy.description}</p>
               </div>
             );
           })}

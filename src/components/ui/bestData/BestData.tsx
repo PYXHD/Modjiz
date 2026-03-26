@@ -34,15 +34,15 @@ function BestData({ mostValue, count, chartDataLength }: Props) {
 
   return (
     <div className={styles.bestData}>
-      <h2 className={styles.modifiedH2}>Le plus souvent</h2>
+      <h2>Le plus souvent</h2>
       <div className={`${styles.container} ${moodClass}`}>
         {mostValue === null ? (
           <div>-</div>
         ) : (
           <>
             <div className={styles.texts}>
-              <div className={styles.moodText}>{moodDisplay}</div>
-              <p className={styles.dataText}>
+              <div className="text-mood">{moodDisplay}</div>
+              <p className="text-body-italic">
                 {count} jours sur {chartDataLength}
               </p>
             </div>

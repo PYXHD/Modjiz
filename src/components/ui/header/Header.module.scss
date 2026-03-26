@@ -1,14 +1,6 @@
 @use "../../../styles/tools/spacing" as *;
-@use "../../../styles/tools/typos" as *;
 @use "../../../styles/tools/flex" as *;
 @use "../../../styles/tools/icon" as *;
-
-/* === TYPO === */
-.countTypo {
-  @include font-app(medium);
-  @include text(title, 1.3);
-  color: var(--color-text2);
-}
 
 /* === REUSABLE LAYOUT === */
 .iconMd {
@@ -23,10 +15,10 @@
   height: 45px;
 
   .counter {
-    @include flex(row, flex-start, stretch, xs);
+    @include flex(row, flex-start, center, xs);
   }
 
-  .title {
+  .logo {
     height: 100%;
     color: var(--color-text2);
   }

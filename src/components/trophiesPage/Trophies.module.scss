@@ -3,18 +3,6 @@
 @use "../../styles/tools/icon" as *;
 @use "../../styles/tools/layouts" as *;
 @use "../../styles/tools/spacing" as *;
-@use "../../styles/tools/typos" as *;
-
-/* === TYPO === */
-.title {
-  @include font-app(medium, normal);
-  @include text(lead);
-}
-.description {
-  @include font-app(light, italic);
-  @include text(small);
-  // text-indent: space(xs);
-}
 
 /* === LAYOUT === */
 .trophies {

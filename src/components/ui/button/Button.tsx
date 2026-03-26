@@ -17,7 +17,7 @@ function Button({
   return (
     <button
       type="button"
-      className={`${styles.button} ${styles[variant]}`}
+      className={`text-item ${styles.button} ${styles[variant]}`}
       onClick={onClick}
       disabled={disabled}
     >

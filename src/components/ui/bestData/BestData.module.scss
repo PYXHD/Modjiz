@@ -2,19 +2,6 @@
 @use "../../../styles/tools/flex" as *;
 @use "../../../styles/tools/layouts" as *;
 @use "../../../styles/tools/spacing" as *;
-@use "../../../styles/tools/typos" as *;
-
-/*=== TYPOS ===*/
-
-.moodText {
-  @include font-app();
-  @include text(lead);
-}
-
-.dataText {
-  @include font-app(light, italic);
-  @include text(body);
-}
 
 /*=== MOODS ===*/
 .great {
