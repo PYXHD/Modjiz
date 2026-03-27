@@ -35,7 +35,7 @@
         width: 100%;
       }
       .btnContainer {
-        @include flex(column, center, center, md);
+        @include flex(column, center, center, xs);
         width: 100%;
       }
     }

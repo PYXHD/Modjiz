@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./Settings.module.scss";
 
 import Link from "next/link";
@@ -6,6 +8,11 @@ import Button from "@/components/ui/button/Button";
 import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
 
 function Settings() {
+  const goToLanding = () => {
+    localStorage.removeItem("app-mode");
+    window.location.href = "/";
+  };
+
   return (
     <div className={styles.preferences}>
       <h1 className="text-center">Préférences</h1>
@@ -49,13 +56,20 @@ function Settings() {
         </div>
 
         <div className={styles.h2Container}>
+          <h2>Découverte</h2>
+
+          <div className={styles.legal}>
+            <Button onClick={goToLanding}>Revoir la présentation</Button>
+          </div>
+        </div>
+
+        <div className={styles.h2Container}>
           <h2>Support</h2>
+
           <div className={styles.btnContainer}>
-            <p className="text-primary text-body">
-              Une question ou un avis à partager ?
-            </p>
+            <p className="text-primary text-body">Une question ?</p>
             <a href="mailto:pyxhd@outlook.fr">
-              <Button>Donner un avis</Button>
+              <Button>Me contacter</Button>
             </a>
           </div>
         </div>
