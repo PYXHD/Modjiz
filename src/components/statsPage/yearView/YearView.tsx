@@ -1,18 +1,23 @@
 import styles from "@/components/statsPage/Stats.module.scss";
 
+import { useMemo } from "react";
+
 import { useStatsData } from "@/domain/stats/hooks/useStatsData";
 
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 import { Year } from "@/types/DateTypes";
 import { getYearChart } from "@/domain/stats/getYearChart";
-import { getBestMonth } from "@/domain/stats/getBestMonth";
 
 import YearGraph from "./yearGraph/YearGraph";
 import { getDominantEmotion } from "@/domain/stats/getDominantEmotion";
 import BestData from "@/components/ui/bestData/BestData";
+import { getYearData } from "@/domain/stats/getYearData";
+import { average } from "@/domain/stats/average";
+import YearProgress from "./progress/YearProgress";
 
 function YearView() {
-  const { filteredData, date, changeDate, canNavigate } = useStatsData("year");
+  const { data, filteredData, date, changeDate, canNavigate } =
+    useStatsData("year");
 
   const year = date.getFullYear().toString() as Year;
   const chartData = getYearChart(filteredData, year);
@@ -21,9 +26,24 @@ function YearView() {
     (item) => item.value !== null,
   ).length;
 
+  const prevDate = useMemo(() => {
+    const d = new Date(date);
+    d.setFullYear(d.getFullYear() - 1);
+    return d;
+  }, [date]);
+
+  const prevYearData = useMemo(() => {
+    const year = prevDate.getFullYear().toString() as Year;
+    return getYearData(data, year);
+  }, [data, prevDate]);
+
+  const avg = useMemo(() => average(filteredData), [filteredData]);
+  const avgPrev = useMemo(() => average(prevYearData), [prevYearData]);
+
   const mostValue = getDominantEmotion(filteredData);
 
-  const bestMonth = getBestMonth(chartData);
+  const yearLabel = year;
+  const prevYearLabel = prevDate.getFullYear().toString();
 
   return (
     <div className={styles.subContainer}>
@@ -41,6 +61,14 @@ function YearView() {
         chartDataLength={chartDataLength}
       />
       <div className={styles.separator}></div>
+      <YearProgress
+        label={yearLabel}
+        labelPrev={prevYearLabel}
+        avgCurrent={avg.toFixed(1)}
+        avgPrev={avgPrev.toFixed(1)}
+        changeDate={changeDate}
+        canNavigate={canNavigate}
+      />
     </div>
   );
 }

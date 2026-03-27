@@ -13,7 +13,7 @@ type Props = {
   canNavigate: (direction: number) => boolean;
 };
 
-function Progress({
+function MonthProgress({
   label,
   labelPrev,
   avgCurrent,
@@ -77,4 +77,4 @@ function Progress({
   );
 }
 
-export default Progress;
+export default MonthProgress;

@@ -9,7 +9,7 @@ import { average } from "@/domain/stats/average";
 
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 import MonthGraph from "@/components/statsPage/monthView/monthGraph/MonthGraph";
-import Progress from "./progress/Progress";
+import MonthProgress from "./monthProgress/MonthProgress";
 import BestData from "@/components/ui/bestData/BestData";
 import { getDominantEmotion } from "@/domain/stats/getDominantEmotion";
 import { Month, Year } from "@/types/DateTypes";
@@ -78,7 +78,7 @@ function MonthView() {
         chartDataLength={chartDataLength}
       />
       <div className={styles.separator}></div>
-      <Progress
+      <MonthProgress
         label={monthLabel}
         labelPrev={prevMonthLabel}
         avgCurrent={avg.toFixed(1)}
