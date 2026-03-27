@@ -13,9 +13,9 @@
 
   @include flex(row, center, center, md);
 
-  background-color: var(--color-brand);
+  background-color: var(--color-brand-primary);
 
-  border-top: 3px solid var(--color-brand);
+  border-top: 3px solid var(--color-brand-primary);
 
   .iconButton {
     @include flex(row, center, center);

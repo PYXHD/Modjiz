@@ -22,24 +22,6 @@
   @include text(small, 1.5);
 }
 
-.title {
-  @include font-app(light);
-  @include text(title, 1.3);
-  text-align: center;
-}
-
-.button {
-  @include font-app(light);
-  @include text(lead);
-  text-align: center;
-}
-
-.tagline {
-  @include font-app(light);
-  @include text(lead, 1.3);
-  text-align: center;
-}
-
 /* === REUSABLE LAYOUT === */
 .iconItem {
   @include flex(row, flex-start, center, xs);
@@ -61,7 +43,7 @@
 /* === LOGOS === */
 .heroLogo,
 .endingLogo {
-  color: var(--color-brand);
+  color: var(--color-brand-primary);
 }
 
 .heroLogo {
@@ -99,7 +81,7 @@
 
   .featuresSection {
     @include flex(column, space-between, center, lg);
-    background-color: var(--color-emotion-sad);
+    background-color: var(--color-brand-secondary);
     border-radius: space(xs);
     padding-top: space(sm);
     padding-bottom: space(lg);
@@ -120,7 +102,7 @@
     .whySeparator {
       height: 2px;
       width: 80%;
-      background: var(--color-brand);
+      background: var(--color-brand-primary);
     }
 
     .whyContainer {
@@ -133,7 +115,7 @@
 
     .aboutContainer {
       @include flex(column, space-between, center, lg);
-      background-color: var(--color-emotion-sad);
+      background-color: var(--color-brand-secondary);
       border-radius: space(xs);
       padding-top: space(sm);
       padding-bottom: space(lg);

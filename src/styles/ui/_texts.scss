@@ -36,7 +36,7 @@
 
 // 1.375rem - title
 .text-title {
-  @include font-app(medium);
+  @include font-app();
   @include text(title);
 }
 

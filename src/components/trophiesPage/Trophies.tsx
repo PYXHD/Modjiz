@@ -47,7 +47,7 @@ function Trophies() {
                     }
                     alt=""
                   />
-                  <div className="text-title">"{trophy.title}"</div>
+                  <div className="text-title-medium">"{trophy.title}"</div>
                 </div>
                 <p className="text-primary text-small">
                   - {trophy.description}
@@ -71,7 +71,7 @@ function Trophies() {
                     }
                     alt=""
                   />
-                  <div className="text-title">"{trophy.title}"</div>
+                  <div className="text-title-medium">"{trophy.title}"</div>
                 </div>
                 <p className="text-primary text-small">
                   - {trophy.description}

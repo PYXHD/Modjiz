@@ -22,12 +22,14 @@
 
     &.prev {
       border-width: 24px 32px 24px 0;
-      border-color: transparent var(--color-brand) transparent transparent;
+      border-color: transparent var(--color-brand-primary) transparent
+        transparent;
     }
 
     &.next {
       border-width: 24px 0 24px 32px;
-      border-color: transparent transparent transparent var(--color-brand);
+      border-color: transparent transparent transparent
+        var(--color-brand-primary);
     }
 
     &:disabled {

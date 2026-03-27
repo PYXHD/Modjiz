@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import styles from "./LandingContent.module.scss";
 
 import Button from "@/components/ui/button/Button";
-import btnStyle from "@/components/ui/button/Button.module.scss";
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
 
@@ -64,7 +63,7 @@ function LandingContent() {
       </section>
 
       <section className={styles.featuresSection}>
-        <h2 className={styles.title}>Ce que propose Modjiz</h2>
+        <h2 className="text-inverse">Ce que propose Modjiz</h2>
 
         <ul className={styles.featuresList}>
           <li className={`${styles.iconItem} ${styles.textList}`}>
@@ -114,7 +113,7 @@ function LandingContent() {
       <section className={styles.whySection}>
         <div className={styles.whySeparator} />
         <div className={styles.whyContainer}>
-          <h2 className={styles.title}>Pourquoi Modjiz</h2>
+          <h2>Pourquoi Modjiz</h2>
 
           <p className={styles.textBody}>
             Modjiz est conçu comme un compagnon du quotidien, pensé pour t’aider
@@ -127,7 +126,7 @@ function LandingContent() {
       <section className={styles.aboutSection}>
         <div className={styles.aboutContainer}>
           <div className={styles.titleContainer}>
-            <h2 className={styles.title}>À propos du projet</h2>
+            <h2 className="text-inverse">À propos du projet</h2>
 
             <p className={styles.textBody}>
               Modjiz est un projet personnel conçu pour explorer la conception
@@ -137,7 +136,7 @@ function LandingContent() {
           </div>
 
           <div className={styles.techContainer}>
-            <h2 className={styles.title}>Technologies utilisées</h2>
+            <h2 className="text-inverse">Technologies utilisées</h2>
 
             <ul className={styles.techList}>
               <li className={`${styles.iconItem} ${styles.textList}`}>
@@ -193,17 +192,16 @@ function LandingContent() {
           </div>
         </div>
         <a
-          className={btnStyle.button}
           href="https://github.com/PYXHD/Modjiz"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Repository Github
+          <Button>Repository Github</Button>
         </a>
       </section>
 
       <section className={styles.endingSection}>
-        <p className={styles.tagline}>
+        <p className="text-center text-lead">
           Prends soin de ton humeur, à ton rythme.
         </p>
         <LogoShort className={styles.endingLogo} />

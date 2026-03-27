@@ -11,7 +11,7 @@
 .container {
   @include flex(row, space-between, stretch);
   padding: space(xs) space(sm);
-  background: var(--color-brand);
+  background: var(--color-brand-primary);
   height: 45px;
 
   .counter {
