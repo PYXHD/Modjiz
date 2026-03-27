@@ -21,14 +21,18 @@ function Average({ label, avgCurrent, avgPrev, labelPrev }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.currentMonth}>
-        <div className={`${styles.month} text-body-medium`}>{label}</div>
+        <div className={`${styles.month} text-primary text-body-medium`}>
+          {label}
+        </div>
         <div className={`${styles.data} ${styles.avgTypo} ${currentMood}`}>
           <div>moyenne</div>
           <div>{displayValue(avgCurrent)}</div>
         </div>
       </div>
       <div className={styles.currentMonth}>
-        <div className={`${styles.month} text-body-medium`}>{labelPrev}</div>
+        <div className={`${styles.month} text-primary text-body-medium`}>
+          {labelPrev}
+        </div>
         <div className={`${styles.data} ${styles.avgTypo} ${prevMood}`}>
           <div>moyenne</div>
           <div>{displayValue(avgPrev)}</div>

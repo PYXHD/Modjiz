@@ -13,7 +13,7 @@ function todayLabel() {
     })
     .replace(/^\w/, (c) => c.toUpperCase());
 
-  return <div className="text-date centered">{today}</div>;
+  return <div className="text-body text-center">{today}</div>;
 }
 
 export default todayLabel;

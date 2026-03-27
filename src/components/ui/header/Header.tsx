@@ -37,7 +37,7 @@ function Header() {
           alt="Star icon"
           className={styles.iconMd}
         />
-        <p className="text-count">{userData.length}</p>
+        <p className="text-inverse text-title">{userData.length}</p>
       </div>
       <Logo alt="App title" className={styles.logo} />
     </div>

@@ -41,8 +41,8 @@ function BestData({ mostValue, count, chartDataLength }: Props) {
         ) : (
           <>
             <div className={styles.texts}>
-              <div className="text-mood">{moodDisplay}</div>
-              <p className="text-body-italic">
+              <div className="text-lead">{moodDisplay}</div>
+              <p className=" text-body-italic">
                 {count} jours sur {chartDataLength}
               </p>
             </div>
