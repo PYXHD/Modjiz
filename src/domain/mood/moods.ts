@@ -7,8 +7,8 @@ export type MoodOption = {
 };
 
 export const MOODS: MoodOption[] = [
-  { value: 0, color: "var(--color-emotion-bad)" },
-  { value: 1, color: "var(--color-emotion-bad)", label: "pas ouf..." },
+  { value: 0, color: "var(--color-emotion-sad)" },
+  { value: 1, color: "var(--color-emotion-sad)", label: "pas ouf..." },
   { value: 2, color: "var(--color-emotion-meh)", label: "bof" },
   { value: 3, color: "var(--color-emotion-ok)", label: "ça va." },
   { value: 4, color: "var(--color-emotion-good)", label: "bien." },

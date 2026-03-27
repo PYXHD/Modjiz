@@ -6,27 +6,27 @@
 /*=== MOODS ===*/
 .great {
   background-color: rgba(255, 183, 3, var(--color-opacity));
-  color: var(--color-on-light);
+  color: var(--color-text-on-light);
 }
 .good {
   background-color: rgba(240, 139, 195, var(--color-opacity));
-  color: var(--color-on-light);
+  color: var(--color-text-on-light);
 }
 .ok {
   background-color: rgba(111, 130, 217, var(--color-opacity));
-  color: var(--color-on-light);
+  color: var(--color-text-on-light);
 }
 .meh {
   background-color: rgba(53, 84, 197, var(--color-opacity));
-  color: var(--color-on-dark);
+  color: var(--color-text-inverse);
 }
 .sad {
   background-color: rgba(31, 53, 92, var(--color-opacity));
-  color: var(--color-on-dark);
+  color: var(--color-text-inverse);
 }
 .noData {
   background-color: rgba(250, 250, 250, var(--color-opacity));
-  color: var(--color-on-light);
+  color: var(--color-text-on-light);
 }
 
 /*=== LAYOUT ===*/
@@ -39,7 +39,6 @@
     padding: 20px;
     border-radius: 10px;
     width: 100%;
-    border: 4px solid var(--color-text2);
 
     .texts {
       @include flex(column, center, center, xs);

@@ -10,8 +10,8 @@ html {
 }
 
 body {
-  background-color: var(--color-bg-body);
-  color: var(--color-text);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
 
   font-family: var(--font-app), system-ui, sans-serif;
   line-height: 1.5;
@@ -27,7 +27,7 @@ a:hover {
 }
 
 a:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-brand);
   outline-offset: 2px;
 }
 
@@ -37,6 +37,6 @@ ol {
 }
 
 ::selection {
-  background: var(--color-primary);
-  color: var(--color-on-dark);
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
 }

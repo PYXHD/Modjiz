@@ -4,8 +4,8 @@
 .switch {
   position: relative;
   display: flex;
-  background: var(--color-bg);
-  border: 2px solid var(--color-primary);
+  background: var(--color-bg-app);
+  border: 2px solid var(--color-brand);
   border-radius: 15px;
   padding: 4px;
   width: 200px;
@@ -21,7 +21,7 @@
 
     user-select: none;
 
-    color: var(--color-bg);
+    color: var(--color-text-adaptive);
 
     outline: none;
     -webkit-tap-highlight-color: transparent;
@@ -37,11 +37,11 @@
     }
 
     &:focus-visible {
-      outline: 2px solid var(--color-primary);
+      outline: 2px solid var(--color-brand);
     }
 
     &.active {
-      color: var(--color-text2);
+      color: var(--color-text-inverse);
     }
   }
 
@@ -51,7 +51,7 @@
     left: 4px;
     width: calc(50% - 4px);
     height: calc(100% - 8px);
-    background: var(--color-primary);
+    background: var(--color-brand);
     border-radius: 10px;
     transition: transform 0.25s ease;
 

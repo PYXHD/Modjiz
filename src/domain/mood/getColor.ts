@@ -1,7 +1,7 @@
 export function getColor(value: number) {
   switch (value) {
     case 1:
-      return "var(--color-emotion-bad)";
+      return "var(--color-emotion-sad)";
     case 2:
       return "var(--color-emotion-meh)";
     case 3:

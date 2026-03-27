@@ -11,7 +11,7 @@
 .container {
   @include flex(row, space-between, stretch);
   padding: space(xs) space(sm);
-  background: var(--color-emotion-meh);
+  background: var(--color-brand);
   height: 45px;
 
   .counter {
@@ -20,6 +20,6 @@
 
   .logo {
     height: 100%;
-    color: var(--color-text2);
+    color: var(--color-text-inverse);
   }
 }

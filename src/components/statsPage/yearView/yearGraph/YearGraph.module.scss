@@ -7,22 +7,22 @@
 
 /*=== MOODS ===*/
 .neutral {
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .medium {
-  background-color: var(--color-emotion-meh);
-  color: var(--color-on-dark);
+  background-color: var(--color-brand);
+  color: var(--color-text-inverse);
 }
 
 .good {
   background-color: var(--color-emotion-good);
-  color: var(--color-on-light);
+  color: var(--color-text-on-light);
 }
 
 .great {
   background-color: var(--color-emotion-great);
-  color: var(--color-on-light);
+  color: var(--color-text-on-light);
 }
 
 /*=== LAYOUTS ===*/

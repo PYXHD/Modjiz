@@ -13,23 +13,23 @@
 
 /*=== MOODS ===*/
 .neutral {
-  background-color: var(--color-bg-chart);
-  color: var(--color-on-light);
+  background-color: var(--color-chart-track);
+  color: var(--color-text-on-light);
 }
 
 .medium {
   background-color: var(--color-emotion-meh);
-  color: var(--color-on-dark);
+  color: var(--color-text-inverse);
 }
 
 .good {
   background-color: var(--color-emotion-good);
-  color: var(--color-on-light);
+  color: var(--color-text-on-light);
 }
 
 .great {
   background-color: var(--color-emotion-great);
-  color: var(--color-on-light);
+  color: var(--color-text-on-light);
 }
 
 /*=== LAYOUT ===*/

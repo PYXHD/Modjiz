@@ -61,7 +61,7 @@
 /* === LOGOS === */
 .heroLogo,
 .endingLogo {
-  color: var(--color-logo);
+  color: var(--color-brand);
 }
 
 .heroLogo {
@@ -99,13 +99,13 @@
 
   .featuresSection {
     @include flex(column, space-between, center, lg);
-    background-color: var(--color-emotion-bad);
+    background-color: var(--color-emotion-sad);
     border-radius: space(xs);
     padding-top: space(sm);
     padding-bottom: space(lg);
     padding-left: space(sm);
     padding-right: space(sm);
-    color: var(--color-text2);
+    color: var(--color-text-inverse);
     @include container(default);
 
     .featuresList {
@@ -120,7 +120,7 @@
     .whySeparator {
       height: 2px;
       width: 80%;
-      background: var(--color-emotion-meh);
+      background: var(--color-brand);
     }
 
     .whyContainer {
@@ -133,13 +133,13 @@
 
     .aboutContainer {
       @include flex(column, space-between, center, lg);
-      background-color: var(--color-emotion-bad);
+      background-color: var(--color-emotion-sad);
       border-radius: space(xs);
       padding-top: space(sm);
       padding-bottom: space(lg);
       padding-left: space(sm);
       padding-right: space(sm);
-      color: var(--color-text2);
+      color: var(--color-text-inverse);
       @include container(default);
 
       .titleContainer {

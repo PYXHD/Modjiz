@@ -4,11 +4,11 @@
 h1 {
   @include font-app(medium);
   @include text(display);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 h2 {
   @include font-app(medium);
   @include text(title);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }

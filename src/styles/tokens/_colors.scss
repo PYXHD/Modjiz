@@ -3,34 +3,29 @@
    ========================= */
 
 :root {
-  /* App / UI */
-  --color-bg-body: #f4f6fb;
-  --shadow-app: 0 20px 60px rgba(26, 32, 54, 0.15);
-  --color-bg: #fafafa;
-  --color-bg-chart: #e6e6eb;
-  --color-primary: #3554c5;
-  --color-text: #1c1c1e;
-  --color-text2: #fafafa;
+  /* App */
+  --color-bg-page: #f4f6fb;
+  --shadow-page: 0 20px 60px rgba(26, 32, 54, 0.15);
+
+  --color-bg-app: #fafafa;
+  --color-brand: #3554c5;
+
+  /* Texts */
+  --color-text-primary: #1c1c1e;
+  --color-text-inverse: #fafafa;
+  --color-text-adaptive: #fafafa;
+  --color-text-on-light: #1c1c1e;
+
+  --color-chart-track: #e6e6eb;
 
   /* Emotions */
-  --color-emotion-bad: #1f355c;
+  --color-emotion-sad: #1f355c;
   --color-emotion-meh: #3554c5;
   --color-emotion-ok: #6f82d9;
   --color-emotion-good: #f08bc3;
   --color-emotion-great: #ffb703;
 
-  /* Emotions */
-  --color-on-dark: #fafafa;
-  --color-on-light: #1c1c1e;
-
-  /* Others */
-  --color-logo: #3554c5;
-  --color-arrow: #3554c5;
-
-  --color-trophy-inactive: #fafafa;
-  --color-trophy-active: #ffb703;
-  --color-trophy-new: #ff1744;
-
+  /* Tools */
   --color-opacity: 0.8;
 }
 
@@ -39,22 +34,19 @@
    ========================= */
 
 [data-theme="dark"] {
-  /* App / UI */
-  --color-bg-body: #1a2036;
-  --shadow-app: 0 20px 60px rgba(244, 246, 251, 0.15);
-  --color-bg: #0f1424;
-  --color-text: #e6e6eb;
-  --color-text2: #e6e6eb;
+  /* App */
+  --color-bg-page: #1a2036;
+  --shadow-page: 0 20px 60px rgba(244, 246, 251, 0.15);
 
-  /* Emotions */
-  --color-on-dark: #e6e6eb;
-  --color-on-light: #0f1424;
+  --color-bg-app: #0f1424;
+  --color-brand: #f08bc3;
 
-  /* Others */
-  --color-logo: #f08bc3;
-  --color-arrow: #e6e6eb;
+  /* Texts */
+  --color-text-primary: #e6e6eb;
+  --color-text-inverse: #e6e6eb;
+  --color-text-adaptive: #0f1424;
+  --color-text-on-light: #0f1424;
 
-  --color-trophy-inactive: #e6e6eb;
-
-  --color-opacity: 1;
+  /* Tools */
+  --color-opacity: 0.8;
 }

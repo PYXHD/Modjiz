@@ -22,12 +22,12 @@
 
     &.prev {
       border-width: 24px 32px 24px 0;
-      border-color: transparent var(--color-emotion-meh) transparent transparent;
+      border-color: transparent var(--color-brand) transparent transparent;
     }
 
     &.next {
       border-width: 24px 0 24px 32px;
-      border-color: transparent transparent transparent var(--color-emotion-meh);
+      border-color: transparent transparent transparent var(--color-brand);
     }
 
     &:disabled {

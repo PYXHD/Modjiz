@@ -31,20 +31,20 @@ function MonthGraph({ chartData, average }: Props) {
           dataKey="day"
           interval={0}
           padding={{ left: 0, right: 0 }}
-          tick={{ fill: "var(--color-emotion-ok)" }}
+          tick={{ fill: "var(--color-brand)" }}
           tickLine={false}
           axisLine={false}
         />
         <YAxis hide domain={[0, 5]} padding={{ top: 20 }} />
         <ReferenceLine
           y={average}
-          stroke="var(--color-emotion-ok)"
+          stroke="var(--color-brand)"
           strokeWidth={1}
         />
         <Line
           type="linear"
           dataKey="value"
-          stroke="var(--color-emotion-ok)"
+          stroke="var(--color-brand)"
           strokeWidth={1}
           isAnimationActive={false}
           dot={({ cx, cy, payload }) => {

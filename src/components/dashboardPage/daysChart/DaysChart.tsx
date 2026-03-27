@@ -4,7 +4,7 @@ import type { EmotionLevel } from "@/types/EmotionLevel";
 
 const emotionColors = {
   0: "",
-  1: "var(--color-emotion-bad)",
+  1: "var(--color-emotion-sad)",
   2: "var(--color-emotion-meh)",
   3: "var(--color-emotion-ok)",
   4: "var(--color-emotion-good)",
