@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modjiz
 
-## Getting Started
+Application de suivi d’humeur développée avec Next.js permettant d’analyser ses émotions dans le temps à travers des statistiques, de la visualisation et de la gamification.
 
-First, run the development server:
+## 🚀 Aperçu
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<img src="./screenshot.png" width="800" />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📌 Fonctionnalités
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 😊 enregistrement de l’émotion quotidienne
+- 🎭 mascotte 3D dynamique représentant l’humeur
+- 📊 tableau de statistiques mensuelles et annuelles
+- 📈 moyennes, tendances et comparaisons
+- 🏆 système de gamification (trophées)
+- ⚡ mise à jour instantanée des données
+- 🧪 données simulées via sessionStorage (version mockée)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technologies utilisées
 
-## Learn More
+### Frontend
 
-To learn more about Next.js, take a look at the following resources:
+- React
+- Next.js
+- Three.js
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Stockage temporaire
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- sessionStorage (mock de persistance)
 
-## Deploy on Vercel
+## ⚙️ Fonctionnement
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- l’utilisateur enregistre son humeur du jour
+- une mascotte 3D reflète visuellement l’émotion
+- les données sont stockées temporairement (sessionStorage)
+- l’application calcule des statistiques (mensuelles / annuelles)
+- une page dédiée permet de visualiser les tendances et comparaisons
+- des trophées sont débloqués selon l’activité utilisateur
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧱 Architecture
+
+- architecture basée sur Next.js pour anticiper une évolution fullstack
+- séparation des composants UI / logique métier
+- gestion d’état côté client
+- logique de simulation des données (mock)
+- structure pensée pour intégrer une API sans refactor majeur
+
+## 🎯 Objectifs du projet
+
+Ce projet m’a permis de :
+
+- concevoir une application centrée utilisateur (UX + émotion)
+- manipuler et analyser des données temporelles
+- implémenter des logiques de gamification
+- préparer une architecture évolutive (frontend → fullstack → mobile)
+
+## 🎯 Ce que j’ai appris
+
+- gestion d’état et rendu dynamique avec React / Next.js
+- manipulation de données statistiques
+- conception d’une UX engageante
+- intégration de logique de gamification
+- structuration d’un projet évolutif
+- simulation d’un backend avec sessionStorage
+
+## 🚧 Roadmap
+
+### 🔹 V1 — Version actuelle
+
+- frontend fonctionnel
+- données mockées (sessionStorage)
+- stats + gamification
+
+### 🔹 V2 — Backend & comptes utilisateurs
+
+- API (Next.js ou Node.js)
+- authentification (login / signup)
+- base de données (persistance réelle)
+- synchronisation multi-device
+
+### 🔹 V3 — Application mobile
+
+- développement en React Native
+- synchronisation avec le backend
+- amélioration UX mobile
+
+## 👨‍💻 Auteur
+
+CHARVOT Marc
+GitHub : https://github.com/PYXHD
