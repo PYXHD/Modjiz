@@ -29,6 +29,7 @@
 
     .graphContainer {
       width: 100%;
+      height: 400px;
 
       .avgContainer {
         @include flex(row, flex-start, center, xs);
@@ -64,6 +65,4 @@
       }
     }
   }
-
-  // yearView
 }

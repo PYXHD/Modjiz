@@ -27,8 +27,9 @@
 
 /*=== LAYOUTS ===*/
 .yearAvgs {
-  @include flex(column, space-between, flex-start, xs);
+  @include flex(column, space-between, flex-start);
   @include container(compact);
+  height: 400px;
 
   .row {
     @include flex(row, space-between, center, xs);
