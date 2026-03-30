@@ -3,8 +3,6 @@ import "@/styles/globals.scss";
 import { fontLanding, fontApp } from "@/styles/config/fonts";
 import { themeInitScript } from "@/lib/init/script/theme-init";
 
-import styles from "./layout.module.scss";
-
 export const metadata: Metadata = {
   title: "Modjiz",
   description: "Ton journal d’humeur quotidien",
@@ -19,7 +17,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
     >
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-        <div className={styles.appWrapper}>{children}</div>
+        <div className="appWrapper">{children}</div>
       </body>
     </html>
   );

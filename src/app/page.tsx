@@ -5,4 +5,3 @@ function Page() {
 }
 
 export default Page;
-// test CI, j'arrive pas à le faire marcher mdr

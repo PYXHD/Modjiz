@@ -9,11 +9,30 @@
 .moodSelector {
   @include flex(column, center, center, sm);
 
-  .moodList {
+  &_list {
     @include flex(row, space-between, center, xs);
 
     &:has(.mood:checked) .mood:not(:checked) {
       opacity: 0.6;
+    }
+
+    .mood {
+      appearance: none;
+      @include icon-size(extralarge);
+      border-radius: 50%;
+      opacity: 1;
+      cursor: pointer;
+      transition: opacity 0.2s;
+
+      @media (max-width: breakpoint(medium)) {
+        @include icon-size(large);
+      }
+
+      &:hover,
+      &:checked {
+        outline: 3px solid currentColor;
+        outline-offset: 3px;
+      }
     }
   }
 
@@ -35,25 +54,6 @@
   }
 }
 
-.mood {
-  appearance: none;
-  @include icon-size(extralarge);
-  border-radius: 50%;
-  opacity: 1;
-  cursor: pointer;
-  transition: opacity 0.2s;
-
-  @media (max-width: breakpoint(medium)) {
-    @include icon-size(large);
-  }
-
-  &:hover,
-  &:checked {
-    outline: 3px solid currentColor;
-    outline-offset: 3px;
-  }
-}
-
 /* === LAYOUT === */
 .dashboard {
   @include flex(column, space-between, center, xl);
@@ -64,29 +64,29 @@
     @include flex(column, space-between, center, md);
     width: 100%;
 
-    .titleWrapper {
+    .titleContainer {
       position: relative;
       height: 100px;
       width: 100%;
       top: 0;
       left: 0;
+    }
 
-      .mainTitle {
-        position: absolute;
-        width: 100%;
-        transition: opacity 0.3s ease;
-      }
+    .mainTitle {
+      position: absolute;
+      width: 100%;
+      transition: opacity 0.3s ease;
 
-      .visible {
+      &.visible {
         opacity: 1;
       }
 
-      .hidden {
+      &.hidden {
         opacity: 0;
       }
     }
 
-    .modjiContainer {
+    .modji {
       height: 200px;
       width: 100%;
     }
@@ -101,7 +101,7 @@
   .recentMoods {
     @include flex(column, space-between, center, md);
 
-    .buttonContainer {
+    &_buttonContainer {
       @include flex(column, space-between, center, xs);
     }
   }
