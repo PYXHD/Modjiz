@@ -4,3 +4,6 @@
 
 @use "./ui/headings";
 @use "./ui/texts";
+
+@use "../app/layout";
+@use "../components/dashboardPage/dashboardClient";

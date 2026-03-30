@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 import type { Entry } from "@/types/Entry";
@@ -11,8 +9,6 @@ import { MOODS } from "@/domain/mood/moods";
 
 import Scene from "@/components/three/Canvas";
 import Button from "@/components/ui/button/Button";
-
-import styles from "./DashboardClient.module.scss";
 
 type Props = {
   today: Date;
@@ -60,19 +56,19 @@ function TodayMood({ today, data, setData }: Props) {
   }
 
   return (
-    <section className={styles.todayMood}>
-      <div className={styles.titleWrapper}>
+    <section className="todayMood">
+      <div className="titleContainer">
         <h1
-          className={`${styles.mainTitle} ${
-            mood === 0 ? styles.visible : styles.hidden
-          } text-center `}
+          className={`mainTitle ${
+            mood === 0 ? "visible" : "hidden"
+          } text-center`}
         >
           Comment ça va aujourd'hui ?
         </h1>
 
         <h1
-          className={`${styles.mainTitle} ${
-            mood !== 0 ? styles.visible : styles.hidden
+          className={`mainTitle ${
+            mood !== 0 ? "visible" : "hidden"
           } text-center`}
         >
           Aujourd'hui je me sens : <br />
@@ -80,12 +76,12 @@ function TodayMood({ today, data, setData }: Props) {
         </h1>
       </div>
 
-      <div className={styles.modjiContainer}>
+      <div className="modji">
         <Scene mood={mood} />
       </div>
 
-      <div className={styles.moodSelector}>
-        <div className={styles.moodList}>
+      <div className="moodSelector">
+        <div className="moodSelector_list">
           {MOODS.filter((m) => m.value !== 0).map((m) => (
             <input
               key={m.value}
@@ -102,14 +98,14 @@ function TodayMood({ today, data, setData }: Props) {
                 backgroundColor: m.color,
                 color: m.color,
               }}
-              className={styles.mood}
+              className="mood"
             />
           ))}
         </div>
 
-        <div className={styles.moodRange}>
+        <div className="moodRange">
           <div className="text-primary text-caption text-center">pas ouf</div>
-          <div className={styles.moodShow}></div>
+          <div className="moodShow"></div>
           <div className="text-primary text-caption text-center">au top</div>
         </div>
       </div>

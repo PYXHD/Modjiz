@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import { getUserData } from "@/data/getUserData";
 
-import styles from "./DashboardClient.module.scss";
-
 import type { Entry } from "@/types/Entry";
 
 import TodayMood from "@/components/dashboardPage/TodayMood";
@@ -23,10 +21,10 @@ function DashboardClient({ today }: Props) {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <div className={styles.dashboard}>
+    <div className="dashboard">
       <TodayMood today={today} data={data} setData={setData} />
 
-      <div className={styles.separator}></div>
+      <div className="separator"></div>
 
       <RecentMoods data={data} today={today} />
     </div>
