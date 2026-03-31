@@ -9,7 +9,6 @@ export function getDominantEmotion(
   const counts: Partial<Record<EmotionLevel, number>> = {};
 
   for (const { value } of array) {
-    if (value === null) continue;
     counts[value as EmotionLevel] = (counts[value as EmotionLevel] || 0) + 1;
   }
 
@@ -24,14 +23,12 @@ export function getDominantEmotion(
 
     if (
       count > maxCount ||
-      (count === maxCount && value > (maxValue ?? -Infinity))
+      (count === maxCount && (maxValue === null || value > maxValue))
     ) {
       maxCount = count;
       maxValue = value;
     }
   }
-
-  if (maxCount === 1) return null;
 
   return {
     value: maxValue!,
