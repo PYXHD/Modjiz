@@ -101,7 +101,7 @@
   .recentMoods {
     @include flex(column, space-between, center, md);
 
-    &_buttonContainer {
+    &_btnContainer {
       @include flex(column, space-between, center, xs);
     }
   }
