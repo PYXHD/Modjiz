@@ -7,8 +7,8 @@ import { getToday } from "@/lib/time/getToday";
 import type { Entry } from "@/types/Entry";
 import type { Month, Year } from "@/types/DateTypes";
 
-import { getAvailableMonths } from "../aggregation/getAvailableMonth";
-import { getAvailableYears } from "../aggregation/getAvailableYear";
+import { getAvailableMonths } from "../aggregation/getAvailableMonths";
+import { getAvailableYears } from "../aggregation/getAvailableYears";
 
 export function useStatsData(mode: "month" | "year") {
   const [userData, setUserData] = useState<Entry[]>([]);
