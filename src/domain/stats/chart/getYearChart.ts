@@ -1,8 +1,8 @@
 import type { Entry } from "@/types/Entry";
 import { Year } from "@/types/DateTypes";
 
-import { getYearData } from "./getYearData";
-import { average } from "./average";
+import { getYearData } from "../queries/getYearData";
+import { average } from "../core/average";
 
 export type YearChart = {
   month: number;

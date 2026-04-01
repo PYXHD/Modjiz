@@ -3,15 +3,15 @@ import styles from "../Stats.module.scss";
 import { useMemo } from "react";
 
 import { useStatsData } from "@/domain/stats/hooks/useStatsData";
-import { getMonthData } from "@/domain/stats/getMonthData";
-import { getMonthChart } from "@/domain/stats/getMonthChart";
-import { average } from "@/domain/stats/average";
+import { getMonthData } from "@/domain/stats/queries/getMonthData";
+import { getMonthChart } from "@/domain/stats/chart/getMonthChart";
+import { average } from "@/domain/stats/core/average";
 
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 import MonthGraph from "@/components/statsPage/monthView/monthGraph/MonthGraph";
 import MonthProgress from "./monthProgress/MonthProgress";
 import BestData from "@/components/ui/bestData/BestData";
-import { getDominantEmotion } from "@/domain/stats/getDominantEmotion";
+import { getDominantEmotion } from "@/domain/stats/aggregation/getDominantEmotion";
 import { Month, Year } from "@/types/DateTypes";
 
 function MonthView() {

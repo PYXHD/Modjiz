@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { getUserData } from "@/data/getUserData";
-import { getMonthData } from "@/domain/stats/getMonthData";
-import { getYearData } from "../getYearData";
+import { getMonthData } from "@/domain/stats/queries/getMonthData";
+import { getYearData } from "@/domain/stats/queries/getYearData";
 import { getToday } from "@/lib/time/getToday";
 
 import type { Entry } from "@/types/Entry";
 import type { Month, Year } from "@/types/DateTypes";
 
-import { getAvailableMonths } from "../getAvailableMonth";
-import { getAvailableYears } from "../getAvailableYear";
+import { getAvailableMonths } from "../aggregation/getAvailableMonth";
+import { getAvailableYears } from "../aggregation/getAvailableYear";
 
 export function useStatsData(mode: "month" | "year") {
   const [userData, setUserData] = useState<Entry[]>([]);

@@ -1,4 +1,4 @@
-import { YearChart } from "./getYearChart";
+import { YearChart } from "../chart/getYearChart";
 
 export function getBestMonth(data: YearChart[]) {
   let best: YearChart | null = null;
