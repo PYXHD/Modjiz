@@ -5,7 +5,7 @@ import type { EmotionLevel } from "@/types/EmotionLevel";
 
 import { saveEntry } from "@/data/sources/saveEntry";
 import { upsertEntry } from "@/domain/mood/upsertEntry";
-import { MOODS } from "@/domain/mood/moods";
+import { MOODS } from "@/domain/mood/config/moods";
 
 import Scene from "@/components/three/Canvas";
 import Button from "@/components/ui/button/Button";
