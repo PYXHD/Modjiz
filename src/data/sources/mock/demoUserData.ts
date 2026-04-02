@@ -27,9 +27,9 @@ export const demoUserData: Entry[] = [
   { date: "2025-10-23", value: 3 },
   { date: "2025-10-24", value: 2 },
   { date: "2025-10-25", value: 1 },
-  { date: "2025-10-26", value: 2 },
   { date: "2025-10-27", value: 2 },
-  { date: "2025-10-28", value: 3 },
+  { date: "2025-10-30", value: 2 },
+  { date: "2025-10-31", value: 3 },
 
   // Novembre 2025
   { date: "2025-11-02", value: 3 },

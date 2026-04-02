@@ -8,6 +8,8 @@ export function getAvailableYears(data: Entry[]) {
 
     const exists = result.includes(year);
 
+    if (isNaN(year)) return;
+
     if (!exists) {
       result.push(year);
     }

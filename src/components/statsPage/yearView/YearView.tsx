@@ -6,13 +6,13 @@ import { useStatsData } from "@/domain/stats/hooks/useStatsData";
 
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 import { Year } from "@/types/DateTypes";
-import { getYearChart } from "@/domain/stats/getYearChart";
+import { getYearChart } from "@/domain/stats/chart/getYearChart";
 
 import YearGraph from "./yearGraph/YearGraph";
-import { getDominantEmotion } from "@/domain/stats/getDominantEmotion";
+import { getDominantEmotion } from "@/domain/stats/aggregation/getDominantEmotion";
 import BestData from "@/components/ui/bestData/BestData";
-import { getYearData } from "@/domain/stats/getYearData";
-import { average } from "@/domain/stats/average";
+import { getYearData } from "@/domain/stats/queries/getYearData";
+import { average } from "@/domain/stats/core/average";
 import YearProgress from "./progress/YearProgress";
 
 function YearView() {

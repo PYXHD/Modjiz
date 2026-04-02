@@ -1,5 +1,5 @@
 import type { Entry } from "@/types/Entry";
-import { getDaysInMonth } from "./getDaysInMonth";
+import { getDaysInMonth } from "../core/getDaysInMonth";
 
 export type ChartPoint = {
   day: number;

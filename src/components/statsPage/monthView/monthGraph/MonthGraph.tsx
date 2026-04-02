@@ -7,7 +7,7 @@ import {
   ReferenceLine,
 } from "recharts";
 
-import { ChartPoint } from "@/domain/stats/getMonthChart";
+import { ChartPoint } from "@/domain/stats/chart/getMonthChart";
 import { getColor } from "@/domain/mood/getColor";
 
 type Props = {

@@ -7,15 +7,15 @@ export function getAvailableMonths(data: Entry[]) {
   data.forEach((entry) => {
     const d = new Date(entry.date);
 
-    const exists = result.some(
-      (r) => r.year === d.getFullYear() && r.month === d.getMonth(),
-    );
+    const year = d.getFullYear();
+    const month = d.getMonth();
+
+    if (isNaN(year) || isNaN(month)) return;
+
+    const exists = result.some((r) => r.year === year && r.month === month);
 
     if (!exists) {
-      result.push({
-        year: d.getFullYear(),
-        month: d.getMonth(),
-      });
+      result.push({ month, year });
     }
   });
 
