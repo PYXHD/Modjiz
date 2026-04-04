@@ -8,11 +8,11 @@ import { getUserData } from "@/data/getUserData";
 import { getHistoryData } from "@/data/getHistoryData";
 
 import type { Entry } from "@/types/Entry";
-import type { HistoryStats } from "@/types/HistoryStats";
+import { ISODate } from "@/types/Time";
 
 function Trophies() {
   const [userData, setUserData] = useState<Entry[]>([]);
-  const [historyData, setHistoryData] = useState<HistoryStats>([]);
+  const [historyData, setHistoryData] = useState<ISODate[]>([]);
 
   useEffect(() => {
     async function loadData() {
