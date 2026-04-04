@@ -1,7 +1,6 @@
 import { getYearChart } from "./getYearChart";
 
 import type { Entry } from "@/types/Entry";
-import type { Year } from "@/types/DateTypes";
 
 describe("getYearChart()", () => {
   describe("normal cases", () => {
@@ -18,7 +17,7 @@ describe("getYearChart()", () => {
         { date: "2026-02-01", value: 3 },
       ];
 
-      const input = getYearChart(yearChartMock, "2026" as Year);
+      const input = getYearChart(yearChartMock, "2026");
 
       expect(input).toHaveLength(12);
 
@@ -40,7 +39,7 @@ describe("getYearChart()", () => {
     test("returns month average for one entry", () => {
       const yearChartMock: Entry[] = [{ date: "2026-01-06", value: 3 }];
 
-      const input = getYearChart(yearChartMock, "2026" as Year);
+      const input = getYearChart(yearChartMock, "2026");
 
       const jan = input.find((m) => m.month === 0);
       expect(jan).toBeDefined();
@@ -48,7 +47,7 @@ describe("getYearChart()", () => {
     });
 
     test("returns null for empty array", () => {
-      const input = getYearChart([], "2026" as Year);
+      const input = getYearChart([], "2026");
 
       const jan = input.find((m) => m.month === 0);
       expect(jan?.value).toBeNull();

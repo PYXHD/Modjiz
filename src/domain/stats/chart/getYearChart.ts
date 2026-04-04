@@ -1,5 +1,4 @@
 import type { Entry } from "@/types/Entry";
-import { Year } from "@/types/DateTypes";
 
 import { getYearData } from "../queries/getYearData";
 import { average } from "../core/average";
@@ -10,7 +9,7 @@ export type YearChart = {
   value: number | null;
 };
 
-export function getYearChart(entries: Entry[], year: Year): YearChart[] {
+export function getYearChart(entries: Entry[], year: string): YearChart[] {
   const yearEntries = getYearData(entries, year);
 
   const map = new Map<number, Entry[]>();
