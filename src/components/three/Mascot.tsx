@@ -7,18 +7,10 @@ import * as THREE from "three";
 
 import type { ThreeElements } from "@react-three/fiber";
 import type { Emotion } from "@/domain/mood/config/moods";
+import { emotionColors } from "@/domain/mood/config/moods";
 
 type Props = Omit<ThreeElements["primitive"], "object"> & {
   emotion: Emotion;
-};
-
-const emotionColors: Record<Emotion, string> = {
-  pensive: "#E6E6EB",
-  sad: "#1F355C",
-  meh: "#3554C5",
-  ok: "#6F82D9",
-  good: "#F08BC3",
-  great: "#FFB703",
 };
 
 function Mascot({ emotion = "pensive", ...props }: Props) {
