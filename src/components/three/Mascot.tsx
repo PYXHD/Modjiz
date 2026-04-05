@@ -6,7 +6,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 import type { ThreeElements } from "@react-three/fiber";
-import type { Emotion } from "@/types/Emotion";
+import type { Emotion } from "@/domain/mood/config/moods";
 
 type Props = Omit<ThreeElements["primitive"], "object"> & {
   emotion: Emotion;

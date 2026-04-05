@@ -1,5 +1,5 @@
 import type { Entry } from "@/types/Entry";
-import type { EmotionLevel } from "@/types/EmotionLevel";
+import { EmotionLevel } from "./config/moods";
 
 export function getLastDaysMood(entries: Entry[], today: Date, days = 5) {
   const result: EmotionLevel[] = [];

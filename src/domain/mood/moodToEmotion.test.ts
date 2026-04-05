@@ -1,6 +1,6 @@
 import { moodToEmotion } from "./moodToEmotion";
-import { EmotionLevel } from "../../types/EmotionLevel";
-import { Emotion } from "@/types/Emotion";
+import type { EmotionLevel } from "@/domain/mood/config/moods";
+import type { Emotion } from "@/domain/mood/config/moods";
 
 describe("moodToEmotion()", () => {
   const cases: { input: EmotionLevel; expected: Emotion }[] = [

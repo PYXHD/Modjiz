@@ -1,6 +1,6 @@
 import styles from "./DaysChart.module.scss";
 
-import type { EmotionLevel } from "@/types/EmotionLevel";
+import { EmotionLevel } from "@/domain/mood/config/moods";
 
 const emotionColors = {
   0: "",

@@ -5,7 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { PerspectiveCamera } from "@react-three/drei";
 import { moodToEmotion } from "@/domain/mood/moodToEmotion";
 
-import { EmotionLevel } from "@/types/EmotionLevel";
+import { EmotionLevel } from "@/domain/mood/config/moods";
 
 import Mascot from "./Mascot";
 
