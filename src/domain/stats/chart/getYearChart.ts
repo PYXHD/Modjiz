@@ -27,7 +27,7 @@ export function getYearChart(entries: Entry[], year: string): YearChart[] {
   const result: YearChart[] = [];
 
   for (let month = 0; month < 12; month++) {
-    const monthEntries = map.get(month);
+    const YearMonth = map.get(month);
 
     const label = new Date(Number(year), month).toLocaleString("fr-FR", {
       month: "short",
@@ -36,7 +36,7 @@ export function getYearChart(entries: Entry[], year: string): YearChart[] {
     result.push({
       month,
       label,
-      value: monthEntries?.length ? average(monthEntries) : null,
+      value: YearMonth?.length ? average(YearMonth) : null,
     });
   }
 

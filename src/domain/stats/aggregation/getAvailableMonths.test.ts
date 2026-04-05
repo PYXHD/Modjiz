@@ -1,7 +1,6 @@
 import { getAvailableMonths } from "./getAvailableMonths";
 
 import type { Entry } from "@/types/Entry";
-import { MonthEntries } from "@/types/DateTypes";
 
 describe("getAvailableMonths()", () => {
   describe("normal cases", () => {
@@ -14,7 +13,7 @@ describe("getAvailableMonths()", () => {
       ];
 
       const result = getAvailableMonths(data);
-      const expected: MonthEntries[] = [
+      const expected = [
         { year: 2025, month: 10 },
         { year: 2025, month: 11 },
         { year: 2026, month: 0 },
@@ -36,7 +35,7 @@ describe("getAvailableMonths()", () => {
       ];
 
       const result = getAvailableMonths(data);
-      const expected: MonthEntries[] = [{ year: 2026, month: 0 }];
+      const expected = [{ year: 2026, month: 0 }];
 
       expect(result).toEqual(expected);
     });
