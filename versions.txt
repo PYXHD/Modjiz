@@ -16,3 +16,4 @@
 Date
 
 - nettoyage SSR
+- ajustement SCSS (styles.d.ts)
