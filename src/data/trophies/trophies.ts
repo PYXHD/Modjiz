@@ -1,4 +1,12 @@
-import type { Trophy } from "@/types/Trophy";
+type TrophyType = "stars" | "history" | "month";
+
+type Trophy = {
+  id: string;
+  title: string;
+  description: string;
+  type: TrophyType;
+  target: number;
+};
 
 export const TROPHIES: Trophy[] = [
   {
