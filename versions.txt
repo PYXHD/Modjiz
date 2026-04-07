@@ -12,3 +12,7 @@
 - refactor des types et ajustement dans les composants
 
 //////////////////////////////////////
+1.1.1
+Date
+
+- nettoyage SSR

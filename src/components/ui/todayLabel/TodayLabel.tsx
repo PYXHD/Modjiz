@@ -1,7 +1,6 @@
-"use client";
 import { getToday } from "@/lib/time/getToday";
 
-function todayLabel() {
+function TodayLabel() {
   const todayDate = getToday();
   const today = todayDate
     .toLocaleDateString("fr-FR", {
@@ -16,4 +15,4 @@ function todayLabel() {
   return <div className="text-body text-center">{today}</div>;
 }
 
-export default todayLabel;
+export default TodayLabel;
