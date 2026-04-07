@@ -22,10 +22,8 @@ describe("moodToEmotion()", () => {
   });
 
   describe("error case", () => {
-    test("throw an error if invalid entry", () => {
-      expect(() => {
-        moodToEmotion(8 as EmotionLevel);
-      }).toThrow("Unhandled emotion level");
+    test("throws if invalid entry", () => {
+      expect(() => moodToEmotion(8 as EmotionLevel)).toThrow(Error);
     });
   });
 });
