@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+
 import "@/styles/globals.scss";
+
 import { fontLanding, fontApp } from "@/styles/config/fonts";
 import { themeInitScript } from "@/lib/init/script/theme-init";
 
@@ -12,11 +15,15 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="fr"
-      suppressHydrationWarning
+      data-theme="light"
       className={`${fontLanding.variable} ${fontApp.variable}`}
     >
       <body>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
         <div className="appWrapper">{children}</div>
       </body>
     </html>
