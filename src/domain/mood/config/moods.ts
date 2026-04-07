@@ -47,7 +47,7 @@ export const emotionColors: Record<Emotion, string> = Object.fromEntries(
   MOODS.map((m) => [m.emotion, m.threeColor] as const),
 ) as Record<Emotion, string>;
 
-export const emotionColorsByValue: Record<`${EmotionLevel}`, string> =
+export const emotionColorsByValue: Record<EmotionLevel, string> =
   Object.fromEntries(MOODS.map((m) => [m.value, m.color] as const)) as Record<
     EmotionLevel,
     string
