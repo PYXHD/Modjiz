@@ -1,13 +1,8 @@
 import type { Entry } from "@/types/Entry";
+import { YearChart } from "./chart.types";
 
 import { getYearData } from "../queries/getYearData";
 import { average } from "../core/average";
-
-export type YearChart = {
-  month: number;
-  label: string;
-  value: number | null;
-};
 
 export function getYearChart(entries: Entry[], year: string): YearChart[] {
   const yearEntries = getYearData(entries, year);

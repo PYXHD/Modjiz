@@ -7,7 +7,7 @@ import {
   ReferenceLine,
 } from "recharts";
 
-import { ChartPoint } from "@/domain/stats/chart/getMonthChart";
+import type { ChartPoint } from "@/domain/stats/chart/chart.types";
 import type { EmotionLevel } from "@/domain/mood/config/moods";
 import { emotionColorsByValue } from "@/domain/mood/config/moods";
 
