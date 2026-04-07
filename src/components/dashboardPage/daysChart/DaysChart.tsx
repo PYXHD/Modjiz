@@ -1,15 +1,7 @@
 import styles from "./DaysChart.module.scss";
 
-import { EmotionLevel } from "@/domain/mood/config/moods";
-
-const emotionColors = {
-  0: "",
-  1: "var(--color-emotion-sad)",
-  2: "var(--color-emotion-meh)",
-  3: "var(--color-emotion-ok)",
-  4: "var(--color-emotion-good)",
-  5: "var(--color-emotion-great)",
-} as const;
+import type { EmotionLevel } from "@/domain/mood/config/moods";
+import { emotionColorsByValue } from "@/domain/mood/config/moods";
 
 type DaysChartProps = {
   data: EmotionLevel[];
@@ -28,7 +20,7 @@ function DaysChart({ data, labels }: DaysChartProps) {
             style={
               {
                 "--value": value,
-                "--color": emotionColors[value],
+                "--color": emotionColorsByValue[value],
               } as React.CSSProperties
             }
           />
