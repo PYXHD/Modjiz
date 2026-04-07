@@ -10,8 +10,6 @@ import { getAvailableYears } from "../aggregation/getAvailableYears";
 import { getMonthData } from "../queries/getMonthData";
 import { getYearData } from "../queries/getYearData";
 
-import type { Month, Year } from "@/types/DateTypes";
-
 export function useStatsData(mode: "month" | "year") {
   const data = useUserData();
   const [date, setDate] = useState(getToday());
@@ -27,8 +25,8 @@ export function useStatsData(mode: "month" | "year") {
     availableYears,
   });
 
-  const month = String(date.getMonth() + 1).padStart(2, "0") as Month;
-  const year = String(date.getFullYear()) as Year;
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = String(date.getFullYear());
 
   const filteredData =
     mode === "month"

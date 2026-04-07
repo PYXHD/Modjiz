@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import type { Entry } from "@/types/Entry";
-import type { EmotionLevel } from "@/types/EmotionLevel";
+import { EmotionLevel } from "@/domain/mood/config/moods";
 
 import { saveEntry } from "@/data/sources/saveEntry";
 import { upsertEntry } from "@/domain/mood/upsertEntry";

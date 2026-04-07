@@ -7,8 +7,9 @@ import {
   ReferenceLine,
 } from "recharts";
 
-import { ChartPoint } from "@/domain/stats/chart/getMonthChart";
-import { getColor } from "@/domain/mood/getColor";
+import type { ChartPoint } from "@/domain/stats/chart/chart.types";
+import type { EmotionLevel } from "@/domain/mood/config/moods";
+import { emotionColorsByValue } from "@/domain/mood/config/moods";
 
 type Props = {
   chartData: ChartPoint[];
@@ -48,11 +49,11 @@ function MonthGraph({ chartData, average }: Props) {
           strokeWidth={1}
           isAnimationActive={false}
           dot={({ cx, cy, payload }) => {
-            const value = payload.value;
+            const value = payload.value as EmotionLevel | null;
 
             if (value === null) return null;
 
-            const color = getColor(value);
+            const color = emotionColorsByValue[value as EmotionLevel];
 
             return <circle cx={cx} cy={cy} r={10} fill={color} />;
           }}

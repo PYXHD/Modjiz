@@ -1,6 +1,6 @@
 import { getBestMonth } from "./getBestMonth";
 
-import type { YearChart } from "../chart/getYearChart";
+import type { YearChart } from "../chart/chart.types";
 
 describe("getBestMonth()", () => {
   describe("normal cases", () => {

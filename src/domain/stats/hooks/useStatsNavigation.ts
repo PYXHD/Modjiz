@@ -1,10 +1,6 @@
-import { isWithinBounds } from "../core/isWithinBounds";
+import { Mode, AvailableMonth } from "../types/stats.types";
 
-type Mode = "month" | "year";
-type AvailableMonth = {
-  year: number;
-  month: number;
-};
+import { isWithinBounds } from "../core/isWithinBounds";
 
 type UseStatsNavigationParams = {
   mode: Mode;

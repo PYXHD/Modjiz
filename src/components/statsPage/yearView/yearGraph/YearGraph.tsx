@@ -1,6 +1,6 @@
 import styles from "./YearGraph.module.scss";
 
-import type { YearChart } from "@/domain/stats/chart/getYearChart";
+import type { YearChart } from "@/domain/stats/chart/chart.types";
 
 type Props = {
   chartData: YearChart[];

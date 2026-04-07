@@ -1,12 +1,7 @@
+import { Mode, AvailableMonth } from "../types/stats.types";
+
 import { normalizeMonth } from "./normalizeMonths";
 import { getToday } from "@/lib/time/getToday";
-
-type Mode = "month" | "year";
-
-type AvailableMonth = {
-  year: number;
-  month: number;
-};
 
 type IsWithinBoundsParams = {
   date: Date;

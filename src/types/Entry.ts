@@ -1,4 +1,6 @@
+import { ISODate } from "./Time";
+
 export type Entry = {
-  date: string;
+  date: ISODate;
   value: number;
 };

@@ -1,8 +1,8 @@
 import type { Entry } from "@/types/Entry";
-import { MonthEntries } from "@/types/DateTypes";
+import { YearMonth } from "@/types/YearMonth";
 
 export function getAvailableMonths(data: Entry[]) {
-  const result: MonthEntries[] = [];
+  const result: YearMonth[] = [];
 
   data.forEach((entry) => {
     const d = new Date(entry.date);

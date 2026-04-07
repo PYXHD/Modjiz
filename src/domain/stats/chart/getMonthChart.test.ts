@@ -1,6 +1,6 @@
 import { getMonthChart } from "./getMonthChart";
 
-import type { ChartPoint } from "./getMonthChart";
+import { ChartPoint } from "./chart.types";
 import type { Entry } from "@/types/Entry";
 
 describe("getMonthChart()", () => {

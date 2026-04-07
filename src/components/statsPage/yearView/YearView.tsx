@@ -5,7 +5,6 @@ import { useMemo } from "react";
 import { useStatsData } from "@/domain/stats/hooks/useStatsData";
 
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
-import { Year } from "@/types/DateTypes";
 import { getYearChart } from "@/domain/stats/chart/getYearChart";
 
 import YearGraph from "./yearGraph/YearGraph";
@@ -19,7 +18,7 @@ function YearView() {
   const { data, filteredData, date, changeDate, canNavigate } =
     useStatsData("year");
 
-  const year = date.getFullYear().toString() as Year;
+  const year = date.getFullYear().toString();
   const chartData = getYearChart(filteredData, year);
 
   const chartDataLength = filteredData.filter(
@@ -33,7 +32,7 @@ function YearView() {
   }, [date]);
 
   const prevYearData = useMemo(() => {
-    const year = prevDate.getFullYear().toString() as Year;
+    const year = prevDate.getFullYear().toString();
     return getYearData(data, year);
   }, [data, prevDate]);
 

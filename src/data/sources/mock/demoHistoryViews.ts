@@ -1,6 +1,6 @@
-import type { HistoryStats } from "@/types/HistoryStats";
+import type { ISODate } from "@/types/Time";
 
-export const demoHistoryViews: HistoryStats = [
+export const demoHistoryViews: ISODate[] = [
   "2025-10-01",
   "2025-10-03",
   "2025-10-05",

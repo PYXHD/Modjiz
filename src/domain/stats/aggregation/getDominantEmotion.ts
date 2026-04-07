@@ -1,5 +1,5 @@
 import type { Entry } from "@/types/Entry";
-import type { EmotionLevel } from "@/types/EmotionLevel";
+import { EmotionLevel } from "../../mood/config/moods";
 
 export function getDominantEmotion(
   array: Entry[],

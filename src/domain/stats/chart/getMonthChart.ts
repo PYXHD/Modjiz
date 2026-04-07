@@ -1,10 +1,6 @@
 import type { Entry } from "@/types/Entry";
+import { ChartPoint } from "./chart.types";
 import { getDaysInMonth } from "../core/getDaysInMonth";
-
-export type ChartPoint = {
-  day: number;
-  value: number | null;
-};
 
 export function getMonthChart(
   entries: Entry[],

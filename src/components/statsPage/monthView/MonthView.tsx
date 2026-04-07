@@ -12,7 +12,6 @@ import MonthGraph from "@/components/statsPage/monthView/monthGraph/MonthGraph";
 import MonthProgress from "./monthProgress/MonthProgress";
 import BestData from "@/components/ui/bestData/BestData";
 import { getDominantEmotion } from "@/domain/stats/aggregation/getDominantEmotion";
-import { Month, Year } from "@/types/DateTypes";
 
 function MonthView() {
   const { data, filteredData, date, changeDate, canNavigate } =
@@ -30,8 +29,8 @@ function MonthView() {
   }, [date]);
 
   const prevMonthData = useMemo(() => {
-    const month = String(prevDate.getMonth() + 1).padStart(2, "0") as Month;
-    const year = prevDate.getFullYear().toString() as Year;
+    const month = String(prevDate.getMonth() + 1).padStart(2, "0");
+    const year = prevDate.getFullYear().toString();
 
     return getMonthData(data, month, year);
   }, [data, prevDate]);
