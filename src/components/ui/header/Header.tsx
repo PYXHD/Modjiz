@@ -1,25 +1,36 @@
 "use client";
-import styles from "./Header.module.scss";
 
 import { useState, useEffect } from "react";
+
 import Logo from "@/assets/img/logo_app.svg";
-import { Entry } from "@/types/Entry";
+
 import { getUserData } from "@/data/getUserData";
 import { getToday } from "@/lib/time/getToday";
+
+import { Entry } from "@/types/Entry";
+
+import styles from "./Header.module.scss";
 
 function Header() {
   const [userData, setUserData] = useState<Entry[]>([]);
   useEffect(() => {
+    let isMounted = true;
+
     async function reload() {
       const data = await getUserData();
-      setUserData(data);
+      if (isMounted) {
+        setUserData(data);
+      }
     }
 
     reload();
 
     window.addEventListener("mood-updated", reload);
 
-    return () => window.removeEventListener("mood-updated", reload);
+    return () => {
+      isMounted = false;
+      window.removeEventListener("mood-updated", reload);
+    };
   }, []);
 
   const today = getToday().toLocaleDateString("en-CA");

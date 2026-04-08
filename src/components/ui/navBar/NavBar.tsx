@@ -2,37 +2,55 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import styles from "./NavBar.module.scss";
+
+const links = [
+  {
+    href: "/app",
+    icon: "/icons/menu_home.svg",
+    label: "Accueil",
+  },
+  {
+    href: "/app/stats",
+    icon: "/icons/menu_stats.svg",
+    label: "Stats",
+  },
+  {
+    href: "/app/trophies",
+    icon: "/icons/menu_trophy.svg",
+    label: "Trophées",
+  },
+  {
+    href: "/app/settings",
+    icon: "/icons/menu_settings.svg",
+    label: "Réglages",
+  },
+];
 
 function NavBar() {
   const pathname = usePathname();
 
   return (
     <div className={styles.container}>
-      <Link
-        href="/app"
-        className={`${styles.iconButton} ${pathname === "/app" ? styles.active : ""}`}
-      >
-        <img src="/icons/menu_home.svg" alt="Home icon" />
-      </Link>
-      <Link
-        href="/app/stats"
-        className={`${styles.iconButton} ${pathname === "/app/stats" ? styles.active : ""}`}
-      >
-        <img src="/icons/menu_stats.svg" alt="Stats icon" />
-      </Link>
-      <Link
-        href="/app/trophies"
-        className={`${styles.iconButton} ${pathname === "/app/trophies" ? styles.active : ""}`}
-      >
-        <img src="/icons/menu_trophy.svg" alt="Stats trophies" />
-      </Link>
-      <Link
-        href="/app/settings"
-        className={`${styles.iconButton} ${pathname === "/app/settings" ? styles.active : ""}`}
-      >
-        <img src="/icons/menu_settings.svg" alt="Settings icon" />
-      </Link>
+      {links.map((link) => {
+        const isActive =
+          link.href === "/app"
+            ? pathname === "/app"
+            : pathname.startsWith(link.href);
+
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            aria-label={link.label}
+            aria-current={isActive ? "page" : undefined}
+            className={`${styles.iconButton} ${isActive ? styles.active : ""}`}
+          >
+            <img src={link.icon} alt="" />
+          </Link>
+        );
+      })}
     </div>
   );
 }

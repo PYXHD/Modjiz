@@ -1,9 +1,9 @@
-import styles from "./LandingContent.module.scss";
-
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
 
 import StartDemoButton from "@/components/landingPage/StartDemoButton";
+
+import styles from "./LandingContent.module.scss";
 
 function LandingContent() {
   return (

@@ -17,4 +17,4 @@ Date
 
 - nettoyage SSR
 - ajustement SCSS (styles.d.ts)
-- ajustement: layout / page / landingContent
+- ajustement: layout / page / landingContent / header / navBar / todayLabel
