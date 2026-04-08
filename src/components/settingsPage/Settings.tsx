@@ -10,6 +10,10 @@ import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
 function Settings() {
   const goToLanding = () => {
     localStorage.removeItem("app-mode");
+
+    document.cookie = "has-onboarded=; path=/; max-age=0";
+    document.cookie = "app-mode=; path=/; max-age=0";
+
     window.location.href = "/";
   };
 

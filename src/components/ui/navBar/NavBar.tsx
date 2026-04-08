@@ -10,7 +10,7 @@ function NavBar() {
   return (
     <div className={styles.container}>
       <Link
-        href="/"
+        href="/app"
         className={`${styles.iconButton} ${pathname === "/app" ? styles.active : ""}`}
       >
         <img src="/icons/menu_home.svg" alt="Home icon" />
