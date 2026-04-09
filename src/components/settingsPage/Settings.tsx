@@ -1,11 +1,11 @@
 "use client";
 
-import styles from "./Settings.module.scss";
-
 import Link from "next/link";
 
 import Button from "@/components/ui/button/Button";
 import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
+
+import styles from "./Settings.module.scss";
 
 function Settings() {
   const goToLanding = () => {
@@ -41,8 +41,7 @@ function Settings() {
           </div>
           <div className={styles.legal}>
             <Link
-              href="/app/settings/legal-notices
-            "
+              href="/app/settings/legal-notices"
               className={`${styles.link} text-primary text-body-medium`}
             >
               Mentions légales

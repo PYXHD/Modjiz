@@ -1,12 +1,9 @@
-"use client";
-
 import { useState } from "react";
+
 import styles from "./ThemeSwitch.module.scss";
 
 export default function ThemeSwitch() {
   const [mode, setMode] = useState<"light" | "dark">(() => {
-    if (typeof document === "undefined") return "light";
-
     const theme = document.documentElement.getAttribute("data-theme");
     return (theme as "light" | "dark") || "light";
   });
