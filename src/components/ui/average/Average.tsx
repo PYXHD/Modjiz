@@ -2,8 +2,8 @@ import styles from "./Average.module.scss";
 
 type Props = {
   label: string;
-  avgCurrent: string;
-  avgPrev: string;
+  avgCurrent: number;
+  avgPrev: number;
   labelPrev: string;
 };
 
@@ -14,8 +14,8 @@ function Average({ label, avgCurrent, avgPrev, labelPrev }: Props) {
     if (value < 4) return styles.good;
     return styles.great;
   };
-  const currentMood = getMood(Number(avgCurrent));
-  const prevMood = getMood(Number(avgPrev));
+  const currentMood = getMood(avgCurrent);
+  const prevMood = getMood(avgPrev);
   const displayValue = (value: string) => (Number(value) === 0 ? "-" : value);
 
   return (
@@ -26,7 +26,7 @@ function Average({ label, avgCurrent, avgPrev, labelPrev }: Props) {
         </div>
         <div className={`${styles.data} ${styles.avgTypo} ${currentMood}`}>
           <div>moyenne</div>
-          <div>{displayValue(avgCurrent)}</div>
+          <div>{displayValue(avgCurrent.toFixed(1))}</div>
         </div>
       </div>
       <div className={styles.currentMonth}>
@@ -35,7 +35,7 @@ function Average({ label, avgCurrent, avgPrev, labelPrev }: Props) {
         </div>
         <div className={`${styles.data} ${styles.avgTypo} ${prevMood}`}>
           <div>moyenne</div>
-          <div>{displayValue(avgPrev)}</div>
+          <div>{displayValue(avgPrev.toFixed(1))}</div>
         </div>
       </div>
     </div>

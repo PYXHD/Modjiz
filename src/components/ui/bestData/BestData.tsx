@@ -1,8 +1,9 @@
-import styles from "./BestData.module.scss";
-
 import Scene from "@/components/three/Canvas";
+
 import { MOODS } from "@/domain/mood/config/moods";
 import type { EmotionLevel } from "@/domain/mood/config/moods";
+
+import styles from "./BestData.module.scss";
 
 type Props = {
   mostValue: EmotionLevel | null;

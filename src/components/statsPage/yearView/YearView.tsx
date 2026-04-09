@@ -63,8 +63,8 @@ function YearView() {
       <YearProgress
         label={yearLabel}
         labelPrev={prevYearLabel}
-        avgCurrent={avg.toFixed(1)}
-        avgPrev={avgPrev.toFixed(1)}
+        avgCurrent={avg}
+        avgPrev={avgPrev}
         changeDate={changeDate}
         canNavigate={canNavigate}
       />

@@ -5,8 +5,8 @@ import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 
 type Props = {
   label: string;
-  avgCurrent: string;
-  avgPrev: string;
+  avgCurrent: number;
+  avgPrev: number;
   labelPrev: string;
   year: number;
   changeDate: (direction: number) => void;
@@ -21,19 +21,16 @@ function MonthProgress({
   changeDate,
   canNavigate,
 }: Props) {
-  const current = Number(avgCurrent);
-  const prev = Number(avgPrev);
-
   const compareIcon = () => {
-    if (current === 0 || prev === 0) return null;
+    if (avgCurrent === 0 || avgPrev === 0) return null;
 
-    if (current > prev) return "/icons/icon_arrow_up.svg";
-    if (current < prev) return "/icons/icon_arrow_down.svg";
+    if (avgCurrent > avgPrev) return "/icons/icon_arrow_up.svg";
+    if (avgCurrent < avgPrev) return "/icons/icon_arrow_down.svg";
     return "/icons/icon_arrow_flat.svg";
   };
-  const hasData = current !== 0 && prev !== 0;
+  const hasData = avgCurrent !== 0 && avgPrev !== 0;
   const icon = compareIcon();
-  const avgGap = hasData ? current - prev : null;
+  const avgGap = hasData ? avgCurrent - avgPrev : null;
 
   const formattedGap =
     avgGap == null

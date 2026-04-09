@@ -80,8 +80,8 @@ function MonthView() {
       <MonthProgress
         label={monthLabel}
         labelPrev={prevMonthLabel}
-        avgCurrent={avg.toFixed(1)}
-        avgPrev={avgPrev.toFixed(1)}
+        avgCurrent={avg}
+        avgPrev={avgPrev}
         year={year}
         changeDate={changeDate}
         canNavigate={canNavigate}
