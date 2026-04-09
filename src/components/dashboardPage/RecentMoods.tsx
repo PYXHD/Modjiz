@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useMemo } from "react";
 
 import { getLastDaysLabels } from "@/lib/time/getLastDaysLabel";
 import { getLastDaysMood } from "@/domain/mood/getLastDaysMood";
@@ -14,8 +15,12 @@ type Props = {
 };
 
 function RecentMoods({ data, today }: Props) {
-  const dataLastDays = getLastDaysMood(data, today);
-  const labels = getLastDaysLabels(today, 5);
+  const dataLastDays = useMemo(
+    () => getLastDaysMood(data, today),
+    [data, today],
+  );
+
+  const labels = useMemo(() => getLastDaysLabels(today, 5), [today]);
 
   return (
     <section className="recentMoods">
