@@ -5,15 +5,12 @@ import { useEffect, useState } from "react";
 import styles from "./ThemeSwitch.module.scss";
 
 export default function ThemeSwitch() {
-  const [mode, setMode] = useState<"light" | "dark">("light");
+  const [mode, setMode] = useState<"light" | "dark">(() => {
+    if (typeof window === "undefined") return "light";
 
-  useEffect(() => {
     const theme = document.documentElement.getAttribute("data-theme");
-
-    if (theme === "light" || theme === "dark") {
-      setMode(theme);
-    }
-  }, []);
+    return theme === "dark" ? "dark" : "light";
+  });
 
   const toggle = () => {
     const newMode = mode === "light" ? "dark" : "light";
