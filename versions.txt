@@ -13,7 +13,7 @@
 
 //////////////////////////////////////
 1.2.0
-Date
+10/04/2026
 
 - nettoyage SSR
 - ajustement SCSS (styles.d.ts)

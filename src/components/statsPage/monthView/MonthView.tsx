@@ -1,5 +1,3 @@
-import styles from "../Stats.module.scss";
-
 import { useMemo } from "react";
 
 import { useStatsData } from "@/domain/stats/hooks/useStatsData";
@@ -13,6 +11,8 @@ import MonthProgress from "./monthProgress/MonthProgress";
 import BestData from "@/components/ui/bestData/BestData";
 import { getDominantEmotion } from "@/domain/stats/aggregation/getDominantEmotion";
 
+import styles from "../Stats.module.scss";
+
 function MonthView() {
   const { data, filteredData, date, changeDate, canNavigate } =
     useStatsData("month");
@@ -20,38 +20,42 @@ function MonthView() {
   const month = date.getMonth();
   const year = date.getFullYear();
 
-  const chartData = getMonthChart(filteredData, month, year);
-
-  const prevDate = useMemo(() => {
-    const d = new Date(date);
-    d.setMonth(d.getMonth() - 1);
-    return d;
-  }, [date]);
-
-  const prevMonthData = useMemo(() => {
-    const month = String(prevDate.getMonth() + 1).padStart(2, "0");
-    const year = prevDate.getFullYear().toString();
-
-    return getMonthData(data, month, year);
-  }, [data, prevDate]);
+  const chartData = useMemo(
+    () => getMonthChart(filteredData, month, year),
+    [filteredData, month, year],
+  );
 
   const avg = useMemo(() => average(filteredData), [filteredData]);
 
+  const chartDataLength = useMemo(
+    () =>
+      filteredData.reduce(
+        (acc, item) => acc + (item.value !== null ? 1 : 0),
+        0,
+      ),
+    [filteredData],
+  );
+
+  const dominantEmotion = useMemo(
+    () => getDominantEmotion(filteredData),
+    [filteredData],
+  );
+
+  const prevMonth = month === 0 ? 11 : month - 1;
+  const prevYear = month === 0 ? year - 1 : year;
+
+  const prevMonthData = useMemo(() => {
+    const monthStr = String(prevMonth + 1).padStart(2, "0");
+    const yearStr = prevYear.toString();
+    return getMonthData(data, monthStr, yearStr);
+  }, [data, prevMonth, prevYear]);
+
   const avgPrev = useMemo(() => average(prevMonthData), [prevMonthData]);
 
-  const chartDataLength = filteredData.filter(
-    (item) => item.value !== null,
-  ).length;
-
-  const mostValue = getDominantEmotion(filteredData);
-
-  const monthLabel = useMemo(
-    () => date.toLocaleString("fr-FR", { month: "long" }),
-    [date],
-  );
-  const prevMonthLabel = useMemo(() => {
-    return prevDate.toLocaleString("fr-FR", { month: "long" });
-  }, [prevDate]);
+  const monthLabel = date.toLocaleString("fr-FR", { month: "long" });
+  const prevMonthLabel = new Date(prevYear, prevMonth).toLocaleString("fr-FR", {
+    month: "long",
+  });
 
   return (
     <div className={styles.subContainer}>
@@ -71,18 +75,20 @@ function MonthView() {
         canGoPrev={canNavigate(-1)}
         canGoNext={canNavigate(1)}
       />
+
       <BestData
-        mostValue={mostValue?.value ?? null}
-        count={mostValue?.count ?? 0}
+        mostValue={dominantEmotion?.value ?? null}
+        count={dominantEmotion?.count ?? 0}
         chartDataLength={chartDataLength}
       />
+
       <div className={styles.separator}></div>
+
       <MonthProgress
         label={monthLabel}
         labelPrev={prevMonthLabel}
         avgCurrent={avg}
         avgPrev={avgPrev}
-        year={year}
         changeDate={changeDate}
         canNavigate={canNavigate}
       />

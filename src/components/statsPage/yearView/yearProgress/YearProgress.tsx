@@ -1,7 +1,7 @@
-import styles from "@/components/statsPage/Stats.module.scss";
-
 import Average from "@/components/ui/average/Average";
 import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
+
+import styles from "@/components/statsPage/Stats.module.scss";
 
 type Props = {
   label: string;
@@ -20,30 +20,26 @@ function YearProgress({
   changeDate,
   canNavigate,
 }: Props) {
-  const compareIcon = () => {
-    if (avgCurrent === 0 || avgPrev === 0) return null;
+  const hasData = avgCurrent > 0 && avgPrev > 0;
+  const icon =
+    avgCurrent === 0 || avgPrev === 0
+      ? null
+      : avgCurrent > avgPrev
+        ? "/icons/icon_arrow_up.svg"
+        : avgCurrent < avgPrev
+          ? "/icons/icon_arrow_down.svg"
+          : "/icons/icon_arrow_flat.svg";
 
-    if (avgCurrent > avgPrev) return "/icons/icon_arrow_up.svg";
-    if (avgCurrent < avgPrev) return "/icons/icon_arrow_down.svg";
-    return "/icons/icon_arrow_flat.svg";
-  };
-  const hasData = avgCurrent !== 0 && avgPrev !== 0;
-  const icon = compareIcon();
   const avgGap = hasData ? avgCurrent - avgPrev : null;
 
   const formattedGap =
-    avgGap == null
-      ? "-"
-      : avgGap > 0
-        ? `+${avgGap.toFixed(1)}`
-        : avgGap.toFixed(1);
+    avgGap == null ? "-" : `${avgGap > 0 ? "+" : ""}${avgGap.toFixed(1)}`;
 
   return (
     <div className={styles.progress}>
       <h2>Progression</h2>
       <TimeSwitcher
         label="Comparer"
-        subLabel=""
         onPrev={() => changeDate(-1)}
         onNext={() => changeDate(1)}
         canGoPrev={canNavigate(-1)}
