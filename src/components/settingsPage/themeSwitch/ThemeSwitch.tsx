@@ -1,19 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import styles from "./ThemeSwitch.module.scss";
 
 export default function ThemeSwitch() {
-  const [mode, setMode] = useState<"light" | "dark">("light");
-
-  useEffect(() => {
+  const [mode, setMode] = useState<"light" | "dark">(() => {
     const theme = document.documentElement.getAttribute("data-theme");
-
-    if (theme === "light" || theme === "dark") {
-      setMode(theme);
-    }
-  }, []);
+    return theme === "dark" ? "dark" : "light";
+  });
 
   const toggle = () => {
     const newMode = mode === "light" ? "dark" : "light";
@@ -28,14 +23,14 @@ export default function ThemeSwitch() {
       />
 
       <button
-        className={`${mode === "light" ? styles.active : ""} text-primary text-body `}
+        className={`${mode === "light" ? styles.active : ""} text-primary text-body`}
         onClick={toggle}
       >
         Clair
       </button>
 
       <button
-        className={`${mode === "dark" ? styles.active : ""} text-primary text-body `}
+        className={`${mode === "dark" ? styles.active : ""} text-primary text-body`}
         onClick={toggle}
       >
         Sombre

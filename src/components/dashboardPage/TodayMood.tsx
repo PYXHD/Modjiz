@@ -26,16 +26,15 @@ function TodayMood({ today, data, setData }: Props) {
   const selectedMood = MOODS.find((m) => m.value === mood);
 
   useEffect(() => {
-    if (!existingEntry) {
-      setIsEditing(true);
-      return;
+    setIsEditing(!existingEntry);
+  }, [existingEntry]);
+
+  useEffect(() => {
+    if (existingEntry) {
+      setMood((prev) =>
+        prev === 0 ? (existingEntry.value as EmotionLevel) : prev,
+      );
     }
-
-    setMood((prev) =>
-      prev === 0 ? (existingEntry.value as EmotionLevel) : prev,
-    );
-
-    setIsEditing(false);
   }, [existingEntry]);
 
   async function handleSave() {
