@@ -1,22 +1,19 @@
+import { getMoodLevel } from "@/domain/mood/getMoodLevel";
+
 import styles from "./Average.module.scss";
 
 type Props = {
   label: string;
-  avgCurrent: string;
-  avgPrev: string;
+  avgCurrent: number;
+  avgPrev: number;
   labelPrev: string;
 };
 
 function Average({ label, avgCurrent, avgPrev, labelPrev }: Props) {
-  const getMood = (value: number) => {
-    if (value === 0) return styles.neutral;
-    if (value < 3) return styles.medium;
-    if (value < 4) return styles.good;
-    return styles.great;
-  };
-  const currentMood = getMood(Number(avgCurrent));
-  const prevMood = getMood(Number(avgPrev));
-  const displayValue = (value: string) => (Number(value) === 0 ? "-" : value);
+  const currentMood = styles[getMoodLevel(avgCurrent)];
+  const prevMood = styles[getMoodLevel(avgPrev)];
+  const displayValue = (value: number) =>
+    value === 0 ? "-" : value.toFixed(1);
 
   return (
     <div className={styles.container}>

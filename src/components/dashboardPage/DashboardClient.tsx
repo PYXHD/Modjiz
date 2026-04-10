@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+
 import { getUserData } from "@/data/getUserData";
 
 import type { Entry } from "@/types/Entry";
@@ -13,12 +14,25 @@ type Props = {
 };
 
 function DashboardClient({ today }: Props) {
-  const [data, setData] = useState<Entry[] | null>(null);
+  const [data, setData] = useState<Entry[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    getUserData().then(setData);
+    async function loadData() {
+      try {
+        const result = await getUserData();
+        setData(result);
+      } catch (error) {
+        setData([]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadData();
   }, []);
 
-  if (!data) return <div>Loading...</div>;
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <div className="dashboard">

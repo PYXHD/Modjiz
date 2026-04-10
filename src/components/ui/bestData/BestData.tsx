@@ -1,8 +1,9 @@
-import styles from "./BestData.module.scss";
-
 import Scene from "@/components/three/Canvas";
+
 import { MOODS } from "@/domain/mood/config/moods";
 import type { EmotionLevel } from "@/domain/mood/config/moods";
+
+import styles from "./BestData.module.scss";
 
 type Props = {
   mostValue: EmotionLevel | null;
@@ -12,6 +13,7 @@ type Props = {
 
 function BestData({ mostValue, count, chartDataLength }: Props) {
   const mood = MOODS.find((m) => m.value === mostValue);
+  const hasData = mood !== undefined;
 
   const moodClass = mood ? styles[mood.emotion] : styles.noData;
   const moodDisplay = mood?.label ?? "";
@@ -20,7 +22,7 @@ function BestData({ mostValue, count, chartDataLength }: Props) {
     <div className={styles.bestData}>
       <h2>Le plus souvent</h2>
       <div className={`${styles.container} ${moodClass}`}>
-        {mostValue === null ? (
+        {!hasData ? (
           <div>-</div>
         ) : (
           <>
@@ -31,7 +33,7 @@ function BestData({ mostValue, count, chartDataLength }: Props) {
               </p>
             </div>
             <div className={styles.modji}>
-              <Scene mood={mostValue} />
+              <Scene mood={mood.value} />
             </div>
           </>
         )}

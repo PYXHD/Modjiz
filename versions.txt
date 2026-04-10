@@ -7,8 +7,16 @@
 1.1.0
 06/04/26
 
-- compléter tests manquants à certaines fonctions
+- complétion des tests manquants à certaines fonctions
 - refactor du hook useStatsData
 - refactor des types et ajustement dans les composants
 
 //////////////////////////////////////
+1.2.0
+10/04/2026
+
+- nettoyage SSR
+- ajustement SCSS (styles.d.ts)
+- refactor des composants
+- correction de types dans la page stats
+- ajout de getMoodLevel + tests pour éviter la duplication dans les composants

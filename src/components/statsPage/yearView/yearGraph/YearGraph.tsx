@@ -1,23 +1,19 @@
-import styles from "./YearGraph.module.scss";
+import { getMoodLevel } from "@/domain/mood/getMoodLevel";
 
 import type { YearChart } from "@/domain/stats/chart/chart.types";
+
+import styles from "./YearGraph.module.scss";
 
 type Props = {
   chartData: YearChart[];
 };
 
 function YearGraph({ chartData }: Props) {
-  const getMood = (value: number | null) => {
-    if (value === null) return styles.neutral;
-    if (value < 3) return styles.medium;
-    if (value < 4) return styles.good;
-    return styles.great;
-  };
-
   return (
     <div className={styles.yearAvgs}>
       {chartData.map((item) => {
-        const moodClass = getMood(item.value);
+        const moodKey = getMoodLevel(item.value);
+        const moodClass = styles[moodKey] ?? "";
         const width = item.value ?? 0;
 
         return (

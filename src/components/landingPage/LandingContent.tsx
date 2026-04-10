@@ -1,31 +1,11 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-
-import styles from "./LandingContent.module.scss";
-
-import Button from "@/components/ui/button/Button";
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
 
+import StartDemoButton from "@/components/landingPage/StartDemoButton";
+
+import styles from "./LandingContent.module.scss";
+
 function LandingContent() {
-  const [ready, setReady] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    const mode = localStorage.getItem("app-mode");
-
-    if (mode) {
-      router.replace("/app");
-    } else {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setReady(true);
-    }
-  }, [router]);
-
-  if (!ready) return null;
-
   return (
     <main className={styles.container}>
       <section className={styles.heroSection}>
@@ -47,14 +27,7 @@ function LandingContent() {
         </div>
 
         <div className={styles.btnContainer}>
-          <Button
-            onClick={() => {
-              localStorage.setItem("app-mode", "mock");
-              router.push("/app");
-            }}
-          >
-            Version démo
-          </Button>
+          <StartDemoButton />
           <p className={styles.textSmall}>
             Vous commencerez l&apos;expérience avec un ensemble de données
             pré-enregistrées afin de découvrir l&apos;application
@@ -195,8 +168,9 @@ function LandingContent() {
           href="https://github.com/PYXHD/Modjiz"
           target="_blank"
           rel="noopener noreferrer"
+          className="text-inverse text-lead button primary"
         >
-          <Button>Repository Github</Button>
+          Repository Github
         </a>
       </section>
 

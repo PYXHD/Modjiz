@@ -1,15 +1,19 @@
 "use client";
 
-import styles from "./Settings.module.scss";
-
 import Link from "next/link";
 
 import Button from "@/components/ui/button/Button";
 import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
 
+import styles from "./Settings.module.scss";
+
 function Settings() {
   const goToLanding = () => {
     localStorage.removeItem("app-mode");
+
+    document.cookie = "has-onboarded=; path=/; max-age=0";
+    document.cookie = "app-mode=; path=/; max-age=0";
+
     window.location.href = "/";
   };
 
@@ -29,7 +33,7 @@ function Settings() {
           <h2>Infos</h2>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Version</div>
-            <div className="text-primary text-body ">1.1.0</div>
+            <div className="text-primary text-body ">1.2.0</div>
           </div>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Auteur</div>
@@ -37,8 +41,7 @@ function Settings() {
           </div>
           <div className={styles.legal}>
             <Link
-              href="/app/settings/legal-notices
-            "
+              href="/app/settings/legal-notices"
               className={`${styles.link} text-primary text-body-medium`}
             >
               Mentions légales

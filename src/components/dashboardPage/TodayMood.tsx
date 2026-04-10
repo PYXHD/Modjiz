@@ -1,48 +1,42 @@
-import { useEffect, useState } from "react";
+"use client";
 
-import type { Entry } from "@/types/Entry";
-import { EmotionLevel } from "@/domain/mood/config/moods";
+import { useState } from "react";
 
-import { saveEntry } from "@/data/sources/saveEntry";
 import { upsertEntry } from "@/domain/mood/upsertEntry";
 import { MOODS } from "@/domain/mood/config/moods";
+import type { EmotionLevel } from "@/domain/mood/config/moods";
+
+import { saveEntry } from "@/data/sources/saveEntry";
 
 import Scene from "@/components/three/Canvas";
 import Button from "@/components/ui/button/Button";
 
+import type { Entry } from "@/types/Entry";
+
 type Props = {
   today: Date;
-  data: Entry[] | null;
-  setData: React.Dispatch<React.SetStateAction<Entry[] | null>>;
+  data: Entry[];
+  setData: React.Dispatch<React.SetStateAction<Entry[]>>;
 };
 
 function TodayMood({ today, data, setData }: Props) {
-  const [mood, setMood] = useState<EmotionLevel>(0);
-  const [isEditing, setIsEditing] = useState(true);
-
   const todayStr = today.toLocaleDateString("en-CA");
-  const existingEntry = data?.find((e) => e.date === todayStr);
-  const selectedMood = MOODS.find((m) => m.value === mood);
 
-  useEffect(() => {
-    if (existingEntry) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setMood(existingEntry.value as EmotionLevel);
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setIsEditing(false);
-    } else {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setIsEditing(true);
-    }
-  }, [existingEntry]);
+  const existingEntry = data.find((e) => e.date === todayStr);
+
+  const [isEditing, setIsEditing] = useState(() => !existingEntry);
+
+  const [mood, setMood] = useState<EmotionLevel>(() =>
+    existingEntry ? (existingEntry.value as EmotionLevel) : 0,
+  );
+
+  const selectedMood = MOODS.find((m) => m.value === mood);
 
   async function handleSave() {
     if (!isEditing) {
       setIsEditing(true);
       return;
     }
-
-    if (mood === 0) return;
 
     const entry: Entry = {
       date: todayStr,

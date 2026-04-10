@@ -1,5 +1,4 @@
 "use client";
-import styles from "./Button.module.scss";
 
 type ButtonProps = {
   children: string;
@@ -17,7 +16,7 @@ function Button({
   return (
     <button
       type="button"
-      className={`text-inverse text-lead ${styles.button} ${styles[variant]}`}
+      className={`text-lead button ${variant}`}
       onClick={onClick}
       disabled={disabled}
     >

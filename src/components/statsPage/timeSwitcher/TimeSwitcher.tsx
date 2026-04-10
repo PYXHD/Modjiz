@@ -1,4 +1,5 @@
 "use client";
+
 import styles from "./TimeSwitcher.module.scss";
 
 type Props = {
@@ -24,6 +25,7 @@ function TimeSwitcher({
         className={styles.prev}
         onClick={onPrev}
         disabled={!canGoPrev}
+        aria-label="Période précédente"
       ></button>
 
       <div className={styles.label}>
@@ -35,6 +37,7 @@ function TimeSwitcher({
         className={styles.next}
         onClick={onNext}
         disabled={!canGoNext}
+        aria-label="Période suivante"
       ></button>
     </div>
   );

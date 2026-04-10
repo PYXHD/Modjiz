@@ -1,18 +1,30 @@
 "use client";
-import styles from "./Trophies.module.scss";
 
 import { useState, useEffect } from "react";
 
-import { TROPHIES } from "@/data/trophies/trophies";
-import { getUserData } from "@/data/getUserData";
 import { getHistoryData } from "@/data/getHistoryData";
+import { getUserData } from "@/data/getUserData";
+import { TROPHIES } from "@/data/trophies/trophies";
 
 import type { Entry } from "@/types/Entry";
-import { ISODate } from "@/types/Time";
+import type { ISODate } from "@/types/Time";
+
+import styles from "./Trophies.module.scss";
 
 function Trophies() {
   const [userData, setUserData] = useState<Entry[]>([]);
   const [historyData, setHistoryData] = useState<ISODate[]>([]);
+
+  const trophyGroups = [
+    {
+      type: "stars",
+      data: userData,
+    },
+    {
+      type: "history",
+      data: historyData,
+    },
+  ];
 
   useEffect(() => {
     async function loadData() {
@@ -28,58 +40,36 @@ function Trophies() {
     loadData();
   }, []);
 
-  console.log(historyData);
   return (
     <div className={styles.trophies}>
       <h1 className="text-center">Trophées</h1>
       <div className={styles.container}>
-        <div className={styles.subContainer}>
-          {TROPHIES.filter((t) => t.type === "stars").map((trophy) => {
-            const isUnlocked = userData.length >= trophy.target;
-            return (
-              <div key={trophy.id}>
-                <div className={styles.titleContainer}>
-                  <img
-                    src={
-                      isUnlocked
-                        ? "/icons/icon_trophy.svg"
-                        : "/icons/icon_trophy_unactive.svg"
-                    }
-                    alt=""
-                  />
-                  <div className="text-title-medium">"{trophy.title}"</div>
-                </div>
-                <p className="text-primary text-small">
-                  - {trophy.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+        {trophyGroups.map((group) => (
+          <div key={group.type} className={styles.subContainer}>
+            {TROPHIES.filter((t) => t.type === group.type).map((trophy) => {
+              const isUnlocked = group.data.length >= trophy.target;
 
-        <div className={styles.subContainer}>
-          {TROPHIES.filter((t) => t.type === "history").map((trophy) => {
-            const isUnlocked = historyData.length >= trophy.target;
-            return (
-              <div key={trophy.id}>
-                <div className={styles.titleContainer}>
-                  <img
-                    src={
-                      isUnlocked
-                        ? "/icons/icon_trophy.svg"
-                        : "/icons/icon_trophy_unactive.svg"
-                    }
-                    alt=""
-                  />
-                  <div className="text-title-medium">"{trophy.title}"</div>
+              return (
+                <div key={trophy.id}>
+                  <div className={styles.titleContainer}>
+                    <img
+                      src={
+                        isUnlocked
+                          ? "/icons/icon_trophy.svg"
+                          : "/icons/icon_trophy_unactive.svg"
+                      }
+                      alt=""
+                    />
+                    <div className="text-title-medium">"{trophy.title}"</div>
+                  </div>
+                  <p className="text-primary text-small">
+                    - {trophy.description}
+                  </p>
                 </div>
-                <p className="text-primary text-small">
-                  - {trophy.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        ))}
       </div>
     </div>
   );

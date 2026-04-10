@@ -1,70 +1,80 @@
-import styles from "@/components/statsPage/Stats.module.scss";
-
 import { useMemo } from "react";
 
 import { useStatsData } from "@/domain/stats/hooks/useStatsData";
-
-import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
 import { getYearChart } from "@/domain/stats/chart/getYearChart";
-
-import YearGraph from "./yearGraph/YearGraph";
 import { getDominantEmotion } from "@/domain/stats/aggregation/getDominantEmotion";
-import BestData from "@/components/ui/bestData/BestData";
 import { getYearData } from "@/domain/stats/queries/getYearData";
 import { average } from "@/domain/stats/core/average";
-import YearProgress from "./progress/YearProgress";
+
+import TimeSwitcher from "@/components/statsPage/timeSwitcher/TimeSwitcher";
+import YearGraph from "./yearGraph/YearGraph";
+import YearProgress from "./yearProgress/YearProgress";
+import BestData from "@/components/ui/bestData/BestData";
+
+import styles from "@/components/statsPage/Stats.module.scss";
 
 function YearView() {
   const { data, filteredData, date, changeDate, canNavigate } =
     useStatsData("year");
 
-  const year = date.getFullYear().toString();
-  const chartData = getYearChart(filteredData, year);
+  const year = date.getFullYear();
+  const yearLabel = year.toString();
 
-  const chartDataLength = filteredData.filter(
-    (item) => item.value !== null,
-  ).length;
+  const chartData = useMemo(
+    () => getYearChart(filteredData, yearLabel),
+    [filteredData, yearLabel],
+  );
 
-  const prevDate = useMemo(() => {
-    const d = new Date(date);
-    d.setFullYear(d.getFullYear() - 1);
-    return d;
-  }, [date]);
+  const chartDataLength = useMemo(
+    () =>
+      filteredData.reduce(
+        (acc, item) => acc + (item.value !== null ? 1 : 0),
+        0,
+      ),
+    [filteredData],
+  );
 
-  const prevYearData = useMemo(() => {
-    const year = prevDate.getFullYear().toString();
-    return getYearData(data, year);
-  }, [data, prevDate]);
+  const prevYear = year - 1;
+  const prevYearLabel = prevYear.toString();
+
+  const prevYearData = useMemo(
+    () => getYearData(data, prevYearLabel),
+    [data, prevYearLabel],
+  );
 
   const avg = useMemo(() => average(filteredData), [filteredData]);
   const avgPrev = useMemo(() => average(prevYearData), [prevYearData]);
 
-  const mostValue = getDominantEmotion(filteredData);
-
-  const yearLabel = year;
-  const prevYearLabel = prevDate.getFullYear().toString();
+  const dominantEmotion = useMemo(
+    () => getDominantEmotion(filteredData),
+    [filteredData],
+  );
 
   return (
     <div className={styles.subContainer}>
       <YearGraph chartData={chartData} />
+
       <TimeSwitcher
-        label={date.getFullYear().toString()}
+        label={yearLabel}
         onPrev={() => changeDate(-1)}
         onNext={() => changeDate(1)}
         canGoPrev={canNavigate(-1)}
         canGoNext={canNavigate(1)}
       />
+
       <BestData
-        mostValue={mostValue?.value ?? null}
-        count={mostValue?.count ?? 0}
+        mostValue={dominantEmotion?.value ?? null}
+        count={dominantEmotion?.count ?? 0}
         chartDataLength={chartDataLength}
       />
-      <div className={styles.separator}></div>
+
+      <div className={styles.separator} />
+
       <YearProgress
         label={yearLabel}
         labelPrev={prevYearLabel}
-        avgCurrent={avg.toFixed(1)}
-        avgPrev={avgPrev.toFixed(1)}
+        avgCurrent={avg}
+        avgPrev={avgPrev}
         changeDate={changeDate}
         canNavigate={canNavigate}
       />

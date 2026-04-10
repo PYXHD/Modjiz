@@ -11,7 +11,7 @@ export const MOODS = [
     value: 1,
     color: "var(--color-emotion-sad)",
     threeColor: "#1f355c",
-    label: "pas ouf...",
+    label: "pas ouf",
   },
   {
     emotion: "meh",
@@ -25,21 +25,21 @@ export const MOODS = [
     value: 3,
     color: "var(--color-emotion-ok)",
     threeColor: "#6f82d9",
-    label: "ça va.",
+    label: "ça va",
   },
   {
     emotion: "good",
     value: 4,
     color: "var(--color-emotion-good)",
     threeColor: "#f08bc3",
-    label: "bien.",
+    label: "bien",
   },
   {
     emotion: "great",
     value: 5,
     color: "var(--color-emotion-great)",
     threeColor: "#ffb703",
-    label: "au top !",
+    label: "au top",
   },
 ] as const;
 
