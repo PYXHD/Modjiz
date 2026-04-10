@@ -40,8 +40,15 @@ function PrivacyPolicy() {
         <div className={styles.subContainer}>
           <h2>4. Cookies et traceurs</h2>
           <p className="text-primary text-body">
-            L’application n’utilise pas de cookies ni de traceurs à des fins de
-            suivi ou d’analyse.
+            L’application utilise uniquement un cookie fonctionnel nécessaire à
+            son bon fonctionnement.
+          </p>
+          <p className="text-primary text-body">
+            Ce cookie permet de mémoriser certaines préférences utilisateur,
+            comme le fait d’avoir déjà consulté la page d’accueil.
+          </p>
+          <p className="text-primary text-body">
+            Aucun cookie de suivi, d’analyse ou publicitaire n’est utilisé.
           </p>
         </div>
 
