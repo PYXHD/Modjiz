@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+"use client";
+
+import { useState } from "react";
 
 import { upsertEntry } from "@/domain/mood/upsertEntry";
 import { MOODS } from "@/domain/mood/config/moods";
@@ -18,24 +20,17 @@ type Props = {
 };
 
 function TodayMood({ today, data, setData }: Props) {
-  const [mood, setMood] = useState<EmotionLevel>(0);
-  const [isEditing, setIsEditing] = useState(true);
-
   const todayStr = today.toLocaleDateString("en-CA");
+
   const existingEntry = data.find((e) => e.date === todayStr);
+
+  const [isEditing, setIsEditing] = useState(() => !existingEntry);
+
+  const [mood, setMood] = useState<EmotionLevel>(() =>
+    existingEntry ? (existingEntry.value as EmotionLevel) : 0,
+  );
+
   const selectedMood = MOODS.find((m) => m.value === mood);
-
-  useEffect(() => {
-    setIsEditing(!existingEntry);
-  }, [existingEntry]);
-
-  useEffect(() => {
-    if (existingEntry) {
-      setMood((prev) =>
-        prev === 0 ? (existingEntry.value as EmotionLevel) : prev,
-      );
-    }
-  }, [existingEntry]);
 
   async function handleSave() {
     if (!isEditing) {
