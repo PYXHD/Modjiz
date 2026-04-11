@@ -59,14 +59,6 @@ function MonthView() {
 
   return (
     <div className={styles.subContainer}>
-      <div className={styles.graphContainer}>
-        <MonthGraph chartData={chartData} average={avg} />
-        <div className={styles.avgContainer}>
-          <div className={styles.avgLine}></div>
-          <div>moyenne: {avg.toFixed(1)}</div>
-        </div>
-      </div>
-
       <TimeSwitcher
         label={monthLabel}
         subLabel={year.toString()}
@@ -75,6 +67,13 @@ function MonthView() {
         canGoPrev={canNavigate(-1)}
         canGoNext={canNavigate(1)}
       />
+      <div className={styles.graphContainer}>
+        <MonthGraph chartData={chartData} average={avg} />
+        <div className={styles.avgContainer}>
+          <div className={styles.avgLine}></div>
+          <div>moyenne: {avg.toFixed(1)}</div>
+        </div>
+      </div>
 
       <BestData
         mostValue={dominantEmotion?.value ?? null}

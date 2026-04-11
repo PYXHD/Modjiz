@@ -52,8 +52,6 @@ function YearView() {
 
   return (
     <div className={styles.subContainer}>
-      <YearGraph chartData={chartData} />
-
       <TimeSwitcher
         label={yearLabel}
         onPrev={() => changeDate(-1)}
@@ -61,6 +59,7 @@ function YearView() {
         canGoPrev={canNavigate(-1)}
         canGoNext={canNavigate(1)}
       />
+      <YearGraph chartData={chartData} />
 
       <BestData
         mostValue={dominantEmotion?.value ?? null}
