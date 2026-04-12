@@ -33,3 +33,10 @@
 11/04/2026
 
 - correction de la position du TimeSwitcher (peu pratique sur mobile)
+
+//////////////////////////////////////
+1.2.3
+12/04/2026
+
+- ajout du background "poussières d'étoiles" au mode desktop
+- correction du bug light / dark dans le module yearView
