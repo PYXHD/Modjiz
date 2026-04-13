@@ -9,7 +9,7 @@ export async function getUserData() {
   if (mode === "mock") {
     if (typeof window === "undefined") return [];
 
-    let stored = localStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(STORAGE_KEY);
 
     if (!stored) {
       const initialData = structuredClone(demoUserData);
