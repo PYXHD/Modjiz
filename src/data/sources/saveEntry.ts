@@ -1,25 +1,25 @@
 import { getAppMode } from "@/lib/init/getAppMode";
+import { upsertEntry } from "@/domain/mood/upsertEntry";
 import type { Entry } from "@/types/Entry";
 
 const STORAGE_KEY = "moodtrack-data";
 
-export async function saveEntry(entry: Entry) {
+export async function saveEntry(entry: Entry): Promise<Entry[]> {
   const mode = getAppMode();
 
   if (mode === "mock") {
-    if (typeof window === "undefined") return entry;
+    if (typeof window === "undefined") return [];
 
-    const stored = sessionStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(STORAGE_KEY);
     const data: Entry[] = stored ? JSON.parse(stored) : [];
 
-    const updated = data.some((e) => e.date === entry.date)
-      ? data.map((e) => (e.date === entry.date ? entry : e))
-      : [...data, entry];
+    const updated = upsertEntry(data, entry);
 
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
 
     window.dispatchEvent(new Event("mood-updated"));
-    return entry;
+
+    return updated;
   }
 
   if (mode === "real") {
@@ -28,6 +28,9 @@ export async function saveEntry(entry: Entry) {
       body: JSON.stringify(entry),
     });
 
-    return entry;
+    const res = await fetch("/api/entry");
+    return res.json();
   }
+
+  return [];
 }

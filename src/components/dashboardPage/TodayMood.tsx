@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-import { upsertEntry } from "@/domain/mood/upsertEntry";
 import { MOODS } from "@/domain/mood/config/moods";
 import type { EmotionLevel } from "@/domain/mood/config/moods";
 
@@ -43,8 +42,9 @@ function TodayMood({ today, data, setData }: Props) {
       value: mood,
     };
 
-    await saveEntry(entry);
-    setData((prev) => upsertEntry(prev, entry));
+    const updated = await saveEntry(entry);
+
+    setData(updated);
 
     setIsEditing(false);
   }

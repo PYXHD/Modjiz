@@ -7,16 +7,20 @@ export async function getUserData() {
   const mode = getAppMode();
 
   if (mode === "mock") {
-    const stored = sessionStorage.getItem(STORAGE_KEY);
+    if (typeof window === "undefined") return [];
 
-    if (stored) {
-      return JSON.parse(stored);
+    const stored = localStorage.getItem(STORAGE_KEY);
+
+    if (!stored) {
+      const initialData = structuredClone(demoUserData);
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(initialData));
+      return initialData;
     }
 
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(demoUserData));
-
-    return structuredClone(demoUserData);
+    return JSON.parse(stored);
   }
+
   return [];
 
   // API structure

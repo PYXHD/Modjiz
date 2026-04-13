@@ -40,3 +40,9 @@
 
 - ajout du background "poussières d'étoiles" au mode desktop
 - correction du bug light / dark dans le module yearView
+
+//////////////////////////////////////
+1.2.4
+13/04/2026
+
+- correction des problèmes de synchronisation des données mockées

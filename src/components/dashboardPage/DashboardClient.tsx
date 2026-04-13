@@ -24,6 +24,7 @@ function DashboardClient({ today }: Props) {
         setData(result);
       } catch (error) {
         setData([]);
+        console.error(error);
       } finally {
         setIsLoading(false);
       }
