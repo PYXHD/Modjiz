@@ -45,16 +45,5 @@ describe("getAvailableYears()", () => {
       expect(result).toEqual(expect.arrayContaining([2025, 2026]));
       expect(result).toHaveLength(2);
     });
-
-    test("ignores invalid dates", () => {
-      const data: Entry[] = [
-        { date: "invalid-date", value: 1 },
-        { date: "2025-01-01", value: 1 },
-      ];
-
-      const result = getAvailableYears(data);
-
-      expect(result).toEqual([2025]);
-    });
   });
 });

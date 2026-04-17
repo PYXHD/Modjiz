@@ -20,7 +20,7 @@ describe("getMonthData()", () => {
         { date: "2025-12-02", value: 3 },
         { date: "2025-12-03", value: 2 },
       ];
-      const result = getMonthData(entries, "12", "2025");
+      const result = getMonthData(entries, 11, 2025);
       expect(result).toEqual(expected);
     });
   });
@@ -31,17 +31,23 @@ describe("getMonthData()", () => {
         { date: "2025-11-05", value: 2 },
         { date: "2025-11-06", value: 3 },
       ];
-      const result = getMonthData(entries, "11", "2025");
+      const result = getMonthData(entries, 10, 2025);
       expect(result).toEqual(expected);
     });
 
+    test("handles 0-based month correctly (January = 0)", () => {
+      const result = getMonthData(entries, 0, 2026);
+
+      expect(result).toEqual([{ date: "2026-01-01", value: 4 }]);
+    });
+
     test("returns empty array if no data", () => {
-      const result = getMonthData(entries, "09", "2025");
+      const result = getMonthData(entries, 8, 2025);
       expect(result).toEqual([]);
     });
 
     test("returns empty array if entries array is empty", () => {
-      const result = getMonthData([], "12", "2025");
+      const result = getMonthData([], 11, 2025);
       expect(result).toEqual([]);
     });
   });

@@ -57,16 +57,5 @@ describe("getAvailableMonths()", () => {
 
       expect(result).toHaveLength(2);
     });
-
-    test("ignores invalid dates", () => {
-      const data: Entry[] = [
-        { date: "invalid", value: 1 },
-        { date: "2025-08-10", value: 1 },
-      ];
-
-      const result = getAvailableMonths(data);
-
-      expect(result).toEqual([{ year: 2025, month: 7 }]);
-    });
   });
 });

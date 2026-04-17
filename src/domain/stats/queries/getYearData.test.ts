@@ -16,7 +16,7 @@ describe("getYearData()", () => {
         { date: "2026-11-15", value: 2 },
         { date: "2026-11-26", value: 3 },
       ];
-      const result = getYearData(entries, "2026");
+      const result = getYearData(entries, 2026);
       expect(result).toEqual(expected);
     });
   });
@@ -24,17 +24,17 @@ describe("getYearData()", () => {
   describe("edge cases", () => {
     test("returns single entry if only one matches", () => {
       const expected = [{ date: "2024-12-01", value: 3 }];
-      const result = getYearData(entries, "2024");
+      const result = getYearData(entries, 2024);
       expect(result).toEqual(expected);
     });
 
     test("returns empty array if no data", () => {
-      const result = getYearData(entries, "2025");
+      const result = getYearData(entries, 2025);
       expect(result).toEqual([]);
     });
 
     test("returns empty array if entries array is empty", () => {
-      const result = getYearData([], "2025");
+      const result = getYearData([], 2025);
       expect(result).toEqual([]);
     });
   });

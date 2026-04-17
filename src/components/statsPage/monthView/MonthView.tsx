@@ -45,9 +45,7 @@ function MonthView() {
   const prevYear = month === 0 ? year - 1 : year;
 
   const prevMonthData = useMemo(() => {
-    const monthStr = String(prevMonth + 1).padStart(2, "0");
-    const yearStr = prevYear.toString();
-    return getMonthData(data, monthStr, yearStr);
+    return getMonthData(data, prevMonth, prevYear);
   }, [data, prevMonth, prevYear]);
 
   const avgPrev = useMemo(() => average(prevMonthData), [prevMonthData]);

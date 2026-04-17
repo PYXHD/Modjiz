@@ -21,8 +21,8 @@ function YearView() {
   const yearLabel = year.toString();
 
   const chartData = useMemo(
-    () => getYearChart(filteredData, yearLabel),
-    [filteredData, yearLabel],
+    () => getYearChart(filteredData, year),
+    [filteredData, year],
   );
 
   const chartDataLength = useMemo(
@@ -38,8 +38,8 @@ function YearView() {
   const prevYearLabel = prevYear.toString();
 
   const prevYearData = useMemo(
-    () => getYearData(data, prevYearLabel),
-    [data, prevYearLabel],
+    () => getYearData(data, prevYear),
+    [data, prevYear],
   );
 
   const avg = useMemo(() => average(filteredData), [filteredData]);

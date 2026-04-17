@@ -4,7 +4,7 @@ import { YearChart } from "./chart.types";
 import { getYearData } from "../queries/getYearData";
 import { average } from "../core/average";
 
-export function getYearChart(entries: Entry[], year: string): YearChart[] {
+export function getYearChart(entries: Entry[], year: number): YearChart[] {
   const yearEntries = getYearData(entries, year);
 
   const map = new Map<number, Entry[]>();
@@ -24,7 +24,7 @@ export function getYearChart(entries: Entry[], year: string): YearChart[] {
   for (let month = 0; month < 12; month++) {
     const YearMonth = map.get(month);
 
-    const label = new Date(Number(year), month).toLocaleString("fr-FR", {
+    const label = new Date(year, month).toLocaleString("fr-FR", {
       month: "short",
     });
 

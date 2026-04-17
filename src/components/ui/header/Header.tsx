@@ -6,6 +6,7 @@ import Logo from "@/assets/img/logo_app.svg";
 
 import { getUserData } from "@/data/getUserData";
 import { getToday } from "@/lib/time/getToday";
+import { toDayKey } from "@/lib/time/toDayKey";
 
 import { Entry } from "@/types/Entry";
 
@@ -33,7 +34,7 @@ function Header() {
     };
   }, []);
 
-  const today = getToday().toLocaleDateString("en-CA");
+  const today = toDayKey(getToday());
   const hasTodayEntry = userData.some((entry) => entry.date === today);
 
   return (

@@ -46,3 +46,14 @@
 13/04/2026
 
 - correction des problèmes de synchronisation des données mockées
+
+//////////////////////////////////////
+1.2.5
+17/04/2026
+
+- standardisation de la gestion des dates et suppression des formats locaux
+   -> remplacer toLocaleDateString par toDayKey
+   -> utiliser month/year en number
+   -> centraliser la logique (getTodayt, toDayKey)
+   -> mise à jour des fonctions et de leurs tests
+   -> mise à jour des composants
