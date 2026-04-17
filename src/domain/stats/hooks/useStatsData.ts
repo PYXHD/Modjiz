@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 import { useUserData } from "./useUserData";
 import { useStatsNavigation } from "./useStatsNavigation";
@@ -14,8 +14,8 @@ export function useStatsData(mode: "month" | "year") {
   const data = useUserData();
   const [date, setDate] = useState(getToday());
 
-  const availableMonths = getAvailableMonths(data);
-  const availableYears = getAvailableYears(data);
+  const availableMonths = useMemo(() => getAvailableMonths(data), [data]);
+  const availableYears = useMemo(() => getAvailableYears(data), [data]);
 
   const { changeDate, canNavigate } = useStatsNavigation({
     mode,
@@ -25,8 +25,8 @@ export function useStatsData(mode: "month" | "year") {
     availableYears,
   });
 
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const year = String(date.getFullYear());
+  const month = date.getMonth();
+  const year = date.getFullYear();
 
   const filteredData =
     mode === "month"
