@@ -4,6 +4,7 @@ import styles from "./Stats.module.scss";
 import { useEffect, useState } from "react";
 
 import { getToday } from "@/lib/time/getToday";
+import { toDayKey } from "@/lib/time/toDayKey";
 
 import Button from "../ui/button/Button";
 
@@ -19,7 +20,7 @@ function Stats() {
     async function init() {
       const stored = await getHistoryData();
 
-      const today = getToday().toLocaleDateString("en-CA");
+      const today = toDayKey(getToday());
       const updated = upsertHistoryDay(stored, today);
 
       sessionStorage.setItem("history-data", JSON.stringify(updated));

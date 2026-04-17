@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { toDayKey } from "@/lib/time/toDayKey";
+
 import { MOODS } from "@/domain/mood/config/moods";
 import type { EmotionLevel } from "@/domain/mood/config/moods";
 
@@ -19,7 +21,7 @@ type Props = {
 };
 
 function TodayMood({ today, data, setData }: Props) {
-  const todayStr = today.toLocaleDateString("en-CA");
+  const todayStr = toDayKey(today);
 
   const existingEntry = data.find((e) => e.date === todayStr);
 
