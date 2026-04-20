@@ -57,3 +57,9 @@
    -> centraliser la logique (getTodayt, toDayKey)
    -> mise à jour des fonctions et de leurs tests
    -> mise à jour des composants
+
+//////////////////////////////////////
+1.2.6
+20/04/2026
+
+- ajustement de la LandingPage avec next/image

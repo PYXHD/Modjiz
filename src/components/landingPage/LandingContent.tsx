@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
 
@@ -10,10 +12,14 @@ function LandingContent() {
     <main className={styles.container}>
       <section className={styles.heroSection}>
         <Logo className={styles.heroLogo} />
-        <img
-          className={styles.heroImg}
+        <Image
           src="/img/Modjiz_show.webp"
           alt="Modjiz Show up"
+          width={1000}
+          height={406}
+          sizes="(max-width: 768px) 100vw, 800px"
+          className={styles.heroImg}
+          priority
         />
         <div className={styles.textContainer}>
           <p className={styles.textBody}>
