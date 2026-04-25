@@ -1,6 +1,8 @@
 import { getAppMode } from "@/lib/init/getAppMode";
 import { demoUserData } from "./sources/mock/demoUserData";
 
+import { sortUserData } from "./sortUserData";
+
 const STORAGE_KEY = "moodtrack-data";
 
 export async function getUserData() {
@@ -15,10 +17,11 @@ export async function getUserData() {
       const initialData = structuredClone(demoUserData);
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(initialData));
-      return initialData;
+      return sortUserData(initialData);
     }
 
-    return JSON.parse(stored);
+    const parsed = JSON.parse(stored);
+    return sortUserData(parsed);
   }
 
   return [];
