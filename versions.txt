@@ -63,3 +63,9 @@
 20/04/2026
 
 - ajustement de la LandingPage avec next/image
+
+//////////////////////////////////////
+1.2.7
+25/04/2026
+
+- ajout des fonctions de tri dans getUserData et getHistoryData en vue de l'intégration de l'API
