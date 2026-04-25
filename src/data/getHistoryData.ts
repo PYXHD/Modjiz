@@ -1,6 +1,8 @@
 import { getAppMode } from "@/lib/init/getAppMode";
 import { demoHistoryViews } from "./sources/mock/demoHistoryViews";
 
+import { sortHistoryData } from "./sortHistoryData";
+
 const STORAGE_KEY = "history-data";
 
 export async function getHistoryData() {
@@ -10,12 +12,14 @@ export async function getHistoryData() {
     const stored = sessionStorage.getItem(STORAGE_KEY);
 
     if (stored) {
-      return JSON.parse(stored);
+      return sortHistoryData(JSON.parse(stored));
     }
 
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(demoHistoryViews));
+    const initialData = structuredClone(demoHistoryViews);
 
-    return structuredClone(demoHistoryViews);
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(initialData));
+
+    return sortHistoryData(initialData);
   }
   return [];
 
