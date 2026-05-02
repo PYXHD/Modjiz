@@ -1,27 +1,32 @@
 import { getAppMode } from "@/lib/init/getAppMode";
 import { demoUserData } from "./sources/mock/demoUserData";
-
 import { sortUserData } from "./sortUserData";
+import { supabase } from "@/lib/supabase";
 
-const STORAGE_KEY = "moodtrack-data";
+const USER_ID = "test_user";
 
 export async function getUserData() {
   const mode = getAppMode();
 
   if (mode === "mock") {
-    if (typeof window === "undefined") return [];
+    const { data: existing } = await supabase
+      .from("mock_entries")
+      .select("*")
+      .eq("user_id", USER_ID);
 
-    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!existing || existing.length === 0) {
+      const rows = demoUserData.map((entry) => ({
+        user_id: USER_ID,
+        date: entry.date,
+        value: entry.value,
+      }));
 
-    if (!stored) {
-      const initialData = structuredClone(demoUserData);
+      await supabase.from("mock_entries").insert(rows);
 
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(initialData));
-      return sortUserData(initialData);
+      return sortUserData(rows);
     }
 
-    const parsed = JSON.parse(stored);
-    return sortUserData(parsed);
+    return sortUserData(existing);
   }
 
   return [];
