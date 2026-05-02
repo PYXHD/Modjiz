@@ -9,10 +9,12 @@ export async function getUserData() {
   const mode = getAppMode();
 
   if (mode === "mock") {
-    const { data: existing } = await supabase
+    const result = await supabase
       .from("mock_entries")
       .select("*")
       .eq("user_id", USER_ID);
+
+    const existing = result.data;
 
     if (!existing || existing.length === 0) {
       const rows = demoUserData.map((entry) => ({
