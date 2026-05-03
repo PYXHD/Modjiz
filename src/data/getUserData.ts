@@ -1,3 +1,5 @@
+import type { Entry } from "@/types/Entry";
+
 import { getAppMode } from "@/lib/init/getAppMode";
 import { demoUserData } from "./sources/mock/demoUserData";
 import { sortUserData } from "./sortUserData";
@@ -14,7 +16,7 @@ export async function getUserData() {
       .select("*")
       .eq("user_id", USER_ID);
 
-    const existing = result.data;
+    const existing: Entry[] | null = result.data;
 
     if (!existing || existing.length === 0) {
       const rows = demoUserData.map((entry) => ({

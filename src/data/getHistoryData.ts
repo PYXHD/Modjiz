@@ -1,26 +1,44 @@
+import type { ISODate } from "@/types/Time";
+
 import { getAppMode } from "@/lib/init/getAppMode";
 import { demoHistoryViews } from "./sources/mock/demoHistoryViews";
-
 import { sortHistoryData } from "./sortHistoryData";
+import { supabase } from "@/lib/supabase";
 
-const STORAGE_KEY = "history-data";
+const USER_ID = "test_user";
+
+type HistoryViewsDB = {
+  user_id: string;
+  date: ISODate;
+};
 
 export async function getHistoryData() {
   const mode = getAppMode();
 
   if (mode === "mock") {
-    const stored = sessionStorage.getItem(STORAGE_KEY);
+    const result = await supabase
+      .from("mock_history_views")
+      .select("*")
+      .eq("user_id", USER_ID);
 
-    if (stored) {
-      return sortHistoryData(JSON.parse(stored));
+    const existing: HistoryViewsDB[] = result.data ?? [];
+
+    const history: ISODate[] = existing.map((item) => item.date);
+
+    if (existing.length === 0) {
+      const rows: HistoryViewsDB[] = demoHistoryViews.map((date) => ({
+        user_id: USER_ID,
+        date,
+      }));
+
+      await supabase.from("mock_history_views").insert(rows);
+
+      return sortHistoryData(demoHistoryViews);
     }
 
-    const initialData = structuredClone(demoHistoryViews);
-
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(initialData));
-
-    return sortHistoryData(initialData);
+    return sortHistoryData(history);
   }
+
   return [];
 
   // API structure
