@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 
-import { useUserData } from "./useUserData";
+import { useAppData } from "@/lib/context/AppDataContext";
 import { useStatsNavigation } from "./useStatsNavigation";
 
 import { getToday } from "@/lib/time/getToday";
@@ -11,7 +11,8 @@ import { getMonthData } from "../queries/getMonthData";
 import { getYearData } from "../queries/getYearData";
 
 export function useStatsData(mode: "month" | "year") {
-  const data = useUserData();
+  const { userData } = useAppData();
+  const data = userData;
   const [date, setDate] = useState(getToday());
 
   const availableMonths = useMemo(() => getAvailableMonths(data), [data]);
