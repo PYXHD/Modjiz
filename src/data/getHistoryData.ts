@@ -5,21 +5,19 @@ import { demoHistoryViews } from "./sources/mock/demoHistoryViews";
 import { sortHistoryData } from "./sortHistoryData";
 import { supabase } from "@/lib/supabase";
 
-const USER_ID = "test_user";
-
 type HistoryViewsDB = {
   user_id: string;
   date: ISODate;
 };
 
-export async function getHistoryData() {
+export async function getHistoryData(userId: string) {
   const mode = getAppMode();
 
   if (mode === "mock") {
     const result = await supabase
       .from("mock_history_views")
       .select("*")
-      .eq("user_id", USER_ID);
+      .eq("user_id", userId);
 
     const existing: HistoryViewsDB[] = result.data ?? [];
 
@@ -27,7 +25,7 @@ export async function getHistoryData() {
 
     if (existing.length === 0) {
       const rows: HistoryViewsDB[] = demoHistoryViews.map((date) => ({
-        user_id: USER_ID,
+        user_id: userId,
         date,
       }));
 
