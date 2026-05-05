@@ -1,19 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
-import { getHistoryData } from "@/data/getHistoryData";
-import { getUserData } from "@/data/getUserData";
+import { useAppData } from "@/lib/context/AppDataContext";
 import { TROPHIES } from "@/data/trophies/trophies";
-
-import type { Entry } from "@/types/Entry";
-import type { ISODate } from "@/types/Time";
 
 import styles from "./Trophies.module.scss";
 
 function Trophies() {
-  const [userData, setUserData] = useState<Entry[]>([]);
-  const [historyData, setHistoryData] = useState<ISODate[]>([]);
+  const { userData, historyData } = useAppData();
 
   const trophyGroups = [
     {
@@ -25,20 +18,6 @@ function Trophies() {
       data: historyData,
     },
   ];
-
-  useEffect(() => {
-    async function loadData() {
-      const [user, history] = await Promise.all([
-        getUserData(),
-        getHistoryData(),
-      ]);
-
-      setUserData(user);
-      setHistoryData(history);
-    }
-
-    loadData();
-  }, []);
 
   return (
     <div className={styles.trophies}>
