@@ -1,38 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
 import Logo from "@/assets/img/logo_app.svg";
 
-import { getUserData } from "@/data/getUserData";
 import { getToday } from "@/lib/time/getToday";
 import { toDayKey } from "@/lib/time/toDayKey";
 
-import { Entry } from "@/types/Entry";
-
 import styles from "./Header.module.scss";
+import { useAppData } from "@/lib/context/AppDataContext";
 
 function Header() {
-  const [userData, setUserData] = useState<Entry[]>([]);
-  useEffect(() => {
-    let isMounted = true;
-
-    async function reload() {
-      const data = await getUserData();
-      if (isMounted) {
-        setUserData(data);
-      }
-    }
-
-    reload();
-
-    window.addEventListener("mood-updated", reload);
-
-    return () => {
-      isMounted = false;
-      window.removeEventListener("mood-updated", reload);
-    };
-  }, []);
+  const { userData } = useAppData();
 
   const today = toDayKey(getToday());
   const hasTodayEntry = userData.some((entry) => entry.date === today);
