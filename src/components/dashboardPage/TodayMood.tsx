@@ -17,10 +17,9 @@ import type { Entry } from "@/types/Entry";
 type Props = {
   today: Date;
   data: Entry[];
-  setData: React.Dispatch<React.SetStateAction<Entry[]>>;
 };
 
-function TodayMood({ today, data, setData }: Props) {
+function TodayMood({ today, data }: Props) {
   const todayStr = toDayKey(today);
 
   const existingEntry = data.find((e) => e.date === todayStr);
@@ -44,11 +43,9 @@ function TodayMood({ today, data, setData }: Props) {
       value: mood,
     };
 
-    const updated = await saveEntry(entry);
+    await saveEntry(entry);
 
-    setData(updated);
-
-    setIsEditing(false);
+    window.location.reload();
   }
 
   return (
