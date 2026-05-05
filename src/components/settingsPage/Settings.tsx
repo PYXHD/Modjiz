@@ -10,7 +10,7 @@ import styles from "./Settings.module.scss";
 function Settings() {
   const goToLanding = () => {
     localStorage.removeItem("app-mode");
-    localStorage.removeItem("moodtrack-data"); // 👈 important
+    localStorage.removeItem("moodtrack-data");
 
     document.cookie = "has-onboarded=; path=/; max-age=0";
     document.cookie = "app-mode=; path=/; max-age=0";
