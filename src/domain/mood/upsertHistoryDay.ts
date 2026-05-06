@@ -1,12 +1,9 @@
-export function upsertHistoryDay(
-  history: string[] | null,
-  date: string,
-): string[] {
-  if (!history) return [date];
-
-  const exists = history.includes(date);
-
-  if (exists) return history;
-
-  return [...history, date];
+export async function saveHistoryView(date: string): Promise<void> {
+  await fetch("/api/history-view", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ date }),
+  });
 }
