@@ -1,25 +1,25 @@
 "use client";
 
 import styles from "./Stats.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { getToday } from "@/lib/time/getToday";
 import { toDayKey } from "@/lib/time/toDayKey";
-import { useAppData } from "@/lib/context/AppDataContext";
 
 import Button from "../ui/button/Button";
 
 import MonthView from "./monthView/MonthView";
 import YearView from "./yearView/YearView";
-import { upsertHistoryDay } from "@/domain/mood/upsertHistoryDay";
+import { saveHistoryView } from "@/domain/mood/saveHistoryDay";
 
 function Stats() {
   const [mode, setMode] = useState<"month" | "year">("month");
 
-  const { historyData } = useAppData();
+  useEffect(() => {
+    const today = toDayKey(getToday());
 
-  const today = toDayKey(getToday());
-  const updatedHistory = upsertHistoryDay(historyData, today);
+    saveHistoryView(today);
+  }, []);
 
   return (
     <div className={styles.stats}>
