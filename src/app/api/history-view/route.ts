@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase";
 
+import { getAppMode } from "@/lib/init/getAppMode";
 import { getOrCreateUserId } from "@/data/getOrCreateUserId";
 
 export async function POST(request: Request) {
@@ -8,7 +9,10 @@ export async function POST(request: Request) {
     const date = body.date;
     const userId = await getOrCreateUserId();
 
-    const { error } = await supabase.from("mock_history_views").upsert(
+    const appMode = getAppMode();
+    const table = appMode === "mock" ? "mock_history_views" : "history_views";
+
+    const { error } = await supabase.from(table).upsert(
       {
         user_id: userId,
         date,
