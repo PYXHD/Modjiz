@@ -17,7 +17,8 @@ export async function getHistoryData(userId: string) {
     const result = await supabase
       .from("mock_history_views")
       .select("*")
-      .eq("user_id", userId);
+      .eq("user_id", userId)
+      .order("date", { ascending: true });
 
     const existing: HistoryViewsDB[] = result.data ?? [];
 

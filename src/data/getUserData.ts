@@ -12,7 +12,8 @@ export async function getUserData(userId: string) {
     const result = await supabase
       .from("mock_entries")
       .select("*")
-      .eq("user_id", userId);
+      .eq("user_id", userId)
+      .order("date", { ascending: true });
 
     const existing: Entry[] = result.data ?? [];
 
