@@ -7,15 +7,17 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const date = body.date;
+    const value = body.value;
     const userId = await getOrCreateUserId();
 
     const appMode = getAppMode();
-    const table = appMode === "mock" ? "mock_history_views" : "history_views";
+    const table = appMode === "mock" ? "mock_entries" : "entries";
 
     const response = await supabase.from(table).upsert(
       {
         user_id: userId,
         date,
+        value,
       },
       {
         onConflict: "user_id, date",
@@ -25,10 +27,7 @@ export async function POST(request: Request) {
     if (response.error) {
       console.log(response.error);
 
-      return Response.json(
-        { error: "Failed to save history view" },
-        { status: 500 },
-      );
+      return Response.json({ error: "Failed to save entry" }, { status: 500 });
     }
 
     return Response.json({ ok: true });
