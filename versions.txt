@@ -78,4 +78,4 @@
    -> création de la base de données (supabase)
    -> remplacement du mock sur localStorage en mock sur DB
    -> ajustement des fonctions d'assert
-   -> créations des routes API
+   -> créations des routes API (history-view, entry)
