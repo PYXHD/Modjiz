@@ -72,7 +72,7 @@
 
 //////////////////////////////////////
 1.3.0
---/05/2026
+10/05/2026
 
 - première phrase de l'intégration de l'API :
    -> création de la base de données (supabase)
