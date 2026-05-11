@@ -18,7 +18,7 @@ function Stats() {
 
   useEffect(() => {
     saveHistoryView(toDayKey(currentDate));
-  }, []);
+  }, [currentDate]);
 
   return (
     <div className={styles.stats}>
