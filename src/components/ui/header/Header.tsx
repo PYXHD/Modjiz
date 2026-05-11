@@ -2,16 +2,15 @@
 
 import Logo from "@/assets/img/logo_app.svg";
 
-import { getToday } from "@/lib/time/getToday";
 import { toDayKey } from "@/lib/time/toDayKey";
 
 import styles from "./Header.module.scss";
 import { useAppData } from "@/lib/context/AppDataContext";
 
 function Header() {
-  const { userData } = useAppData();
+  const { userData, currentDate } = useAppData();
 
-  const today = toDayKey(getToday());
+  const today = toDayKey(currentDate);
   const hasTodayEntry = userData.some((entry) => entry.date === today);
 
   return (

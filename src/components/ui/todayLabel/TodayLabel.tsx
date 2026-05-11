@@ -1,8 +1,11 @@
-import { getToday } from "@/lib/time/getToday";
+"use client";
+
+import { useAppData } from "@/lib/context/AppDataContext";
 
 function TodayLabel() {
-  const todayDate = getToday();
-  const today = todayDate
+  const { currentDate } = useAppData();
+
+  const today = currentDate
     .toLocaleDateString("fr-FR", {
       weekday: "long",
       month: "long",

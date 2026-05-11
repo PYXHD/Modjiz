@@ -9,6 +9,7 @@ import { createContext, useContext } from "react";
 type AppData = {
   userData: Entry[];
   historyData: ISODate[];
+  currentDate: Date;
 };
 
 type DataProviderProps = {

@@ -1,19 +1,23 @@
 import Header from "@/components/ui/header/Header";
 import NavBar from "@/components/ui/navBar/NavBar";
 import TodayLabel from "@/components/ui/todayLabel/TodayLabel";
+
 import { getHistoryData } from "@/data/getHistoryData";
-import { getOrCreateUserId } from "@/data/getOrCreateUserId";
+import { getUserId } from "@/data/getUserId";
 import { getUserData } from "@/data/getUserData";
+
+import { getToday } from "@/lib/time/getToday";
 import { DataProvider } from "@/lib/context/AppDataContext";
 
 async function AppLayout({ children }: { children: React.ReactNode }) {
-  const userId = await getOrCreateUserId();
+  const userId = await getUserId();
 
   const userData = await getUserData(userId);
   const historyData = await getHistoryData(userId);
+  const currentDate = await getToday();
 
   return (
-    <DataProvider value={{ userData, historyData }}>
+    <DataProvider value={{ userData, historyData, currentDate }}>
       <div>
         <Header />
         <TodayLabel />

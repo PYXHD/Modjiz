@@ -5,20 +5,16 @@ import { useAppData } from "@/lib/context/AppDataContext";
 import TodayMood from "@/components/dashboardPage/TodayMood";
 import RecentMoods from "@/components/dashboardPage/RecentMoods";
 
-type Props = {
-  today: Date;
-};
-
-function DashboardClient({ today }: Props) {
-  const { userData } = useAppData();
+function DashboardClient() {
+  const { userData, currentDate } = useAppData();
 
   return (
     <div className="dashboard">
-      <TodayMood today={today} data={userData} />
+      <TodayMood today={currentDate} data={userData} />
 
       <div className="separator"></div>
 
-      <RecentMoods data={userData} today={today} />
+      <RecentMoods data={userData} today={currentDate} />
     </div>
   );
 }

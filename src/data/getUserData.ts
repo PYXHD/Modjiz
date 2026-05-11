@@ -6,7 +6,7 @@ import { sortUserData } from "./sortUserData";
 import { supabase } from "@/lib/supabase";
 
 export async function getUserData(userId: string) {
-  const mode = getAppMode();
+  const mode = await getAppMode();
 
   if (mode === "mock") {
     const result = await supabase

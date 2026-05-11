@@ -1,10 +1,10 @@
 import { Mode, AvailableMonth } from "../types/stats.types";
 
 import { normalizeMonth } from "./normalizeMonths";
-import { getToday } from "@/lib/time/getToday";
 
 type IsWithinBoundsParams = {
   date: Date;
+  today: Date;
   mode: Mode;
   availableMonths: AvailableMonth[];
   availableYears: number[];
@@ -12,12 +12,11 @@ type IsWithinBoundsParams = {
 
 export function isWithinBounds({
   date,
+  today,
   mode,
   availableMonths,
   availableYears,
 }: IsWithinBoundsParams) {
-  const today = getToday();
-
   if (mode === "month") {
     const current = normalizeMonth(date);
     const max = normalizeMonth(today);

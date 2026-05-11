@@ -1,7 +1,9 @@
-type AppMode = "mock" | "real";
+import { cookies } from "next/headers";
 
-export function getAppMode(): AppMode {
-  if (typeof window === "undefined") return "mock";
+export type AppMode = "mock" | "real";
 
-  return localStorage.getItem("app-mode") === "real" ? "real" : "mock";
+export async function getAppMode(): Promise<AppMode> {
+  const cookieStore = await cookies();
+
+  return cookieStore.get("app-mode")?.value === "real" ? "real" : "mock";
 }

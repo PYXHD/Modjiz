@@ -3,8 +3,8 @@
 import styles from "./Stats.module.scss";
 import { useState, useEffect } from "react";
 
-import { getToday } from "@/lib/time/getToday";
 import { toDayKey } from "@/lib/time/toDayKey";
+import { useAppData } from "@/lib/context/AppDataContext";
 
 import Button from "../ui/button/Button";
 
@@ -14,12 +14,11 @@ import { saveHistoryView } from "@/data/sources/saveHistoryDay";
 
 function Stats() {
   const [mode, setMode] = useState<"month" | "year">("month");
+  const { currentDate } = useAppData();
 
   useEffect(() => {
-    const today = toDayKey(getToday());
-
-    saveHistoryView(today);
-  }, []);
+    saveHistoryView(toDayKey(currentDate));
+  }, [currentDate]);
 
   return (
     <div className={styles.stats}>
