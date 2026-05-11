@@ -11,7 +11,7 @@ type HistoryViewsDB = {
 };
 
 export async function getHistoryData(userId: string) {
-  const mode = getAppMode();
+  const mode = await getAppMode();
 
   if (mode === "mock") {
     const result = await supabase

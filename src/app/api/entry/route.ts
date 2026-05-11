@@ -1,16 +1,16 @@
 import { supabase } from "@/lib/supabase";
 
 import { getAppMode } from "@/lib/init/getAppMode";
-import { getOrCreateUserId } from "@/data/getOrCreateUserId";
+import { getUserId } from "@/data/getUserId";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const date = body.date;
     const value = body.value;
-    const userId = await getOrCreateUserId();
+    const userId = await getUserId();
 
-    const appMode = getAppMode();
+    const appMode = await getAppMode();
     const table = appMode === "mock" ? "mock_entries" : "entries";
 
     const response = await supabase.from(table).upsert(

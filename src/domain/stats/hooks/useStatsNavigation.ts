@@ -5,6 +5,7 @@ import { isWithinBounds } from "../core/isWithinBounds";
 type UseStatsNavigationParams = {
   mode: Mode;
   date: Date;
+  today: Date;
   setDate: React.Dispatch<React.SetStateAction<Date>>;
   availableMonths: AvailableMonth[];
   availableYears: number[];
@@ -13,6 +14,7 @@ type UseStatsNavigationParams = {
 export function useStatsNavigation({
   mode,
   date,
+  today,
   setDate,
   availableMonths,
   availableYears,
@@ -29,6 +31,7 @@ export function useStatsNavigation({
     if (
       !isWithinBounds({
         date: d,
+        today,
         mode,
         availableMonths,
         availableYears,
@@ -50,6 +53,7 @@ export function useStatsNavigation({
 
     return isWithinBounds({
       date: d,
+      today,
       mode,
       availableMonths,
       availableYears,

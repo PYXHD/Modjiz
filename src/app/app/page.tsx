@@ -1,11 +1,7 @@
-import { getToday } from "@/lib/time/getToday";
-
 import DashboardClient from "@/components/dashboardPage/DashboardClient";
 
 function Page() {
-  const today = getToday();
-
-  return <DashboardClient today={today} />;
+  return <DashboardClient />;
 }
 
 export default Page;

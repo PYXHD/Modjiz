@@ -1,7 +1,7 @@
 import { getAppMode } from "../init/getAppMode";
 
-export function getToday(): Date {
-  const mode = getAppMode();
+export async function getToday(): Promise<Date> {
+  const mode = await getAppMode();
 
   const today = mode === "mock" ? new Date(2026, 2, 5) : new Date();
 
