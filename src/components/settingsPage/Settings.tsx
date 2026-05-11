@@ -10,7 +10,7 @@ import styles from "./Settings.module.scss";
 function Settings() {
   const goToLanding = () => {
     localStorage.removeItem("app-mode");
-    localStorage.removeItem("moodtrack-data"); // 👈 important
+    localStorage.removeItem("moodtrack-data");
 
     document.cookie = "has-onboarded=; path=/; max-age=0";
     document.cookie = "app-mode=; path=/; max-age=0";
@@ -34,7 +34,7 @@ function Settings() {
           <h2>Infos</h2>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Version</div>
-            <div className="text-primary text-body ">1.2.7</div>
+            <div className="text-primary text-body ">1.3.0</div>
           </div>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Auteur</div>

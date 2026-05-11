@@ -1,10 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
-import { getUserData } from "@/data/getUserData";
-
-import type { Entry } from "@/types/Entry";
+import { useAppData } from "@/lib/context/AppDataContext";
 
 import TodayMood from "@/components/dashboardPage/TodayMood";
 import RecentMoods from "@/components/dashboardPage/RecentMoods";
@@ -14,34 +10,15 @@ type Props = {
 };
 
 function DashboardClient({ today }: Props) {
-  const [data, setData] = useState<Entry[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const result = await getUserData();
-        setData(result);
-      } catch (error) {
-        setData([]);
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    loadData();
-  }, []);
-
-  if (isLoading) return <div>Loading...</div>;
+  const { userData } = useAppData();
 
   return (
     <div className="dashboard">
-      <TodayMood today={today} data={data} setData={setData} />
+      <TodayMood today={today} data={userData} />
 
       <div className="separator"></div>
 
-      <RecentMoods data={data} today={today} />
+      <RecentMoods data={userData} today={today} />
     </div>
   );
 }

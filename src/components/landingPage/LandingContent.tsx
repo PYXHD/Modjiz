@@ -141,6 +141,26 @@ function LandingContent() {
               <li className={`${styles.iconItem} ${styles.textList}`}>
                 <img
                   className={`${styles.icon} ${styles.iconLg}`}
+                  src="/icons/logo_supabase.svg"
+                  alt="Icon Supabase"
+                  aria-hidden
+                />
+                <span>Supabase</span>
+              </li>
+
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
+                  src="/icons/logo_postgresql.svg"
+                  alt="Icon PostgreSQL"
+                  aria-hidden
+                />
+                <span>PostgreSQL</span>
+              </li>
+
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
                   src="/icons/logo_ts.svg"
                   alt="Icon Ts"
                   aria-hidden
@@ -161,8 +181,18 @@ function LandingContent() {
               <li className={`${styles.iconItem} ${styles.textList}`}>
                 <img
                   className={`${styles.icon} ${styles.iconLg}`}
+                  src="/icons/logo_blender.svg"
+                  alt="Icon Blender"
+                  aria-hidden
+                />
+                <span>Blender</span>
+              </li>
+
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
                   src="/icons/logo_three.svg"
-                  alt="Icon Sass"
+                  alt="Icon Three"
                   aria-hidden
                 />
                 <span>Three.js</span>
