@@ -34,7 +34,7 @@ function Settings() {
           <h2>Infos</h2>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Version</div>
-            <div className="text-primary text-body ">1.3.0</div>
+            <div className="text-primary text-body ">1.3.1</div>
           </div>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Auteur</div>
