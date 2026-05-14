@@ -2,9 +2,9 @@ import Header from "@/components/ui/header/Header";
 import NavBar from "@/components/ui/navBar/NavBar";
 import TodayLabel from "@/components/ui/todayLabel/TodayLabel";
 
-import { getHistoryData } from "@/data/getHistoryData";
-import { getUserId } from "@/data/getUserId";
-import { getUserData } from "@/data/getUserData";
+import { getHistoryData } from "@/data/history/getHistoryData";
+import { getUserId } from "@/data/id/getUserId";
+import { getUserData } from "@/data/user/getUserData";
 
 import { getToday } from "@/lib/time/getToday";
 import { DataProvider } from "@/lib/context/AppDataContext";

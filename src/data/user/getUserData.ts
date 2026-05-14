@@ -1,7 +1,7 @@
 import type { Entry } from "@/types/Entry";
 
 import { getAppMode } from "@/lib/init/getAppMode";
-import { demoUserData } from "./sources/mock/demoUserData";
+import { demoUserData } from "../sources/mock/demoUserData";
 import { sortUserData } from "./sortUserData";
 import { supabase } from "@/lib/supabase";
 

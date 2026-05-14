@@ -1,7 +1,7 @@
 import type { ISODate } from "@/types/Time";
 
 import { getAppMode } from "@/lib/init/getAppMode";
-import { demoHistoryViews } from "./sources/mock/demoHistoryViews";
+import { demoHistoryViews } from "../sources/mock/demoHistoryViews";
 import { sortHistoryData } from "./sortHistoryData";
 import { supabase } from "@/lib/supabase";
 
