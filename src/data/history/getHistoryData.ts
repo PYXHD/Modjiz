@@ -1,10 +1,9 @@
 import type { ISODate } from "@/types/Time";
 
 import { getAppMode } from "@/lib/init/getAppMode";
-import { demoHistoryViews } from "../sources/mock/demoHistoryViews";
 import { sortHistoryData } from "./sortHistoryData";
-import { supabase } from "@/lib/supabase";
 import { fetchMockHistoryViews } from "./fetchHistoryViews";
+import { initializeMockHistoryViews } from "./initializeMockHistoryViews";
 
 type HistoryViewsDB = {
   user_id: string;
@@ -15,20 +14,13 @@ export async function getHistoryData(userId: string) {
   const mode = await getAppMode();
 
   if (mode === "mock") {
-    const existing = await fetchMockHistoryViews(userId);
+    let data = await fetchMockHistoryViews(userId);
 
-    const history: ISODate[] = existing.map((item) => item.date);
-
-    if (existing.length === 0) {
-      const rows: HistoryViewsDB[] = demoHistoryViews.map((date) => ({
-        user_id: userId,
-        date,
-      }));
-
-      await supabase.from("mock_history_views").insert(rows);
-
-      return sortHistoryData(demoHistoryViews);
+    if (data.length === 0) {
+      data = await initializeMockHistoryViews(userId);
     }
+
+    const history = data.map((item) => item.date);
 
     return sortHistoryData(history);
   }
