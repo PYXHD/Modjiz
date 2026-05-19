@@ -1,6 +1,6 @@
-import type { HistoryViewsDB } from "./types/HistoryViewsDB";
+import type { HistoryViewsDB } from "../types/HistoryViewsDB";
 
-import { demoHistoryViews } from "../sources/mock/demoHistoryViews";
+import { demoHistoryViews } from "../../sources/mock/demoHistoryViews";
 import { supabase } from "@/lib/supabase";
 
 export async function initializeMockHistoryViews(userId: string) {

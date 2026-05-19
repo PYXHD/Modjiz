@@ -1,8 +1,8 @@
 import type { ISODate } from "@/types/Time";
 
 import { getAppMode } from "@/lib/init/getAppMode";
-import { sortHistoryData } from "./sortHistoryData";
-import { fetchMockHistoryViews } from "./fetchHistoryViews";
+import { sortHistoryData } from "../SORT/sortHistoryData";
+import { fetchMockHistoryViews } from "./fetchMockHistoryViews";
 import { initializeMockHistoryViews } from "./initializeMockHistoryViews";
 
 type HistoryViewsDB = {

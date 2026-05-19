@@ -1,14 +1,25 @@
 import { defineConfig } from "vitest/config";
+import { loadEnv } from "vite";
 import path from "path";
 
-export default defineConfig({
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+
+  process.env = {
+    ...process.env,
+    ...env,
+  };
+
+  return {
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
     },
-  },
-  test: {
-    globals: true,
-    environment: "jsdom",
-  },
+
+    test: {
+      globals: true,
+      environment: "jsdom",
+    },
+  };
 });

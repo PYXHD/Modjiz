@@ -10,7 +10,7 @@ import Button from "../ui/button/Button";
 
 import MonthView from "./monthView/MonthView";
 import YearView from "./yearView/YearView";
-import { saveHistoryView } from "@/data/history/saveHistoryDay";
+import { saveHistoryView } from "@/data/history/SAVE/saveHistoryDay";
 
 function Stats() {
   const [mode, setMode] = useState<"month" | "year">("month");
