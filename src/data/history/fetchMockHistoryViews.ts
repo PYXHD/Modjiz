@@ -1,4 +1,4 @@
-import { HistoryViewsDB } from "../types/HistoryViewsDB";
+import { HistoryViewsDB } from "./types/HistoryViewsDB";
 
 import { supabase } from "@/lib/supabase";
 
