@@ -13,7 +13,12 @@ export async function getUserData(userId: string) {
       data = await initializeMockUserData(userId);
     }
 
-    return sortUserData(data);
+    const entries = data.map((item) => ({
+      date: item.date,
+      value: item.value,
+    }));
+
+    return sortUserData(entries);
   }
 
   return [];
