@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppData } from "@/lib/context/AppDataContext";
-import { TROPHIES } from "@/data/trophies/trophies";
+import { TROPHIES } from "@/data/sources/trophies/trophies";
 
 import styles from "./Trophies.module.scss";
 

@@ -1,7 +1,7 @@
 import { supabase } from "@/lib/supabase";
 
 import { getAppMode } from "@/lib/init/getAppMode";
-import { getUserId } from "@/data/getUserId";
+import { getUserId } from "@/data/id/getUserId";
 
 export async function POST(request: Request) {
   try {

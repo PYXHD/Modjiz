@@ -7,7 +7,7 @@ import { toDayKey } from "@/lib/time/toDayKey";
 import { MOODS } from "@/domain/mood/config/moods";
 import type { EmotionLevel } from "@/domain/mood/config/moods";
 
-import { saveEntry } from "@/data/sources/saveEntry";
+import { saveEntry } from "@/data/user/saveEntry";
 
 import Scene from "@/components/three/Canvas";
 import Button from "@/components/ui/button/Button";
