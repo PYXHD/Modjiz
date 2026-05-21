@@ -1,14 +1,7 @@
-import type { ISODate } from "@/types/Time";
-
 import { getAppMode } from "@/lib/init/getAppMode";
 import { sortHistoryData } from "./sortHistoryData";
 import { fetchMockHistoryViews } from "./fetchMockHistoryViews";
 import { initializeMockHistoryViews } from "./initializeMockHistoryViews";
-
-type HistoryViewsDB = {
-  user_id: string;
-  date: ISODate;
-};
 
 export async function getHistoryData(userId: string) {
   const mode = await getAppMode();

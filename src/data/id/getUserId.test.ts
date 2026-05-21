@@ -6,9 +6,12 @@ import { getUserId } from "./getUserId";
 import { cookies } from "next/headers";
 
 const mockedCookie = vi.mocked(cookies);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const userId = {
   get: () => ({ value: "1234" }),
 } as any;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const noUserId = {
   get: () => undefined,
 } as any;
