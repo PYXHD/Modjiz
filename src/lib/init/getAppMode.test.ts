@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 vi.mock("next/headers", () => ({
   cookies: vi.fn(),
 }));
@@ -6,17 +8,12 @@ import { getAppMode } from "./getAppMode";
 import { cookies } from "next/headers";
 
 const mockedCookie = vi.mocked(cookies);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fakedMockCookie = {
   get: () => ({ value: "mock" }),
 } as any;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fakedRealCookie = {
   get: () => ({ value: "real" }),
 } as any;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const undefinedCookie = {
   get: () => undefined,
 } as any;
