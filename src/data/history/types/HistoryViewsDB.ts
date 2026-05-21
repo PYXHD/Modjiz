@@ -1,4 +1,4 @@
-import { ISODate } from "./Time";
+import { ISODate } from "@/types/Time";
 
 export type HistoryViewsDB = {
   user_id: string;
