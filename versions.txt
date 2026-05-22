@@ -75,14 +75,22 @@
 10/05/2026
 
 - première phrase de l'intégration de l'API :
-   -> création de la base de données (supabase)
+   -> création de la base de données - mock (supabase)
    -> remplacement du mock sur localStorage en mock sur DB
    -> ajustement des fonctions d'assert
    -> créations des routes API (history-view, entry)
    
 //////////////////////////////////////
 1.3.1
---/05/2026
+20/05/2026
 
 - correction des tests rendus obsolètes par la dernière MAJ
 - écriture des tests manquants
+
+//////////////////////////////////////
+1.3.2
+22/05/2026
+
+- seconde phrase de l'intégration de l'API :
+   -> création de la base de données - real (supabase)
+   -> premiers essais de la mise en place de l'AUTH (validés)
