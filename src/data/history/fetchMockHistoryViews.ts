@@ -1,8 +1,10 @@
 import { HistoryViewsDB } from "./types/HistoryViewsDB";
 
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/server";
 
 export async function fetchMockHistoryViews(userId: string) {
+  const supabase = await createClient();
+
   const result = await supabase
     .from("mock_history_views")
     .select("*")

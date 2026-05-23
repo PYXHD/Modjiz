@@ -1,13 +1,15 @@
-import { cookies } from "next/headers";
+import { createClient } from "@/lib/supabase/server";
 
 export async function getUserId(): Promise<string> {
-  const cookieStore = await cookies();
+  const supabase = await createClient();
 
-  const userId = cookieStore.get("mock-user-id")?.value;
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  if (!userId) {
-    throw new Error("mock-user-id is missing");
+  if (!user) {
+    throw new Error("User is not authenticated");
   }
 
-  return userId;
+  return user.id;
 }

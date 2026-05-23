@@ -1,8 +1,10 @@
 import type { Entry } from "@/types/Entry";
 
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/server";
 
 export async function fetchMockUserData(userId: string) {
+  const supabase = await createClient();
+
   const result = await supabase
     .from("mock_entries")
     .select("*")
