@@ -2,7 +2,7 @@ vi.mock("../../lib/init/getAppMode.ts", () => ({
   getAppMode: vi.fn(),
 }));
 
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/lib/supabase/supabase-test";
 import { getUserData } from "./getUserData";
 import { initializeMockUserData } from "./initializeMockUserData";
 import { getAppMode } from "@/lib/init/getAppMode";
