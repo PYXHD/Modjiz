@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 
-export async function getUserId(): Promise<string> {
+export async function getUserId(): Promise<string | null> {
   const supabase = await createClient();
 
   const {
@@ -8,7 +8,7 @@ export async function getUserId(): Promise<string> {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    throw new Error("User is not authenticated");
+    return null;
   }
 
   return user.id;

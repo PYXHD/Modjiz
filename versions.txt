@@ -74,7 +74,7 @@
 1.3.0
 10/05/2026
 
-- première phrase de l'intégration de l'API :
+- première phase de l'intégration de l'API :
    -> création de la base de données - mock (supabase)
    -> remplacement du mock sur localStorage en mock sur DB
    -> ajustement des fonctions d'assert
@@ -91,6 +91,15 @@
 1.3.2
 22/05/2026
 
-- seconde phrase de l'intégration de l'API :
+- seconde phase de l'intégration de l'API :
    -> création de la base de données - real (supabase)
    -> premiers essais de la mise en place de l'AUTH (validés)
+
+//////////////////////////////////////
+1.3.3
+25/05/2026
+
+- troisième phase de l'intégration de l'API
+   -> création des fichiers dans lib/supabase
+   -> séparation des responsabilités (browser / server / middleware)
+   -> création et mise en place de l'AUTH provider
