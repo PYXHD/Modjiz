@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/server";
 
 import { getAppMode } from "@/lib/init/getAppMode";
 import { getUserId } from "@/data/id/getUserId";
@@ -13,6 +13,7 @@ export async function POST(request: Request) {
     const appMode = await getAppMode();
     const table = appMode === "mock" ? "mock_entries" : "entries";
 
+    const supabase = await createClient();
     const response = await supabase.from(table).upsert(
       {
         user_id: userId,
