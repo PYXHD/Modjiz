@@ -1,7 +1,12 @@
+vi.mock("../../lib/supabase/server", () => ({
+  createClient: vi.fn(),
+}));
+
 vi.mock("../../lib/init/getAppMode.ts", () => ({
   getAppMode: vi.fn(),
 }));
 
+import { createClient } from "@/lib/supabase/server";
 import { supabase } from "@/lib/supabase/supabase-test";
 import { getHistoryData } from "./getHistoryData";
 import { initializeMockHistoryViews } from "./initializeMockHistoryViews";
@@ -14,6 +19,7 @@ describe("getHistoryData()", () => {
     beforeEach(() => {
       userId = `test-user-${crypto.randomUUID()}`;
       vi.mocked(getAppMode).mockResolvedValue("mock");
+      vi.mocked(createClient).mockResolvedValue(supabase);
     });
 
     afterEach(async () => {

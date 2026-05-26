@@ -103,3 +103,9 @@
    -> création des fichiers dans lib/supabase
    -> séparation des responsabilités (browser / server / middleware)
    -> création et mise en place de l'AUTH provider
+
+//////////////////////////////////////
+1.3.4
+26/05/2026
+
+- ajustement des tests rendus obsolètes par les modifications
