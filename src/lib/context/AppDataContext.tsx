@@ -10,6 +10,9 @@ type AppData = {
   userData: Entry[];
   historyData: ISODate[];
   currentDate: Date;
+
+  setUserData: React.Dispatch<React.SetStateAction<Entry[]>>;
+
   setHistoryData: React.Dispatch<React.SetStateAction<ISODate[]>>;
 };
 
@@ -26,12 +29,18 @@ type DataProviderProps = {
 const AppDataContext = createContext<AppData | null>(null);
 
 export function DataProvider({ children, value }: DataProviderProps) {
+  const [userData, setUserData] = useState(value.userData);
+
   const [historyData, setHistoryData] = useState(value.historyData);
 
   return (
     <AppDataContext.Provider
       value={{
-        ...value,
+        currentDate: value.currentDate,
+
+        userData,
+        setUserData,
+
         historyData,
         setHistoryData,
       }}
