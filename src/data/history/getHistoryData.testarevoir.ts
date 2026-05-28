@@ -17,7 +17,7 @@ let userId = "";
 describe("getHistoryData()", () => {
   describe("mock mode", () => {
     beforeEach(() => {
-      userId = `test-user-${crypto.randomUUID()}`;
+      userId = crypto.randomUUID();
       vi.mocked(getAppMode).mockResolvedValue("mock");
       vi.mocked(createClient).mockResolvedValue(supabase);
     });

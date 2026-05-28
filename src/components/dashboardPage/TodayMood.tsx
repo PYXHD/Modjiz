@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { useAppData } from "@/lib/context/AppDataContext";
 import { toDayKey } from "@/lib/time/toDayKey";
 
 import { MOODS } from "@/domain/mood/config/moods";
@@ -20,6 +21,8 @@ type Props = {
 };
 
 function TodayMood({ today, data }: Props) {
+  const { setUserData } = useAppData();
+
   const todayStr = toDayKey(today);
 
   const existingEntry = data.find((e) => e.date === todayStr);
@@ -45,7 +48,19 @@ function TodayMood({ today, data }: Props) {
 
     await saveEntry(entry);
 
-    window.location.reload();
+    setUserData((prev) => {
+      const exists = prev.some((e) => e.date === todayStr);
+
+      if (exists) {
+        return prev.map((e) =>
+          e.date === todayStr ? { ...e, value: mood } : e,
+        );
+      }
+
+      return [...prev, entry];
+    });
+
+    setIsEditing(false);
   }
 
   return (

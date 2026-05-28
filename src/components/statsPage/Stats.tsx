@@ -14,11 +14,25 @@ import { saveHistoryView } from "@/data/history/saveHistoryDay";
 
 function Stats() {
   const [mode, setMode] = useState<"month" | "year">("month");
-  const { currentDate } = useAppData();
+  const { currentDate, setHistoryData } = useAppData();
 
   useEffect(() => {
-    saveHistoryView(toDayKey(currentDate));
-  }, [currentDate]);
+    async function save() {
+      const day = toDayKey(currentDate);
+
+      await saveHistoryView(day);
+
+      setHistoryData((prev) => {
+        if (prev.includes(day)) {
+          return prev;
+        }
+
+        return [...prev, day];
+      });
+    }
+
+    save();
+  }, [currentDate, setHistoryData]);
 
   return (
     <div className={styles.stats}>
