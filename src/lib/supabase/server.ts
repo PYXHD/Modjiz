@@ -4,12 +4,6 @@ import { cookies } from "next/headers";
 export async function createClient() {
   const cookieStore = await cookies();
 
-  const cookieMethods = {
-    getAll() {
-      return cookieStore.getAll();
-    },
-  };
-
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -18,6 +12,21 @@ export async function createClient() {
   }
 
   return createServerClient(supabaseUrl, supabaseAnonKey, {
-    cookies: cookieMethods,
+    cookies: {
+      getAll() {
+        return cookieStore.getAll();
+      },
+
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            cookieStore.set(name, value, options);
+          });
+        } catch {
+          // Server Components cannot always write cookies.
+          // Session refresh is handled by the middleware.
+        }
+      },
+    },
   });
 }
