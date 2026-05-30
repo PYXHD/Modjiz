@@ -118,3 +118,12 @@
 - suppression du rechargement complet de la page après sauvegarde d'une entrée
 - synchronisation immédiate des données utilisateur et history views après sauvegarde
 - amélioration de l'expérience utilisateur lors des sauvegardes asynchrones
+
+//////////////////////////////////////
+1.3.6
+30/05/2026
+
+- ajout de la protection CAPTCHA sur les connexions anonymes Supabase
+- remplacement de la création automatique de session dans AuthProvider par un bootstrap d'identité dédié
+- séparation des responsabilités entre obtention d'identité (MockBootstrap) et exposition de l'identité (AuthProvider)
+- mise en place des fondations pour la coexistence des modes mock et réel
