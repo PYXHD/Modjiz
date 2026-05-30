@@ -1,3 +1,4 @@
+import IdentityBootstrap from "@/components/auth/IdentityBootstrap";
 import Header from "@/components/ui/header/Header";
 import NavBar from "@/components/ui/navBar/NavBar";
 import TodayLabel from "@/components/ui/todayLabel/TodayLabel";
@@ -14,10 +15,12 @@ import { AuthProvider } from "@/lib/context/AuthProvider";
 async function AppLayout({ children }: { children: React.ReactNode }) {
   const userId = await getUserId();
 
+  console.log("LAYOUT USER ID:", userId);
+
   if (!userId) {
     return (
       <AuthProvider>
-        <div>Chargement des données...</div>
+        <IdentityBootstrap />
       </AuthProvider>
     );
   }

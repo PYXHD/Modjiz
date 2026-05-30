@@ -4,8 +4,6 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 import { createClient } from "../supabase/browser";
 
-import { signInAnonymously } from "@/data/id/signInAnonymously";
-
 type AuthContextType = {
   userId: string | null;
   loading: boolean;
@@ -21,26 +19,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     async function run() {
-      const appMode =
-        document.cookie
-          .split("; ")
-          .find((row) => row.startsWith("app-mode="))
-          ?.split("=")[1] ?? "mock";
-
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-
-      if (appMode === "mock") {
-        if (!user) {
-          await signInAnonymously();
-        }
-      }
-
-      if (appMode === "real") {
-        // Real auth
-      }
-
       const {
         data: { user: finalUser },
       } = await supabase.auth.getUser();
