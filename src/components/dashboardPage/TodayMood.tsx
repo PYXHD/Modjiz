@@ -28,6 +28,7 @@ function TodayMood({ today, data }: Props) {
   const existingEntry = data.find((e) => e.date === todayStr);
 
   const [isEditing, setIsEditing] = useState(() => !existingEntry);
+  const [isSaving, setIsSaving] = useState(false);
 
   const [mood, setMood] = useState<EmotionLevel>(() =>
     existingEntry ? (existingEntry.value as EmotionLevel) : 0,
@@ -36,31 +37,43 @@ function TodayMood({ today, data }: Props) {
   const selectedMood = MOODS.find((m) => m.value === mood);
 
   async function handleSave() {
+    if (isSaving) return;
+
     if (!isEditing) {
       setIsEditing(true);
       return;
     }
 
-    const entry: Entry = {
-      date: todayStr,
-      value: mood,
-    };
+    setIsSaving(true);
 
-    await saveEntry(entry);
+    try {
+      const entry: Entry = {
+        date: todayStr,
+        value: mood,
+      };
 
-    setUserData((prev) => {
-      const exists = prev.some((e) => e.date === todayStr);
+      await saveEntry(entry);
 
-      if (exists) {
-        return prev.map((e) =>
-          e.date === todayStr ? { ...e, value: mood } : e,
-        );
-      }
+      setUserData((prev) => {
+        const exists = prev.some((e) => e.date === todayStr);
 
-      return [...prev, entry];
-    });
+        if (exists) {
+          return prev.map((e) =>
+            e.date === todayStr ? { ...e, value: mood } : e,
+          );
+        }
 
-    setIsEditing(false);
+        return [...prev, entry];
+      });
+
+      setIsEditing(false);
+    } catch (error) {
+      console.error(error);
+
+      alert("Impossible d'enregistrer votre humeur.");
+    } finally {
+      setIsSaving(false);
+    }
   }
 
   return (
@@ -98,10 +111,10 @@ function TodayMood({ today, data }: Props) {
               value={m.value}
               checked={mood === m.value}
               onChange={() => {
-                if (!isEditing) return;
+                if (!isEditing || isSaving) return;
                 setMood(m.value);
               }}
-              disabled={!isEditing}
+              disabled={!isEditing || isSaving}
               style={{
                 backgroundColor: m.color,
                 color: m.color,
@@ -118,8 +131,15 @@ function TodayMood({ today, data }: Props) {
         </div>
       </div>
 
-      <Button onClick={handleSave} disabled={mood === 0 && isEditing}>
-        {isEditing ? "Enregistrer" : "Modifier"}
+      <Button
+        onClick={handleSave}
+        disabled={(mood === 0 && isEditing) || isSaving}
+      >
+        {isSaving
+          ? "Enregistrement..."
+          : isEditing
+            ? "Enregistrer"
+            : "Modifier"}
       </Button>
     </section>
   );
