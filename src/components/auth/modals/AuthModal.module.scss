@@ -1,0 +1,33 @@
+@use "../../../styles/tools/breakpoints" as *;
+@use "../../../styles/tools/icon" as *;
+@use "../../../styles/tools/flex" as *;
+@use "../../../styles/tools/layouts" as *;
+@use "../../../styles/tools/spacing" as *;
+@use "../../../styles/tools/typos" as *;
+
+/* === ***** === */
+.overlay {
+  @include flex(column, center, center, sm);
+}
+
+.modal {
+  max-width: 400px;
+  border-radius: 10px;
+  background-color: grey;
+}
+
+.container {
+  @include flex(column, space-between, center, xl);
+}
+
+.title {
+  @include flex(column, space-between, center, xs);
+}
+
+.form {
+  @include flex(column, space-between, center, sm);
+}
+
+.info {
+  @include flex(column, space-between, center, sm);
+}
