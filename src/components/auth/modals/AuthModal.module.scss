@@ -5,17 +5,12 @@
 @use "../../../styles/tools/spacing" as *;
 @use "../../../styles/tools/typos" as *;
 
-/* === ***** === */
-.overlay {
-  @include flex(column, center, center, sm);
+/* === elements === */
+.icon {
+  width: 100px;
 }
 
-.modal {
-  max-width: 400px;
-  border-radius: 10px;
-  background-color: grey;
-}
-
+/* === layout === */
 .container {
   @include flex(column, space-between, center, xl);
 }
@@ -25,7 +20,11 @@
 }
 
 .form {
-  @include flex(column, space-between, center, sm);
+  @include flex(column, space-between, center, md);
+}
+
+.btnContainer {
+  @include flex(column, space-between, center, xs);
 }
 
 .info {
