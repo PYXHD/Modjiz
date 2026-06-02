@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g id="Groupe_45" data-name="Groupe 45" transform="translate(-120 -120)">
+    <circle id="Ellipse_27" data-name="Ellipse 27" cx="40" cy="40" r="40" transform="translate(120 120)" fill="#fafafa"/>
+    <path id="Ellipse_25_-_Contour" data-name="Ellipse 25 - Contour" d="M40,1A39.011,39.011,0,0,0,24.82,75.936,39.01,39.01,0,0,0,55.18,4.064,38.755,38.755,0,0,0,40,1m0-1A40,40,0,1,1,0,40,40,40,0,0,1,40,0Z" transform="translate(120 120)" fill="#3554c5"/>
+    <ellipse id="Ellipse_26" data-name="Ellipse 26" cx="5" cy="3.5" rx="5" ry="3.5" transform="translate(155 181)" fill="#3554c5"/>
+    <path id="Tracé_148" data-name="Tracé 148" d="M1603,7667.842c1.822.355,5.138.552,4.634,6.756s-2.068,28.679-2.068,28.679-3.541,1.718-5.279.589-1.434-32.8-.717-34.236A2.771,2.771,0,0,1,1603,7667.842Z" transform="translate(-1443 -7532)" fill="#3554c5"/>
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g id="Groupe_48" data-name="Groupe 48" transform="translate(-120 -120)">
+    <circle id="Ellipse_27" data-name="Ellipse 27" cx="40" cy="40" r="40" transform="translate(120 120)" fill="#fafafa"/>
+    <path id="Ellipse_25_-_Contour" data-name="Ellipse 25 - Contour" d="M40,1A39.011,39.011,0,0,0,24.82,75.936,39.01,39.01,0,0,0,55.18,4.064,38.755,38.755,0,0,0,40,1m0-1A40,40,0,1,1,0,40,40,40,0,0,1,40,0Z" transform="translate(120 120)" fill="#3554c5"/>
+    <path id="Icon_material-outline-supervisor-account" data-name="Icon material-outline-supervisor-account" d="M38.871,38.439c-7.484,0-22.371,4.108-22.371,12.2v6.1H61.243v-6.1C61.243,42.547,46.356,38.439,38.871,38.439Zm4.922-7.4a10.169,10.169,0,1,0-9.843,0,9.956,9.956,0,0,0,9.843,0Z" transform="translate(121.129 122.629)" fill="#3554c5"/>
+  </g>
+</svg>
