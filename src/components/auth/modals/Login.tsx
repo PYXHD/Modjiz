@@ -1,6 +1,5 @@
 import styles from "./AuthModal.module.scss";
 
-import Button from "@/components/ui/button/Button";
 import Link from "next/link";
 
 function Login() {
@@ -13,11 +12,19 @@ function Login() {
         </div>
 
         <div className={styles.form}>
-          <input type="email" />
-          <input type="password" />
+          <div className={`text-body ${styles.inputContainer}`}>
+            <label htmlFor="email">E-mail</label>
+            <input id="email" type="email" className={styles.input} />
+          </div>
+          <div className={`text-body ${styles.inputContainer}`}>
+            <label htmlFor="password">Mot de passe</label>
+            <input id="password" type="password" className={styles.input} />
+          </div>
           <div className={styles.btnContainer}>
-            <Button>Se connecter</Button>
-            <Link className={styles.link} href="/">
+            <Link href="/" className={`text-lead ${styles.authBtn}`}>
+              Se connecter
+            </Link>
+            <Link className={`text-body ${styles.link}`} href="/auth/password">
               Mot de passe oublié ?
             </Link>
           </div>
@@ -26,7 +33,9 @@ function Login() {
         <div className={styles.info}>
           <p className="text-lead">Pas encore de compte ?</p>
           <div className={styles.btnContainer}>
-            <Button>Créer un compte</Button>
+            <Link href="/auth/signup" className={`text-lead ${styles.authBtn}`}>
+              Créer un compte
+            </Link>
           </div>
         </div>
       </div>
