@@ -1,7 +1,5 @@
 import styles from "./AuthModal.module.scss";
 
-import Button from "@/components/ui/button/Button";
-
 function ResetPassword() {
   return (
     <main>
@@ -16,11 +14,21 @@ function ResetPassword() {
         </div>
 
         <div className={styles.form}>
-          <p>Saisissez un nouveau mot de passe pour votre compte</p>
-          <input type="password" />
-          <input type="password" />
+          <p className={`text-body ${styles.centered}`}>
+            Saisissez un nouveau mot de passe pour votre compte
+          </p>
+          <div className={`text-body ${styles.inputContainer}`}>
+            <label htmlFor="password">Mot de passe</label>
+            <input id="password" type="password" className={styles.input} />
+          </div>
+          <div className={`text-body ${styles.inputContainer}`}>
+            <label htmlFor="password">Nouveau mot de passe</label>
+            <input id="password" type="password" className={styles.input} />
+          </div>
           <div className={styles.btnContainer}>
-            <Button>Mettre à jour</Button>
+            <button className={`text-lead ${styles.authBtn}`}>
+              Mettre à jour
+            </button>
           </div>
         </div>
       </div>

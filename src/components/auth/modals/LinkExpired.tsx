@@ -17,10 +17,10 @@ function LinkExpired() {
         </div>
 
         <div className={styles.info}>
-          <p className="text-lead">
+          <p className={`text-body ${styles.centered}`}>
             Le lien que vous avez utilisé n'est plus valide.
           </p>
-          <p className="text-lead">
+          <p className={`text-body ${styles.centered}`}>
             Veuillez demander un nouveau lien pour continuer.
           </p>
 
@@ -28,10 +28,15 @@ function LinkExpired() {
         </div>
 
         <div className={styles.info}>
-          <p className="text-lead">
+          <p className={`text-small ${styles.centered}`}>
             Vous rencontrez des difficultés dans la création de votre compte ?
           </p>
-          <Link href="/">Nous contacter</Link>
+          <Link
+            href="mailto:pyxhd@outlook.fr?subject=Problème de création de compte&body=Décrivez votre problème :"
+            className={`text-body ${styles.link}`}
+          >
+            Nous contacter
+          </Link>
         </div>
       </div>
     </main>

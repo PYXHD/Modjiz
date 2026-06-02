@@ -1,6 +1,6 @@
 import styles from "./AuthModal.module.scss";
 
-import Button from "@/components/ui/button/Button";
+import Link from "next/link";
 
 function PasswordSent() {
   return (
@@ -16,18 +16,22 @@ function PasswordSent() {
         </div>
 
         <div className={styles.info}>
-          <p className="text-lead">
+          <p className={`text-body ${styles.centered}`}>
             Un email de réinitialisation a été envoyé.
           </p>
-          <p className="text-lead">
+          <p className={`text-body ${styles.centered}`}>
             Consultez votre boîte mail puis cliquez sur le lien reçu.
           </p>
         </div>
 
         <div className={styles.info}>
-          <p className="text-lead">Vous n'avez rien reçu ?</p>
+          <p className={`text-body ${styles.centered}`}>
+            Vous n'avez rien reçu ?
+          </p>
 
-          <Button>Demander un nouveau mot de passe</Button>
+          <Link href="/" className={`text-lead ${styles.authBtn}`}>
+            Demander un nouveau mot de passe
+          </Link>
         </div>
       </div>
     </main>

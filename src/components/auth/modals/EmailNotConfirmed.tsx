@@ -17,8 +17,10 @@ function EmailNotConfirmed() {
         </div>
 
         <div className={styles.info}>
-          <p className="text-lead">L'email n'a pas été confirmé.</p>
-          <p className="text-lead">
+          <p className={`text-body ${styles.centered}`}>
+            L'email n'a pas été confirmé.
+          </p>
+          <p className={`text-body ${styles.centered}`}>
             Votre adresse e-mail doit être confirmée avant de pouvoir accéder à
             Modjiz.
           </p>
@@ -27,10 +29,15 @@ function EmailNotConfirmed() {
         </div>
 
         <div className={styles.info}>
-          <p className="text-lead">
+          <p className={`text-small ${styles.centered}`}>
             Vous rencontrez des difficultés dans la création de votre compte ?
           </p>
-          <Link href="/">Nous contacter</Link>
+          <Link
+            href="mailto:pyxhd@outlook.fr?subject=Problème de création de compte&body=Décrivez votre problème :"
+            className={`text-body ${styles.link}`}
+          >
+            Nous contacter
+          </Link>
         </div>
       </div>
     </main>

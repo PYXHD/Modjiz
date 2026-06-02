@@ -1,6 +1,6 @@
 import styles from "./AuthModal.module.scss";
 
-import Button from "@/components/ui/button/Button";
+import Link from "next/link";
 
 function PasswordUpdated() {
   return (
@@ -16,8 +16,12 @@ function PasswordUpdated() {
         </div>
 
         <div className={styles.info}>
-          <p className="text-lead">Votre mot de passe a bien été modifié.</p>
-          <Button>Se connecter</Button>
+          <p className={`text-body ${styles.centered}`}>
+            Votre mot de passe a bien été modifié.
+          </p>
+          <Link className={`text-body ${styles.authBtn}`} href="/auth/login">
+            Se connecter
+          </Link>
         </div>
       </div>
     </main>
