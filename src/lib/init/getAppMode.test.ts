@@ -37,10 +37,11 @@ describe("getAppMode()", () => {
     expect(result).toBe("mock");
   });
 
-  test("returns mock if app-mode is not set", async () => {
+  test("returns null if app-mode is not set", async () => {
     mockedCookie.mockResolvedValue(undefinedCookie);
+
     const result = await getAppMode();
 
-    expect(result).toBe("mock");
+    expect(result).toBeNull();
   });
 });
