@@ -1,9 +1,37 @@
+"use client";
+
 import styles from "./AuthModal.module.scss";
+import { useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
+import { useRouter } from "next/navigation";
 
 import Button from "@/components/ui/button/Button";
 import Link from "next/link";
 
+import { signup } from "@/lib/auth/signup";
+import { validateSignup } from "@/lib/auth/validateSignup";
+
 function SignUp() {
+  const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmed, setPasswordConfirmed] = useState("");
+
+  const [showTurnstile, setShowTurnstile] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit() {
+    const validationError = validateSignup(email, password, passwordConfirmed);
+
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+    setError("");
+    setShowTurnstile(true);
+  }
+
   return (
     <main>
       <div className={styles.container}>
@@ -15,19 +43,70 @@ function SignUp() {
         <div className={styles.form}>
           <div className={`text-body ${styles.inputContainer}`}>
             <label htmlFor="email">E-mail</label>
-            <input id="email" type="email" className={styles.input} />
+            <input
+              required
+              id="email"
+              type="email"
+              className={styles.input}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div className={`text-body ${styles.inputContainer}`}>
             <label htmlFor="password">Mot de passe</label>
-            <input id="password" type="password" className={styles.input} />
+            <input
+              required
+              id="password"
+              type="password"
+              className={styles.input}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
           <div className={`text-body ${styles.inputContainer}`}>
             <label htmlFor="password">Confirmer mot de passe</label>
-            <input id="password" type="password" className={styles.input} />
+            <input
+              required
+              id="password"
+              type="password"
+              className={styles.input}
+              onChange={(e) => setPasswordConfirmed(e.target.value)}
+            />
           </div>
+
           <div className={styles.btnContainer}>
-            <Button>Créer un compte</Button>
+            <div
+              className={`text-caption ${styles.centered} ${styles.errorContainer}`}
+            >
+              {error}
+            </div>
+            <Button onClick={handleSubmit}>Créer un compte</Button>
           </div>
+
+          {showTurnstile && (
+            <div className={styles.overlay}>
+              <div className={styles.modal}>
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                  onSuccess={async (captchaToken) => {
+                    const { error } = await signup(
+                      email,
+                      password,
+                      captchaToken,
+                    );
+
+                    if (error) {
+                      setError(error.message);
+                      setShowTurnstile(false);
+                      return;
+                    }
+
+                    setShowTurnstile(false);
+
+                    router.push("/auth/verify-email");
+                  }}
+                />
+              </div>
+            </div>
+          )}
         </div>
 
         <div className={styles.info}>

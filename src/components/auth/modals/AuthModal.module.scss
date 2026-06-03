@@ -77,6 +77,29 @@
   padding: 40px 20px;
 }
 
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgb(0 0 0 / 30%);
+  backdrop-filter: blur(8px);
+
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--color-bg-app);
+  padding: 2rem;
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: center;
+}
+
 .container {
   @include flex(column, space-between, center, lg);
   width: 100%;
@@ -91,6 +114,11 @@
 
   .inputContainer {
     @include flex(column, space-between, self-start);
+  }
+
+  .errorContainer {
+    min-height: 48px;
+    color: var(--color-text-primary);
   }
 }
 
