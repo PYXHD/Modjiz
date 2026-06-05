@@ -1,5 +1,6 @@
 import { getAppMode } from "@/lib/init/getAppMode";
 import MockBootstrap from "./MockBootstrap";
+import RealBoostrap from "./RealBootstrap";
 import { redirect } from "next/navigation";
 
 export default async function IdentityBootstrap() {
@@ -13,6 +14,6 @@ export default async function IdentityBootstrap() {
     return <MockBootstrap />;
   }
   if (appMode === "real") {
-    return null;
+    return <RealBoostrap />;
   }
 }

@@ -37,7 +37,7 @@ function SignUp() {
       <div className={styles.container}>
         <div className={styles.title}>
           <img src="/icons/auth_id.svg" alt="icon id" className={styles.icon} />
-          <h2>Connexion</h2>
+          <h2>Créer un compte</h2>
         </div>
 
         <div className={styles.form}>
@@ -94,14 +94,18 @@ function SignUp() {
                     );
 
                     if (error) {
-                      setError(error.message);
-                      setShowTurnstile(false);
-                      return;
+                      if (error.message === "User already registered") {
+                        const shouldLogin = confirm(
+                          "Cette adresse e-mail est déjà associée à un compte.\n\nVoulez-vous vous connecter ?.",
+                        );
+                        if (shouldLogin) {
+                          router.push("/auth/login");
+                        }
+
+                        setShowTurnstile(false);
+                        return;
+                      }
                     }
-
-                    setShowTurnstile(false);
-
-                    router.push("/auth/verify-email");
                   }}
                 />
               </div>
