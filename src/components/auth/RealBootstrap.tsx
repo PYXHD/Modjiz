@@ -12,5 +12,5 @@ export default async function RealBoostrap() {
     redirect("/auth/login");
   }
 
-  return null;
+  redirect("/app");
 }

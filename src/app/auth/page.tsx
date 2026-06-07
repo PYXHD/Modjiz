@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import IdentityBootstrap from "@/components/auth/IdentityBootstrap";
 
 export default function AuthPage() {
-  redirect("/auth/signup");
+  return <IdentityBootstrap />;
 }

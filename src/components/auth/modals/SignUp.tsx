@@ -1,6 +1,9 @@
+// terminé
+
 "use client";
 
 import styles from "./AuthModal.module.scss";
+
 import { useState } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { useRouter } from "next/navigation";
@@ -62,10 +65,10 @@ function SignUp() {
             />
           </div>
           <div className={`text-body ${styles.inputContainer}`}>
-            <label htmlFor="password">Confirmer mot de passe</label>
+            <label htmlFor="passwordConfirm">Confirmer mot de passe</label>
             <input
               required
-              id="password"
+              id="passwordConfirm"
               type="password"
               className={styles.input}
               onChange={(e) => setPasswordConfirmed(e.target.value)}
