@@ -85,9 +85,6 @@ function Login() {
                     captchaToken,
                   );
 
-                  console.log("LOGIN DATA", data);
-                  console.log("LOGIN ERROR", error);
-
                   if (error) {
                     setError("Adresse e-mail ou mot de passe incorrect.");
 

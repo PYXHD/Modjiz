@@ -1,7 +1,7 @@
 import { getAppMode } from "@/lib/init/getAppMode";
 import MockBootstrap from "./MockBootstrap";
-import RealBoostrap from "./RealBootstrap";
 import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function IdentityBootstrap() {
   const appMode = await getAppMode();
@@ -14,6 +14,16 @@ export default async function IdentityBootstrap() {
     return <MockBootstrap />;
   }
   if (appMode === "real") {
-    return <RealBoostrap />;
+    const supabase = await createClient();
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      redirect("/auth/login");
+    }
+
+    redirect("/app");
   }
 }
