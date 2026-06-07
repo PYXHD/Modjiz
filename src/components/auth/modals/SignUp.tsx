@@ -13,6 +13,7 @@ import Link from "next/link";
 
 import { signup } from "@/lib/auth/signup";
 import { validateSignup } from "@/lib/auth/validateSignup";
+import { initializeRealMode } from "@/domain/session/initializeRealMode";
 
 function SignUp() {
   const router = useRouter();
@@ -101,6 +102,7 @@ function SignUp() {
                         const shouldLogin = confirm(
                           "Cette adresse e-mail est déjà associée à un compte.\n\nVoulez-vous vous connecter ?.",
                         );
+
                         if (shouldLogin) {
                           router.push("/auth/login");
                         }
@@ -108,7 +110,14 @@ function SignUp() {
                         setShowTurnstile(false);
                         return;
                       }
+
+                      setError("Une erreur est survenue.");
+                      setShowTurnstile(false);
+                      return;
                     }
+
+                    initializeRealMode();
+                    router.push("/app");
                   }}
                 />
               </div>

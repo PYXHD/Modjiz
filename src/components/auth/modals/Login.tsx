@@ -1,3 +1,5 @@
+// terminé
+
 "use client";
 
 import styles from "./AuthModal.module.scss";
@@ -11,6 +13,7 @@ import Link from "next/link";
 
 import { login } from "@/lib/auth/login";
 import { validateLogin } from "@/lib/auth/validateLogin";
+import { initializeRealMode } from "@/domain/session/initializeRealMode";
 
 function Login() {
   const router = useRouter();
@@ -95,6 +98,7 @@ function Login() {
 
                   setShowTurnstile(false);
 
+                  initializeRealMode();
                   router.push("/app");
                 }}
               />

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import { clearMode } from "@/domain/session/clearMode";
+
 import Button from "@/components/ui/button/Button";
 import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
 
@@ -9,11 +11,7 @@ import styles from "./Settings.module.scss";
 
 function Settings() {
   const goToLanding = () => {
-    localStorage.removeItem("app-mode");
-    localStorage.removeItem("moodtrack-data");
-
-    document.cookie = "has-onboarded=; path=/; max-age=0";
-    document.cookie = "app-mode=; path=/; max-age=0";
+    clearMode();
 
     window.location.href = "/";
   };
