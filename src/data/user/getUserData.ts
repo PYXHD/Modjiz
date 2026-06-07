@@ -11,6 +11,9 @@ export async function getUserData(userId: string) {
 
   if (mode === null) {
     throw new Error("App mode is not initialized");
+    // TODO:
+    // Afficher un écran de récupération permettant
+    // de restaurer ou rechoisir le mode mock/real.
   }
 
   let data: Entry[] = [];
