@@ -1,7 +1,7 @@
-import ResetPassword from "@/components/auth/modals/ResetPassword";
+import PasswordReset from "@/components/auth/modals/PasswordReset";
 
 function Page() {
-  return <ResetPassword />;
+  return <PasswordReset />;
 }
 
 export default Page;

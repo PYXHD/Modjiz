@@ -1,3 +1,5 @@
+// terminé
+
 import styles from "./AuthModal.module.scss";
 
 import Link from "next/link";
@@ -12,12 +14,13 @@ function PasswordSent() {
             alt="icon lock"
             className={styles.icon}
           />
-          <h2>Réinitialisation</h2>
+          <h2>E-mail envoyé</h2>
         </div>
 
         <div className={styles.info}>
           <p className={`text-body ${styles.centered}`}>
-            Un email de réinitialisation a été envoyé.
+            Un email de réinitialisation a été envoyé si cette adresse est
+            associée à un compte.
           </p>
           <p className={`text-body ${styles.centered}`}>
             Consultez votre boîte mail puis cliquez sur le lien reçu.
@@ -29,7 +32,7 @@ function PasswordSent() {
             Vous n'avez rien reçu ?
           </p>
 
-          <Link href="/" className={`text-lead ${styles.authBtn}`}>
+          <Link href="/auth/password" className={`text-lead ${styles.authBtn}`}>
             Demander un nouveau mot de passe
           </Link>
         </div>

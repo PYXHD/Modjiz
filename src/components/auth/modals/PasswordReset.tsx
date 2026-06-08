@@ -1,6 +1,6 @@
 import styles from "./AuthModal.module.scss";
 
-function ResetPassword() {
+function PasswordReset() {
   return (
     <main>
       <div className={styles.container}>
@@ -10,7 +10,7 @@ function ResetPassword() {
             alt="icon lock"
             className={styles.icon}
           />
-          <h2>Nouveau mot de passe</h2>
+          <h2>Modifier mon mot de passe</h2>
         </div>
 
         <div className={styles.form}>
@@ -36,4 +36,4 @@ function ResetPassword() {
   );
 }
 
-export default ResetPassword;
+export default PasswordReset;
