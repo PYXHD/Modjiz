@@ -1,23 +1,21 @@
+import { validateEmail } from "./validateEmail";
+import { validatePassword } from "./validatePassword";
+
 export function validateSignup(
   email: string,
   password: string,
   passwordConfirmed: string,
 ): string | null {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailError = validateEmail(email);
 
-  if (!email) {
-    return "Veuillez saisir un email";
-  }
-  if (!emailRegex.test(email)) {
-    return "Veuillez saisir une adresse email valide";
+  if (emailError) {
+    return emailError;
   }
 
-  if (password.length < 8) {
-    return "Le mot de passe doit contenir au moins 8 caractères";
-  }
+  const passwordError = validatePassword(password, passwordConfirmed);
 
-  if (password !== passwordConfirmed) {
-    return "Les mots de passe ne correspondent pas";
+  if (passwordError) {
+    return passwordError;
   }
 
   return null;

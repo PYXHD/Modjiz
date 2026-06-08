@@ -1,6 +1,10 @@
+import { validateEmail } from "./validateEmail";
+
 export function validateLogin(email: string, password: string): string | null {
-  if (!email.trim()) {
-    return "Veuillez renseigner votre adresse e-mail";
+  const emailError = validateEmail(email);
+
+  if (emailError) {
+    return emailError;
   }
 
   if (!password.trim()) {
