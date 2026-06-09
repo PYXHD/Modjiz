@@ -6,7 +6,10 @@ import LandingContent from "@/components/landingPage/LandingContent";
 async function Page() {
   const cookieStore = await cookies();
 
-  if (cookieStore.get("has-onboarded")) {
+  const hasOnboarded = cookieStore.get("has-onboarded");
+  const appMode = cookieStore.get("app-mode");
+
+  if (hasOnboarded && appMode) {
     redirect("/app");
   }
 
