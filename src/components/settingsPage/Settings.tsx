@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { clearMode } from "@/domain/session/clearMode";
+import { resetToLanding } from "@/domain/session/resetToLanding";
 
 import Button from "@/components/ui/button/Button";
 import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
@@ -10,12 +10,6 @@ import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
 import styles from "./Settings.module.scss";
 
 function Settings() {
-  const goToLanding = () => {
-    clearMode();
-
-    window.location.href = "/";
-  };
-
   return (
     <div className={styles.preferences}>
       <h1 className="text-center">Préférences</h1>
@@ -61,7 +55,7 @@ function Settings() {
           <h2>Découverte</h2>
 
           <div className={styles.legal}>
-            <Button onClick={goToLanding}>Revoir la présentation</Button>
+            <Button onClick={resetToLanding}>Revoir la présentation</Button>
           </div>
         </div>
 
