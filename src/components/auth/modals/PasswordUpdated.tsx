@@ -1,3 +1,5 @@
+// terminé
+
 import styles from "./AuthModal.module.scss";
 
 import Link from "next/link";
@@ -19,7 +21,7 @@ function PasswordUpdated() {
           <p className={`text-body ${styles.centered}`}>
             Votre mot de passe a bien été modifié.
           </p>
-          <Link className={`text-body ${styles.authBtn}`} href="/auth/login">
+          <Link className={`text-lead ${styles.authBtn}`} href="/auth/login">
             Se connecter
           </Link>
         </div>

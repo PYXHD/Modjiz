@@ -76,10 +76,11 @@ function Password() {
               <div className={styles.modal}>
                 <Turnstile
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-                  onSuccess={async () => {
-                    const { error } = await resetPassword(email);
+                  onSuccess={async (captchaToken) => {
+                    const { error } = await resetPassword(email, captchaToken);
 
                     if (error) {
+                      console.error(error);
                       setError("Une erreur est survenue.");
 
                       setShowTurnstile(false);

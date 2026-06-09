@@ -1,3 +1,5 @@
+// terminé
+
 "use client";
 
 import styles from "./AuthModal.module.scss";
@@ -34,7 +36,7 @@ function PasswordNew() {
       return;
     }
 
-    router.push("/auth/login");
+    router.push("/auth/password-updated");
   }
 
   return (
@@ -46,7 +48,7 @@ function PasswordNew() {
             alt="icon lock"
             className={styles.icon}
           />
-          <h2>Nouveau mot de passe</h2>
+          <h2>Définir nouveau mot de passe</h2>
         </div>
 
         <div className={styles.form}>
