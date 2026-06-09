@@ -11,7 +11,7 @@ function RealAppButton() {
     window.location.href = "/auth";
   };
 
-  return <Button onClick={handleClick}>Vraies données</Button>;
+  return <Button onClick={handleClick}>Créer un compte</Button>;
 }
 
 export default RealAppButton;

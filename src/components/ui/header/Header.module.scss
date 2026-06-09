@@ -18,6 +18,10 @@
     @include flex(row, flex-start, center, xs);
   }
 
+  .demoBadge {
+    text-transform: uppercase;
+  }
+
   .logo {
     height: 100%;
     color: var(--color-text-inverse);
