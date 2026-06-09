@@ -2,7 +2,6 @@
 
 import styles from "./AuthModal.module.scss";
 
-import Button from "@/components/ui/button/Button";
 import Link from "next/link";
 
 function LinkExpired() {
@@ -22,11 +21,10 @@ function LinkExpired() {
           <p className={`text-body ${styles.centered}`}>
             Le lien que vous avez utilisé n'est plus valide.
           </p>
-          <p className={`text-body ${styles.centered}`}>
-            Veuillez demander un nouveau lien pour continuer.
-          </p>
 
-          <Button>Nouveau lien</Button>
+          <Link href="/auth/login" className={`text-lead ${styles.authBtn}`}>
+            Retour à la connexion
+          </Link>
         </div>
 
         <div className={styles.info}>

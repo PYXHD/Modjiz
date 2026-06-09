@@ -7,6 +7,7 @@ import styles from "./AuthModal.module.scss";
 import { useState } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { validateEmail } from "@/lib/auth/validateEmail";
 import { resetPassword } from "@/lib/auth/resetPassword";
@@ -69,6 +70,10 @@ function Password() {
             <Button onClick={handleSubmit}>
               Demander un nouveau mot de passe
             </Button>
+
+            <Link className={`text-body ${styles.link}`} href="/auth/login">
+              Retour à la connexion
+            </Link>
           </div>
 
           {showTurnstile && (

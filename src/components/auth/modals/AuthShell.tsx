@@ -1,6 +1,6 @@
 import styles from "./AuthModal.module.scss";
 
-import Logo from "@/assets/img/logo.svg";
+import BackToLanding from "./BackToLanding";
 
 type AuthShellProps = {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ type AuthShellProps = {
 function AuthShell({ children }: AuthShellProps) {
   return (
     <main className={styles.authShell}>
-      <Logo className={styles.heroLogo} />
+      <BackToLanding />
 
       {children}
     </main>
