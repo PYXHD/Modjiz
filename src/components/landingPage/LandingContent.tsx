@@ -4,6 +4,7 @@ import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
 
 import StartDemoButton from "@/components/landingPage/StartDemoButton";
+import RealAppButton from "./RealAppButton";
 
 import styles from "./LandingContent.module.scss";
 
@@ -37,6 +38,13 @@ function LandingContent() {
           <p className={styles.textSmall}>
             Vous commencerez l&apos;expérience avec un ensemble de données
             pré-enregistrées afin de découvrir l&apos;application
+          </p>
+        </div>
+
+        <div className={styles.btnContainer}>
+          <RealAppButton />
+          <p className={styles.textSmall}>
+            Inscrivez-vous et vivez l&apos;expérience jour après jour
           </p>
         </div>
       </section>

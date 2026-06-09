@@ -127,3 +127,25 @@
 - remplacement de la création automatique de session dans AuthProvider par un bootstrap d'identité dédié
 - séparation des responsabilités entre obtention d'identité (MockBootstrap) et exposition de l'identité (AuthProvider)
 - mise en place des fondations pour la coexistence des modes mock et réel
+
+//////////////////////////////////////
+1.4.0
+09/06/2026
+
+- finalisation de l'authentification utilisateur
+   -> création de compte (signup)
+   -> connexion utilisateur (login)
+   -> récupération de mot de passe par e-mail
+   -> mise à jour sécurisée du mot de passe
+   -> protection CAPTCHA (Turnstile) sur les flux d'authentification
+
+- amélioration de l'expérience utilisateur
+   -> création des écrans dédiés au parcours d'authentification
+   -> gestion des états intermédiaires (e-mail envoyé, mot de passe mis à jour, lien expiré)
+   -> ajout d'un shell partagé pour les pages d'authentification
+   -> harmonisation de la navigation et des écrans de chargement
+
+- factorisation et nettoyage du code
+   -> centralisation des validations email et mot de passe
+   -> simplification du bootstrap d'identité
+   -> amélioration de l'organisation des responsabilités liées à l'authentification

@@ -8,45 +8,51 @@ function LegalNotices() {
         <div className={styles.subContainer}>
           <h2>Éditeur de l'application</h2>
           <div className="text-primary text-body">
-            CHARVOT Marc - pyxhd@oultook.fr
+            CHARVOT Marc - pyxhd@outlook.fr
           </div>
         </div>
 
         <div className={styles.subContainer}>
           <h2>Hébergement</h2>
-          <div>
-            <div className="text-primary text-body">
-              L'application est hébergée par :
-            </div>
-            <div className="text-primary text-body">GitHub Inc.</div>
-            <div className="text-primary text-body">
-              88 Colin P Kelly Jr St, San Francisco, CA 94107, USA
-            </div>
+          <div className={styles.subContainer}>
+            <p className="text-primary text-body">
+              L’application est hébergée sur une infrastructure cloud permettant
+              son exécution et le stockage sécurisé des données utilisateurs.
+            </p>
+            <p className="text-primary text-body">
+              Les données sont notamment hébergées via les services de Supabase.
+            </p>
           </div>
         </div>
 
         <div className={styles.subContainer}>
           <h2>Nature du service</h2>
           <p className="text-primary text-body">
-            Cette application est une version de démonstration (mock) permettant
-            de tester des fonctionnalités de suivi d’humeur.
+            Modjiz est une application de suivi du bien-être personnel
+            permettant à ses utilisateurs d’enregistrer et de consulter leurs
+            données au fil du temps.
+          </p>
+
+          <p className="text-primary text-body">
+            Certaines fonctionnalités nécessitent la création d’un compte afin
+            de permettre la sauvegarde et la synchronisation des données.
           </p>
         </div>
 
         <div className={styles.subContainer}>
           <h2>Responsabilité</h2>
           <p className="text-primary text-body">
-            Les informations fournies dans l’application sont à titre indicatif.
-            L’éditeur ne saurait garantir leur exactitude ou leur exhaustivité.
+            Modjiz est un projet en développement dont les fonctionnalités
+            pourront évoluer au fil du temps.
           </p>
         </div>
 
         <div className={styles.subContainer}>
           <h2>Avertissement important</h2>
           <p className="text-primary text-body">
-            Cette application est un outil de suivi du bien-être personnel. Elle
-            ne constitue en aucun cas un dispositif médical, ni un outil de
-            diagnostic ou de traitement.
+            Toute évolution ayant un impact sur les données personnelles ou leur
+            traitement fera l’objet d’une mise à jour de la présente politique
+            de confidentialité.
           </p>
         </div>
       </div>

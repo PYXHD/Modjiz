@@ -1,0 +1,44 @@
+// terminé
+
+import styles from "./AuthModal.module.scss";
+
+import Link from "next/link";
+
+function PasswordSent() {
+  return (
+    <main>
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <img
+            src="/icons/auth_lock.svg"
+            alt="icon lock"
+            className={styles.icon}
+          />
+          <h2>E-mail envoyé</h2>
+        </div>
+
+        <div className={styles.info}>
+          <p className={`text-body ${styles.centered}`}>
+            Un email de réinitialisation a été envoyé si cette adresse est
+            associée à un compte.
+          </p>
+          <p className={`text-body ${styles.centered}`}>
+            Consultez votre boîte mail puis cliquez sur le lien reçu.
+          </p>
+        </div>
+
+        <div className={styles.info}>
+          <p className={`text-body ${styles.centered}`}>
+            Vous n'avez rien reçu ?
+          </p>
+
+          <Link href="/auth/password" className={`text-lead ${styles.authBtn}`}>
+            Demander un nouveau mot de passe
+          </Link>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+export default PasswordSent;

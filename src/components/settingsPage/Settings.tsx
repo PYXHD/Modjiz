@@ -2,22 +2,14 @@
 
 import Link from "next/link";
 
+import { resetToLanding } from "@/domain/session/resetToLanding";
+
 import Button from "@/components/ui/button/Button";
 import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
 
 import styles from "./Settings.module.scss";
 
 function Settings() {
-  const goToLanding = () => {
-    localStorage.removeItem("app-mode");
-    localStorage.removeItem("moodtrack-data");
-
-    document.cookie = "has-onboarded=; path=/; max-age=0";
-    document.cookie = "app-mode=; path=/; max-age=0";
-
-    window.location.href = "/";
-  };
-
   return (
     <div className={styles.preferences}>
       <h1 className="text-center">Préférences</h1>
@@ -34,7 +26,7 @@ function Settings() {
           <h2>Infos</h2>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Version</div>
-            <div className="text-primary text-body ">1.3.6</div>
+            <div className="text-primary text-body ">1.4.0</div>
           </div>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Auteur</div>
@@ -63,7 +55,7 @@ function Settings() {
           <h2>Découverte</h2>
 
           <div className={styles.legal}>
-            <Button onClick={goToLanding}>Revoir la présentation</Button>
+            <Button onClick={resetToLanding}>Revoir la présentation</Button>
           </div>
         </div>
 

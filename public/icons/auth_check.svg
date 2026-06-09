@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g id="Groupe_45" data-name="Groupe 45" transform="translate(-120 -120)">
+    <circle id="Ellipse_27" data-name="Ellipse 27" cx="40" cy="40" r="40" transform="translate(120 120)" fill="#fafafa"/>
+    <path id="Ellipse_25_-_Contour" data-name="Ellipse 25 - Contour" d="M40,1A39.011,39.011,0,0,0,24.82,75.936,39.01,39.01,0,0,0,55.18,4.064,38.755,38.755,0,0,0,40,1m0-1A40,40,0,1,1,0,40,40,40,0,0,1,40,0Z" transform="translate(120 120)" fill="#4cff00"/>
+    <path id="Icon_akar-check" data-name="Icon akar-check" d="M6,26.75,23.75,44.5,53.332,9" transform="translate(130.334 133.25)" fill="none" stroke="#4cff00" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  </g>
+</svg>

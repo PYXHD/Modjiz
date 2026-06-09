@@ -1,0 +1,7 @@
+@use "../../../styles/tools/flex" as *;
+
+.container {
+  min-height: 100vh;
+
+  @include flex(column, center, center, xs);
+}

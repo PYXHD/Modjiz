@@ -1,12 +1,13 @@
 "use client";
 
+import { initializeMockMode } from "@/domain/session/initializeMockMode";
+
 import Button from "@/components/ui/button/Button";
 
 function StartDemoButton() {
   const handleClick = () => {
-    localStorage.setItem("app-mode", "mock");
-    document.cookie = "app-mode=mock; path=/";
-    document.cookie = "has-onboarded=true; max-age=31536000; path=/";
+    initializeMockMode();
+
     window.location.href = "/app";
   };
 

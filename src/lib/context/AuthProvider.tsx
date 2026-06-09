@@ -4,6 +4,8 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 import { createClient } from "../supabase/browser";
 
+import LoadingScreen from "@/components/ui/loadingScreen/LoadingScreen";
+
 type AuthContextType = {
   userId: string | null;
   loading: boolean;
@@ -34,7 +36,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [supabase]);
 
   if (loading) {
-    return <div>Chargement des données...</div>;
+    return <LoadingScreen message="Chargement des données..." />;
   }
 
   return (
