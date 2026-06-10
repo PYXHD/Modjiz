@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import LegalNotices from "@/components/settingsPage/legals/LegalNotices";
+import LegalNotices from "@/components/legals/LegalNotices";
 
 export const metadata: Metadata = {
   title: "Mentions légales",

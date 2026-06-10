@@ -34,7 +34,7 @@ function Settings() {
           </div>
           <div className={styles.legal}>
             <Link
-              href="/app/settings/legal-notices"
+              href="/legal/mentions-legales"
               className={`${styles.link} text-primary text-body-medium`}
             >
               Mentions légales
@@ -42,7 +42,7 @@ function Settings() {
           </div>
           <div className={styles.legal}>
             <Link
-              href="/app/settings/privacy-policy
+              href="/legal/politique-confidentialite
             "
               className={`${styles.link} text-primary text-body-medium`}
             >
