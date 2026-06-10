@@ -36,6 +36,8 @@ function Settings() {
             <Link
               href="/legal/mentions-legales"
               className={`${styles.link} text-primary text-body-medium`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Mentions légales
             </Link>
@@ -45,6 +47,8 @@ function Settings() {
               href="/legal/politique-confidentialite
             "
               className={`${styles.link} text-primary text-body-medium`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Politique de confidentialité
             </Link>
