@@ -149,3 +149,14 @@
    -> centralisation des validations email et mot de passe
    -> simplification du bootstrap d'identité
    -> amélioration de l'organisation des responsabilités liées à l'authentification
+
+   //////////////////////////////////////
+1.4.1
+10/06/2026
+
+Mise en place du socle SEO :
+- Metadata Next.js
+- Open Graph
+- Sitemap XML
+- Robots.txt
+- Réorganisation des pages légales

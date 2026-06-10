@@ -30,7 +30,7 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts",
-    "src/app/app/settings/legal-notices"
+    "src/app/legal/mentions-legales"
   ],
   "exclude": ["node_modules"]
 }

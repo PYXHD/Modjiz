@@ -1,8 +1,11 @@
 import styles from "./Legals.module.scss";
 
+import Logo from "@/assets/img/logo.svg";
+
 function PrivacyPolicy() {
   return (
     <div className={styles.container}>
+      <Logo className={styles.heroLogo} />
       <h1 className="text-center">Politique de confidentialité</h1>
       <div className={styles.contentContainer}>
         <div className={styles.subContainer}>

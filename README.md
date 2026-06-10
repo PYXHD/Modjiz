@@ -14,7 +14,10 @@ Application de suivi d’humeur développée avec Next.js permettant d’analyse
 - 📈 moyennes, tendances et comparaisons
 - 🏆 système de gamification (trophées)
 - ⚡ mise à jour instantanée des données
-- 🧪 données simulées via sessionStorage (version mockée)
+- 👤 Comptes utilisateurs (inscription / connexion)
+- 🔒 Authentification sécurisée avec Supabase
+- 🔑 Réinitialisation du mot de passe par e-mail
+- ☁️ Synchronisation et sauvegarde des données en base de données
 
 ## 🛠️ Technologies utilisées
 
@@ -24,12 +27,20 @@ Application de suivi d’humeur développée avec Next.js permettant d’analyse
 - Next.js
 - Three.js
 
-### Stockage temporaire
+### Backend & données
 
-- sessionStorage (mock de persistance)
+- Supabase
+- PostgreSQL
+- API Routes Next.js
+
+### Sécurité
+
+- Supabase Auth
+- Cloudflare Turnstile
 
 ## ⚙️ Fonctionnement
 
+- l’utilisateur peut créer un compte ou utiliser la version démo
 - l’utilisateur enregistre son humeur du jour
 - une mascotte 3D reflète visuellement l’émotion
 - les données sont stockées temporairement (sessionStorage)
@@ -39,11 +50,13 @@ Application de suivi d’humeur développée avec Next.js permettant d’analyse
 
 ## 🧱 Architecture
 
-- architecture basée sur Next.js pour anticiper une évolution fullstack
+- architecture fullstack basée sur Next.js
 - séparation des composants UI / logique métier
 - gestion d’état côté client
-- logique de simulation des données (mock)
-- structure pensée pour intégrer une API sans refactor majeur
+- API interne via routes Next.js
+- authentification centralisée avec Supabase
+- coexistence des modes démo et réel
+- structure pensée pour une future évolution mobile
 
 ## 🎯 Objectifs du projet
 
@@ -52,7 +65,9 @@ Ce projet m’a permis de :
 - concevoir une application centrée utilisateur (UX + émotion)
 - manipuler et analyser des données temporelles
 - implémenter des logiques de gamification
-- préparer une architecture évolutive (frontend → fullstack → mobile)
+- mettre en place une authentification complète
+- intégrer une base de données relationnelle
+- construire une architecture fullstack évolutive
 
 ## 🎯 Ce que j’ai appris
 
@@ -60,29 +75,47 @@ Ce projet m’a permis de :
 - manipulation de données statistiques
 - conception d’une UX engageante
 - intégration de logique de gamification
+- authentification et gestion des sessions
+- intégration de Supabase
+- sécurisation des flux utilisateurs (CAPTCHA, récupération de mot de passe)
 - structuration d’un projet évolutif
-- simulation d’un backend avec sessionStorage
 
 ## 🚧 Roadmap
 
-### 🔹 V1 — Version actuelle
+### 🔹 V1 — Prototype
 
 - frontend fonctionnel
 - données mockées (sessionStorage)
-- stats + gamification
+- stats
+- gamification
 
-### 🔹 V2 — Backend & comptes utilisateurs
+### 🔹 V2 — Comptes utilisateurs & persistance
 
-- API (Next.js ou Node.js)
-- authentification (login / signup)
-- base de données (persistance réelle)
+- authentification complète
+- base de données Supabase
+- sauvegarde des données
 - synchronisation multi-device
+- récupération de mot de passe
 
 ### 🔹 V3 — Application mobile
 
 - développement en React Native
 - synchronisation avec le backend
 - amélioration UX mobile
+
+## 🚧 État du projet
+
+Le projet est actuellement en phase V2
+
+Version logicielle actuelle : 1.4.0
+
+Objectifs restants de la V2 :
+
+- personnalisation des emails
+- gestion du profil utilisateur
+- suppression du compte
+- déploiement sur domaine personnalisé
+- SEO
 
 ## 👨‍💻 Auteur
 

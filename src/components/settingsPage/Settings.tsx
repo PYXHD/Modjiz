@@ -26,7 +26,7 @@ function Settings() {
           <h2>Infos</h2>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Version</div>
-            <div className="text-primary text-body ">1.4.0</div>
+            <div className="text-primary text-body ">1.4.1</div>
           </div>
           <div className={styles.subContainer}>
             <div className="text-primary text-body ">Auteur</div>
@@ -34,17 +34,21 @@ function Settings() {
           </div>
           <div className={styles.legal}>
             <Link
-              href="/app/settings/legal-notices"
+              href="/legal/mentions-legales"
               className={`${styles.link} text-primary text-body-medium`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Mentions légales
             </Link>
           </div>
           <div className={styles.legal}>
             <Link
-              href="/app/settings/privacy-policy
+              href="/legal/politique-confidentialite
             "
               className={`${styles.link} text-primary text-body-medium`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Politique de confidentialité
             </Link>
