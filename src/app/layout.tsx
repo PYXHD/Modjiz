@@ -8,8 +8,14 @@ import { fontLanding, fontApp } from "@/styles/config/fonts";
 import { themeInitScript } from "@/lib/init/script/theme-init";
 
 export const metadata: Metadata = {
-  title: "Modjiz",
+  title: {
+    default: "Modjiz",
+    template: "%s | Modjiz",
+  },
   description: "Ton journal d’humeur quotidien",
+  icons: {
+    icon: "/icons/favicon.svg",
+  },
 };
 
 function RootLayout({ children }: { children: React.ReactNode }) {

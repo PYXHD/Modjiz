@@ -11,7 +11,7 @@ function StartDemoButton() {
     window.location.href = "/app";
   };
 
-  return <Button onClick={handleClick}>Version démo</Button>;
+  return <Button onClick={handleClick}>Découvrir Modjiz</Button>;
 }
 
 export default StartDemoButton;
