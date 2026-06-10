@@ -16,6 +16,21 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icons/favicon.svg",
   },
+
+  openGraph: {
+    title: "Modjiz",
+    description: "Ton journal d'humeur quotidien",
+    siteName: "Modjiz",
+    images: [
+      {
+        url: "img/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
 };
 
 function RootLayout({ children }: { children: React.ReactNode }) {
