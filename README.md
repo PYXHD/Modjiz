@@ -107,7 +107,7 @@ Ce projet m’a permis de :
 
 Le projet est actuellement en phase V2
 
-Version logicielle actuelle : 1.4.0
+Version logicielle actuelle : 1.4.1
 
 Objectifs restants de la V2 :
 
@@ -115,7 +115,6 @@ Objectifs restants de la V2 :
 - gestion du profil utilisateur
 - suppression du compte
 - déploiement sur domaine personnalisé
-- SEO
 
 ## 👨‍💻 Auteur
 
