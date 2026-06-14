@@ -15,8 +15,6 @@ import { AuthProvider } from "@/lib/context/AuthProvider";
 async function AppLayout({ children }: { children: React.ReactNode }) {
   const userId = await getUserId();
 
-  console.log("LAYOUT USER ID:", userId);
-
   if (!userId) {
     return (
       <AuthProvider>
