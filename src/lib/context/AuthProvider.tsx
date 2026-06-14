@@ -1,13 +1,14 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import type { User } from "@supabase/supabase-js";
 
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { createClient } from "../supabase/browser";
 
 import LoadingScreen from "@/components/ui/loadingScreen/LoadingScreen";
 
 type AuthContextType = {
-  userId: string | null;
+  user: User | null;
   loading: boolean;
 };
 
@@ -16,7 +17,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const supabase = useMemo(() => createClient(), []);
 
-  const [userId, setUserId] = useState<string | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       } = await supabase.auth.getUser();
 
       if (finalUser) {
-        setUserId(finalUser.id);
+        setUser(finalUser);
       }
 
       setLoading(false);
@@ -42,7 +43,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   return (
     <AuthContext.Provider
       value={{
-        userId,
+        user,
         loading,
       }}
     >
