@@ -26,14 +26,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         data: { user: finalUser },
       } = await supabase.auth.getUser();
 
-      if (finalUser) {
-        setUser(finalUser);
-      }
+      setUser(finalUser);
 
       setLoading(false);
     }
 
     run();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, [supabase]);
 
   if (loading) {
