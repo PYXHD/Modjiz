@@ -13,7 +13,6 @@ import Link from "next/link";
 
 import { signup } from "@/lib/auth/signup";
 import { validateSignup } from "@/lib/auth/validateSignup";
-import { initializeRealMode } from "@/domain/session/initializeRealMode";
 
 function SignUp() {
   const router = useRouter();
@@ -115,9 +114,7 @@ function SignUp() {
                       setShowTurnstile(false);
                       return;
                     }
-
-                    initializeRealMode();
-                    router.push("/app");
+                    router.push("/auth/verify-email");
                   }}
                 />
               </div>

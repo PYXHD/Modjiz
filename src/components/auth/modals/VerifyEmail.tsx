@@ -1,8 +1,7 @@
-// reporté
+// terminé
 
 import styles from "./AuthModal.module.scss";
 
-import Button from "@/components/ui/button/Button";
 import Link from "next/link";
 
 function VerifyEmail() {
@@ -36,7 +35,6 @@ function VerifyEmail() {
             Vérifiez votre dossier spam ou demandez un nouvel envoi.
           </p>
           <div className={styles.btnContainer}>
-            <Button>Renvoyez l'e-mail</Button>
             <Link className={`text-body ${styles.link}`} href="/auth/login">
               Retour à la connexion
             </Link>

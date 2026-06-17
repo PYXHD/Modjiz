@@ -89,10 +89,14 @@ function Login() {
                   );
 
                   if (error) {
-                    setError("Adresse e-mail ou mot de passe incorrect.");
-
                     setShowTurnstile(false);
 
+                    if (error.message === "Email not confirmed") {
+                      router.push("/auth/email-not-confirmed");
+                      return;
+                    }
+
+                    setError("Adresse e-mail ou mot de passe incorrect.");
                     return;
                   }
 
