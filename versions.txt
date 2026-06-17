@@ -150,7 +150,7 @@
    -> simplification du bootstrap d'identité
    -> amélioration de l'organisation des responsabilités liées à l'authentification
 
-   //////////////////////////////////////
+//////////////////////////////////////
 1.4.1
 10/06/2026
 
@@ -160,3 +160,16 @@ Mise en place du socle SEO :
 - Sitemap XML
 - Robots.txt
 - Réorganisation des pages légales
+
+//////////////////////////////////////
+1.4.2
+17/06/2026
+
+Amélioration de la gestion des comptes :
+
+- Confirmation d'adresse e-mail lors de la création d'un compte
+- Renvoi d'e-mail de confirmation
+- Réinitialisation de mot de passe par e-mail
+- Nouveaux écrans de suivi du parcours d'authentification
+- Renforcement de la sécurité avec Turnstile
+- Corrections diverses liées à l'authentification

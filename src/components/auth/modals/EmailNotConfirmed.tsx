@@ -1,4 +1,3 @@
-// terminé
 "use client";
 
 import styles from "./AuthModal.module.scss";
