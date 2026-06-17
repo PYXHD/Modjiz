@@ -8,6 +8,8 @@ import { fontLanding, fontApp } from "@/styles/config/fonts";
 import { themeInitScript } from "@/lib/init/script/theme-init";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://modjiz.fr"),
+
   title: {
     default: "Modjiz",
     template: "%s | Modjiz",
@@ -20,10 +22,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Modjiz",
     description: "Ton journal d'humeur quotidien",
+    url: "https://modjiz.fr",
     siteName: "Modjiz",
     images: [
       {
-        url: "img/og-image.png",
+        url: "/img/og-image.png",
         width: 1200,
         height: 630,
       },

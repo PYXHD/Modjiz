@@ -165,6 +165,8 @@ Mise en place du socle SEO :
 1.4.2
 17/06/2026
 
+Après l'achat du nom de domaine Modjiz.fr :
+
 Amélioration de la gestion des comptes :
 
 - Confirmation d'adresse e-mail lors de la création d'un compte
@@ -173,3 +175,9 @@ Amélioration de la gestion des comptes :
 - Nouveaux écrans de suivi du parcours d'authentification
 - Renforcement de la sécurité avec Turnstile
 - Corrections diverses liées à l'authentification
+
+Ajustements du SEO :
+
+- Mise à jour de sitemap
+- Mise à jour de robots
+- Mise à jour des balises metadataBase et openGraph dans layout
