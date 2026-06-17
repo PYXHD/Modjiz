@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://modjiz.vercel.app/sitemap.xml",
+    sitemap: "https://modjiz.fr/sitemap.xml",
   };
 }
