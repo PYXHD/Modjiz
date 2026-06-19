@@ -1,14 +1,16 @@
+import "@/styles/globals.scss";
+
+import { APP_URL } from "@/lib/config/app";
+
 import type { Metadata } from "next";
 import Script from "next/script";
-
-import "@/styles/globals.scss";
 
 import { fontLanding, fontApp } from "@/styles/config/fonts";
 
 import { themeInitScript } from "@/lib/init/script/theme-init";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://modjiz.fr"),
+  metadataBase: new URL(APP_URL),
 
   title: {
     default: "Modjiz",
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Modjiz",
     description: "Ton journal d'humeur quotidien",
-    url: "https://modjiz.fr",
+    url: APP_URL,
     siteName: "Modjiz",
     images: [
       {

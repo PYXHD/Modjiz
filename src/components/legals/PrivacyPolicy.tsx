@@ -1,5 +1,7 @@
 import styles from "./Legals.module.scss";
 
+import { CONTACT_MAIL } from "@/lib/config/app";
+
 import Logo from "@/assets/img/logo.svg";
 
 function PrivacyPolicy() {
@@ -103,7 +105,7 @@ function PrivacyPolicy() {
           <h2>7. Contact</h2>
           <p className="text-primary text-body">
             Pour toute question relative à cette politique de confidentialité,
-            vous pouvez contacter : <strong>pyxhd@outlook.fr</strong>
+            vous pouvez contacter : <strong>{CONTACT_MAIL}</strong>
           </p>
         </div>
       </div>
