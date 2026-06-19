@@ -23,7 +23,8 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "Modjiz",
-    description: "Ton journal d'humeur quotidien",
+    description:
+      "Modjiz vous aide à suivre votre humeur, comprendre vos émotions et observer leur évolution au fil du temps.",
     url: APP_URL,
     siteName: "Modjiz",
     images: [
