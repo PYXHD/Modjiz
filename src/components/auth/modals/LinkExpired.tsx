@@ -2,9 +2,13 @@
 
 import styles from "./AuthModal.module.scss";
 
+import { CONTACT_MAIL } from "@/lib/config/app";
+
 import Link from "next/link";
 
 function LinkExpired() {
+  const contactHref = `mailto:${CONTACT_MAIL}?subject=Problème de création de compte&body=Décrivez votre problème :`;
+
   return (
     <main>
       <div className={styles.container}>
@@ -31,10 +35,7 @@ function LinkExpired() {
           <p className={`text-small ${styles.centered}`}>
             Vous rencontrez des difficultés dans la création de votre compte ?
           </p>
-          <Link
-            href="mailto:pyxhd@outlook.fr?subject=Problème de création de compte&body=Décrivez votre problème :"
-            className={`text-body ${styles.link}`}
-          >
+          <Link href={contactHref} className={`text-body ${styles.link}`}>
             Nous contacter
           </Link>
         </div>

@@ -1,5 +1,7 @@
 import styles from "./Legals.module.scss";
 
+import { CONTACT_MAIL } from "@/lib/config/app";
+
 import Logo from "@/assets/img/logo.svg";
 
 function LegalNotices() {
@@ -11,7 +13,7 @@ function LegalNotices() {
         <div className={styles.subContainer}>
           <h2>Éditeur de l'application</h2>
           <div className="text-primary text-body">
-            CHARVOT Marc - pyxhd@outlook.fr
+            CHARVOT Marc - {CONTACT_MAIL}
           </div>
         </div>
 

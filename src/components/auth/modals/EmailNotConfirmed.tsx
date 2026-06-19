@@ -2,6 +2,8 @@
 
 import styles from "./AuthModal.module.scss";
 
+import { CONTACT_MAIL } from "@/lib/config/app";
+
 import { useState } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { useRouter } from "next/navigation";
@@ -13,6 +15,8 @@ import { createClient } from "@/lib/supabase/browser";
 import { validateEmail } from "@/lib/auth/validateEmail";
 
 function EmailNotConfirmed() {
+  const contactHref = `mailto:${CONTACT_MAIL}?subject=Problème de création de compte&body=Décrivez votre problème :`;
+
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
@@ -111,10 +115,7 @@ function EmailNotConfirmed() {
           <p className={`text-small ${styles.centered}`}>
             Vous rencontrez des difficultés avec votre compte ?
           </p>
-          <Link
-            href="mailto:pyxhd@outlook.fr?subject=Problème de création de compte&body=Décrivez votre problème :"
-            className={`text-body ${styles.link}`}
-          >
+          <Link href={contactHref} className={`text-body ${styles.link}`}>
             Nous contacter
           </Link>
         </div>

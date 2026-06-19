@@ -1,5 +1,9 @@
 "use client";
 
+import styles from "./Settings.module.scss";
+
+import { CONTACT_MAIL } from "@/lib/config/app";
+
 import Link from "next/link";
 
 import { resetToLanding } from "@/domain/session/resetToLanding";
@@ -10,9 +14,9 @@ import ThemeSwitch from "@/components/settingsPage/themeSwitch/ThemeSwitch";
 import { useAuth } from "@/lib/context/AuthProvider";
 import { APP_VERSION } from "@/lib/init/version";
 
-import styles from "./Settings.module.scss";
-
 function Settings() {
+  const contactHref = `mailto:${CONTACT_MAIL}`;
+
   const { user } = useAuth();
 
   const hasAccount = Boolean(user?.email);
@@ -100,7 +104,7 @@ function Settings() {
 
           <div className={styles.btnContainer}>
             <p className="text-primary text-body">Une question ?</p>
-            <a href="mailto:pyxhd@outlook.fr">
+            <a href={contactHref}>
               <Button>Me contacter</Button>
             </a>
           </div>
