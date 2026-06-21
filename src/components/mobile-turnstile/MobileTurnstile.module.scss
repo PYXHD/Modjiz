@@ -1,0 +1,12 @@
+@use "../../styles/tools/spacing" as *;
+@use "../../styles/tools/typos" as *;
+@use "../../styles/tools/flex" as *;
+@use "../../styles/tools/layouts" as *;
+@use "../../styles/tools/icon" as *;
+
+.overlay {
+  @include flex(column, space-between, center, md);
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
