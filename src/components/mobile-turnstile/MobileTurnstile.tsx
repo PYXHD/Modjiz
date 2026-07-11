@@ -20,6 +20,10 @@ function MobileTurnstile() {
         onSuccess={(token) => {
           window.ReactNativeWebView?.postMessage(token);
 
+          if (window.parent !== window) {
+            window.parent.postMessage({ token }, "*");
+          }
+
           console.log(token);
         }}
       />
