@@ -32,7 +32,6 @@ function LandingContent() {
             sans pression.
           </p>
         </div>
-
         <div className={styles.btnContainer}>
           <StartDemoButton />
           <p className={styles.textSmall}>
@@ -40,11 +39,22 @@ function LandingContent() {
             pré-enregistrées afin de découvrir l&apos;application
           </p>
         </div>
-
         <div className={styles.btnContainer}>
           <RealAppButton />
           <p className={styles.textSmall}>
             Inscrivez-vous et vivez l&apos;expérience jour après jour
+          </p>
+        </div>
+        // insérer lien lorsque l'app sera déployée
+        <div className={styles.btnContainer}>
+          <img
+            className={`${styles.icon} ${styles.iconXl}`}
+            src="/icons/icon_googlePlay.svg"
+            alt="Icon PostgreSQL"
+            aria-hidden
+          />
+          <p className={styles.textGooglePlay}>
+            Également disponible sur mobile
           </p>
         </div>
       </section>

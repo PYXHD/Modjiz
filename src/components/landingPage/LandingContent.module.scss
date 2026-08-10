@@ -5,6 +5,12 @@
 @use "../../styles/tools/icon" as *;
 
 /* === TYPO === */
+.textGooglePlay {
+  @include font-landing;
+  @include text(lead);
+  text-align: center;
+}
+
 .textBody {
   @include font-landing;
   @include text(body, 1.6);
@@ -38,6 +44,10 @@
 
 .iconLg {
   @include icon-size(large);
+}
+
+.iconXl {
+  @include icon-size(extralarge);
 }
 
 /* === LOGOS === */
