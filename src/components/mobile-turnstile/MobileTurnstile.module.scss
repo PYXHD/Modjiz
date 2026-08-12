@@ -5,7 +5,8 @@
 @use "../../styles/tools/icon" as *;
 
 .overlay {
-  @include flex(column, space-between, center, md);
+  @include flex(column, center, center, md);
+  min-height: 100vh;
   max-width: 400px;
   margin: 0 auto;
   padding: 40px 20px;

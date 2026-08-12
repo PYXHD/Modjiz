@@ -45,7 +45,7 @@ function LandingContent() {
             Inscrivez-vous et vivez l&apos;expérience jour après jour
           </p>
         </div>
-        // insérer lien lorsque l'app sera déployée
+        {/* insérer lien lorsque l'app sera déployée */}
         <div className={styles.btnContainer}>
           <img
             className={`${styles.icon} ${styles.iconXl}`}
@@ -53,9 +53,7 @@ function LandingContent() {
             alt="Icon PostgreSQL"
             aria-hidden
           />
-          <p className={styles.textGooglePlay}>
-            Également disponible sur mobile
-          </p>
+          <p className={styles.textGooglePlay}>Bientôt disponible sur mobile</p>
         </div>
       </section>
 
@@ -126,9 +124,9 @@ function LandingContent() {
             <h2 className="text-inverse">À propos du projet</h2>
 
             <p className={styles.textBody}>
-              Modjiz est un projet personnel conçu pour explorer la conception
-              d’interface, l’expérience utilisateur et le développement d’une
-              application moderne.
+              Modjiz est une application de suivi de l’humeur conçue autour
+              d’une expérience simple, interactive et personnalisée. Le projet
+              couvre le développement web, mobile, backend et 3D.
             </p>
           </div>
 
@@ -136,6 +134,16 @@ function LandingContent() {
             <h2 className="text-inverse">Technologies utilisées</h2>
 
             <ul className={styles.techList}>
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
+                  src="/icons/logo_react.svg"
+                  alt="Icon React"
+                  aria-hidden
+                />
+                <span>React</span>
+              </li>
+
               <li className={`${styles.iconItem} ${styles.textList}`}>
                 <img
                   className={`${styles.icon} ${styles.iconLg}`}
@@ -149,11 +157,21 @@ function LandingContent() {
               <li className={`${styles.iconItem} ${styles.textList}`}>
                 <img
                   className={`${styles.icon} ${styles.iconLg}`}
-                  src="/icons/logo_react.svg"
-                  alt="Icon React"
+                  src="/icons/logo_ts.svg"
+                  alt="Icon Ts"
                   aria-hidden
                 />
-                <span>React</span>
+                <span>TypeScript</span>
+              </li>
+
+              <li className={`${styles.iconItem} ${styles.textList}`}>
+                <img
+                  className={`${styles.icon} ${styles.iconLg}`}
+                  src="/icons/logo_expo.svg"
+                  alt="Icon Expo"
+                  aria-hidden
+                />
+                <span>Expo</span>
               </li>
 
               <li className={`${styles.iconItem} ${styles.textList}`}>
@@ -179,21 +197,11 @@ function LandingContent() {
               <li className={`${styles.iconItem} ${styles.textList}`}>
                 <img
                   className={`${styles.icon} ${styles.iconLg}`}
-                  src="/icons/logo_ts.svg"
-                  alt="Icon Ts"
+                  src="/icons/logo_three.svg"
+                  alt="Icon Three"
                   aria-hidden
                 />
-                <span>TypeScript</span>
-              </li>
-
-              <li className={`${styles.iconItem} ${styles.textList}`}>
-                <img
-                  className={`${styles.icon} ${styles.iconLg}`}
-                  src="/icons/logo_sass.svg"
-                  alt="Icon Sass"
-                  aria-hidden
-                />
-                <span>Sass</span>
+                <span>Three.js</span>
               </li>
 
               <li className={`${styles.iconItem} ${styles.textList}`}>
@@ -205,16 +213,6 @@ function LandingContent() {
                 />
                 <span>Blender</span>
               </li>
-
-              <li className={`${styles.iconItem} ${styles.textList}`}>
-                <img
-                  className={`${styles.icon} ${styles.iconLg}`}
-                  src="/icons/logo_three.svg"
-                  alt="Icon Three"
-                  aria-hidden
-                />
-                <span>Three.js</span>
-              </li>
             </ul>
           </div>
         </div>
@@ -222,7 +220,7 @@ function LandingContent() {
           href="https://github.com/PYXHD/Modjiz"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-inverse text-lead button primary"
+          className={`text-lead ${styles.githubLink}`}
         >
           Repository Github
         </a>
