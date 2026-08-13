@@ -54,7 +54,7 @@ function Settings() {
               </div>
             </>
           ) : (
-            <p>
+            <p className="text-center text-primary">
               Vous utilisez actuellement la version démo.
               <br />
               Pour créer un compte et enregistrer durablement vos données,
