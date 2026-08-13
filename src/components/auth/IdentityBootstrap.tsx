@@ -21,7 +21,7 @@ export default async function IdentityBootstrap() {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      redirect("/auth/login");
+      redirect("/auth/signup");
     }
 
     redirect("/app");

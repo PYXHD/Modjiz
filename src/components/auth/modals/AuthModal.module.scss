@@ -41,15 +41,22 @@
 }
 
 .input {
+  @include font-landing();
+  box-sizing: border-box;
   padding: 2px;
   background-color: var(--color-chart-track);
   border: none;
   border-radius: 4px;
   color: var(--color-text-on-light);
+  width: 300px;
 
   &:focus {
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 0;
+  }
+
+  &::placeholder {
+    @include font-landing();
   }
 }
 

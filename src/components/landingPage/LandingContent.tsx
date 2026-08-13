@@ -42,7 +42,7 @@ function LandingContent() {
         <div className={styles.btnContainer}>
           <RealAppButton />
           <p className={styles.textSmall}>
-            Inscrivez-vous et vivez l&apos;expérience jour après jour
+            Créez votre compte ou retrouvez votre expérience.
           </p>
         </div>
         {/* insérer lien lorsque l'app sera déployée */}
