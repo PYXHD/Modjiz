@@ -23,8 +23,6 @@ function MobileTurnstile() {
           if (window.parent !== window) {
             window.parent.postMessage({ token }, "*");
           }
-
-          console.log(token);
         }}
       />
     </div>

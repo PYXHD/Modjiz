@@ -1,8 +1,8 @@
-@use "../../styles//tools/breakpoints" as *;
-@use "../../styles//tools/flex" as *;
-@use "../../styles//tools/icon" as *;
-@use "../../styles//tools/layouts" as *;
-@use "../../styles//tools/spacing" as *;
+@use "../../styles/tools/breakpoints" as *;
+@use "../../styles/tools/flex" as *;
+@use "../../styles/tools/icon" as *;
+@use "../../styles/tools/layouts" as *;
+@use "../../styles/tools/spacing" as *;
 
 .heroLogo {
   color: var(--color-brand-primary);
@@ -22,6 +22,33 @@
 
     .subContainer {
       @include flex(column, center, flex-start, xs);
+    }
+  }
+
+  .deleteButton {
+    color: var(--color-brand-primary);
+
+    &:hover {
+      color: var(--color-brand-secondary);
+      text-decoration: underline;
+    }
+  }
+
+  // DeleteAccount
+  .deleteContainer {
+    @include flex(column, center, center, md);
+
+    .form {
+      @include flex(column, space-between, center, sm);
+
+      .inputContainer {
+        @include flex(column, space-between, self-start);
+      }
+
+      .errorContainer {
+        min-height: 48px;
+        color: var(--color-text-primary);
+      }
     }
   }
 }
