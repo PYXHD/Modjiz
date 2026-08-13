@@ -42,6 +42,7 @@
 
 .input {
   @include font-landing();
+  @include text(body);
   box-sizing: border-box;
   padding: 2px;
   background-color: var(--color-chart-track);
@@ -57,6 +58,7 @@
 
   &::placeholder {
     @include font-landing();
+    @include text(body);
   }
 }
 
