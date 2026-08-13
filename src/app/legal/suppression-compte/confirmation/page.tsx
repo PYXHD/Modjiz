@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-
+import { Suspense } from "react";
 import DeleteConfirmation from "@/components/legals/DeleteConfirmation";
 
 export const metadata: Metadata = {
@@ -8,7 +8,11 @@ export const metadata: Metadata = {
 };
 
 function Page() {
-  return <DeleteConfirmation />;
+  return (
+    <Suspense fallback={<p>Chargement...</p>}>
+      <DeleteConfirmation />
+    </Suspense>
+  );
 }
 
 export default Page;
