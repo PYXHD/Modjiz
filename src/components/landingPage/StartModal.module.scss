@@ -1,0 +1,44 @@
+@use "../../styles/tools/spacing" as *;
+@use "../../styles/tools/typos" as *;
+@use "../../styles/tools/flex" as *;
+@use "../../styles/tools/layouts" as *;
+@use "../../styles/tools/icon" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.6);
+
+  padding: space(md);
+  @include flex(column, center, center);
+
+  .modal {
+    background: var(--color-bg-app);
+    padding: space(md);
+    border: var(--color-brand-primary) solid 4px;
+    border-radius: 20px;
+
+    @include flex(column, center, center, xl);
+
+    .closeBtn {
+      background: none;
+      border: none;
+
+      color: var(--color-text-primary);
+
+      cursor: pointer;
+
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.08);
+      }
+    }
+
+    .btnContainer {
+      @include flex(column, center, center, md);
+    }
+  }
+}
