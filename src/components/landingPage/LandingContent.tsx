@@ -4,9 +4,10 @@ import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
 
 import StartDemoButton from "@/components/landingPage/StartDemoButton";
-import RealAppButton from "./RealAppButton";
 
 import styles from "./LandingContent.module.scss";
+import Button from "../ui/button/Button";
+import StartModal from "./StartModal";
 
 function LandingContent() {
   return (
@@ -33,19 +34,15 @@ function LandingContent() {
           </p>
         </div>
         <div className={styles.btnContainer}>
-          <StartDemoButton />
+          <StartModal />
           <p className={styles.textSmall}>
-            Vous commencerez l&apos;expérience avec un ensemble de données
-            pré-enregistrées afin de découvrir l&apos;application
+            Vous pourrez choisir entre une expérience de démonstration et votre
+            espace personnel.
           </p>
         </div>
-        <div className={styles.btnContainer}>
-          <RealAppButton />
-          <p className={styles.textSmall}>
-            Créez votre compte ou retrouvez votre expérience.
-          </p>
-        </div>
+
         {/* insérer lien lorsque l'app sera déployée */}
+        <h2>Application mobile</h2>
         <div className={styles.btnContainer}>
           <img
             className={`${styles.icon} ${styles.iconXl}`}
@@ -53,7 +50,9 @@ function LandingContent() {
             alt="Icon PostgreSQL"
             aria-hidden
           />
-          <p className={styles.textGooglePlay}>Bientôt disponible sur mobile</p>
+          <p className={styles.textGooglePlay}>
+            Actuellement en bêta test, bientôt disponible
+          </p>
         </div>
       </section>
 

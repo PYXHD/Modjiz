@@ -23,7 +23,7 @@ function Button({
   return (
     <button
       type="button"
-      className={`text-lead ${styles.button} ${variants[variant]}`}
+      className={`text-body ${styles.button} ${variants[variant]}`}
       onClick={onClick}
       disabled={disabled}
     >
