@@ -80,11 +80,7 @@ function Login() {
               <Turnstile
                 siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
                 onSuccess={async (captchaToken) => {
-                  const { data, error } = await login(
-                    email,
-                    password,
-                    captchaToken,
-                  );
+                  const { error } = await login(email, password, captchaToken);
 
                   if (error) {
                     setShowTurnstile(false);

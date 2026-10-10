@@ -3,10 +3,7 @@ import Image from "next/image";
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
 
-import StartDemoButton from "@/components/landingPage/StartDemoButton";
-
 import styles from "./LandingContent.module.scss";
-import Button from "../ui/button/Button";
 import StartModal from "./StartModal";
 
 function LandingContent() {
