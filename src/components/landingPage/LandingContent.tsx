@@ -3,10 +3,7 @@ import Image from "next/image";
 import Logo from "@/assets/img/logo.svg";
 import LogoShort from "@/assets/img/logo_short.svg";
 
-import StartDemoButton from "@/components/landingPage/StartDemoButton";
-
 import styles from "./LandingContent.module.scss";
-import Button from "../ui/button/Button";
 import StartModal from "./StartModal";
 
 function LandingContent() {
@@ -41,19 +38,21 @@ function LandingContent() {
           </p>
         </div>
 
-        {/* insérer lien lorsque l'app sera déployée */}
         <h2>Application mobile</h2>
-        <div className={styles.btnContainer}>
+        <a
+          className={styles.btnContainerGP}
+          href="https://play.google.com/store/apps/details?id=fr.modjiz.app&hl=fr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             className={`${styles.icon} ${styles.iconXl}`}
             src="/icons/icon_googlePlay.svg"
             alt="Icon PostgreSQL"
             aria-hidden
           />
-          <p className={styles.textGooglePlay}>
-            Actuellement en bêta test, bientôt disponible
-          </p>
-        </div>
+          <p className={styles.textGooglePlay}>Disponible sur Google Play !</p>
+        </a>
       </section>
 
       <section className={styles.featuresSection}>
