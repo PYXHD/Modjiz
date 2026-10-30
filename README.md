@@ -4,12 +4,14 @@ Application de suivi d’humeur développée avec Next.js permettant d’analyse
 
 ## 🚀 Aperçu
 
-<img src="./screenshot.png" width="800" />
+<img src="./screenshot.png" width="200" />
+<img src="./screenshot_2.png" width="200" />
 
 ## 📌 Fonctionnalités
 
 - 😊 enregistrement de l’émotion quotidienne
 - 🎭 mascotte 3D dynamique représentant l’humeur
+- 📝 création de notes sous forme de post-it
 - 📊 tableau de statistiques mensuelles et annuelles
 - 📈 moyennes, tendances et comparaisons
 - 🏆 système de gamification (trophées)
@@ -105,16 +107,30 @@ Ce projet m’a permis de :
 
 ## 🚧 État du projet
 
-Le projet est actuellement en phase V2
+Modjiz est actuellement disponible sur Android (phase V3). L’application permet de suivre son humeur au quotidien, de consulter ses statistiques et de retrouver ses données grâce à la synchronisation avec Supabase.
 
-Version logicielle actuelle : 1.4.1
+Version logicielle : 1.3.0
 
-Objectifs restants de la V2 :
+✅ Fonctionnalités disponibles
 
-- personnalisation des emails
-- gestion du profil utilisateur
-- suppression du compte
-- déploiement sur domaine personnalisé
+- enregistrement de l’humeur quotidienne
+- visualisation des statistiques et des tendances
+- authentification et sauvegarde des données avec Supabase
+- mascotte représentant l’humeur
+- système de trophées
+- prise de notes avec la fonctionnalité Post-it
+
+🔧 Améliorations en cours
+
+- ajustements de l’interface et de la navigation
+- nettoyage et restructuration progressive du code
+- réflexion sur l’évolution du système de trophées
+
+🎯 Prochaines étapes
+
+- améliorer la maintenabilité du code
+- faire évoluer la page des trophées et ses objectifs
+- continuer à améliorer l’expérience utilisateur à partir des retours
 
 ## 👨‍💻 Auteur
 
