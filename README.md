@@ -4,8 +4,11 @@ Application de suivi d’humeur développée avec Next.js permettant d’analyse
 
 ## 🚀 Aperçu
 
-<img src="./screenshot.png" width="200" />
-<img src="./screenshot_2.png" width="200" />
+<div align="center">
+  <img src="./screenshot.png" width="200" />
+  &nbsp;&nbsp;
+  <img src="./screenshot_2.png" width="200" />
+</div>
 
 ## 📌 Fonctionnalités
 
