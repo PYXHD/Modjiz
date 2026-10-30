@@ -4,11 +4,16 @@ Application de suivi d’humeur développée avec Next.js permettant d’analyse
 
 ## 🚀 Aperçu
 
-<div align="center">
-  <img src="./screenshot.png" width="200" />
-  &nbsp;&nbsp;
-  <img src="./screenshot_2.png" width="200" />
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <img src="./screenshot.png" width="200" alt="Accueil de Modjiz" />
+    </td>
+    <td align="center">
+      <img src="./screenshot_2.png" width="200" alt="Page Notes de Modjiz" />
+    </td>
+  </tr>
+</table>
 
 ## 📌 Fonctionnalités
 
